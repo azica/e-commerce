@@ -15,14 +15,14 @@ export const Layout = () => {
   const isMobile = useIsMobile(1020);
 
   const isAuth = useUser();
-
+  console.log(isAuth)
   return (
     <ThemeProvider theme={theme}>
       {isAuth ? (
         <Wrapper>
           {/* <SideBar /> */}
+          <Header />
           <Container>
-            <Header />
             <LayoutContent />
           </Container>
         </Wrapper>

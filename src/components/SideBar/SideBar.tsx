@@ -1,7 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import { sideMenu } from "assets/data/mockdata";
 import { FullLogo } from "assets/icons";
 import { SideMenu } from "components/SideMenu";
 
@@ -21,7 +20,7 @@ export const SideBar = () => {
       <LogoWrapper to="/">
         <FullLogo />
       </LogoWrapper>
-      <SideMenu list={sideMenu} commonPath={commonPath} />
+      {/* <SideMenu list={sideMenu} commonPath={commonPath} /> */}
     </Wrapper>
   );
 };

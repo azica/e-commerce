@@ -34,11 +34,6 @@ export const LogoWrap = styled(Box)`
   left: 50%;
   right: 50%;
   transform: translateX(-50%);
-  width: 105px;
-  height: 25px;
-
-  img {
-    object-fit: contain;
-  }
+  
 `;
 

@@ -5,11 +5,6 @@ export declare global {
     id: number;
     title: string;
     url: string;
-    icon: FunctionComponent<
-      SVGProps<SVGSVGElement> & {
-        title?: string | undefined;
-      }
-    >;
     state?: { preloader?: boolean; commonPath?: string };
   }
 

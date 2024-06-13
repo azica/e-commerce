@@ -4,14 +4,10 @@ interface ExtendedSideMenuItem extends SideMenuItem {
   active: boolean;
 }
 
-export const SideMenuLink = ({ url, title, icon, state, active }: ExtendedSideMenuItem) => {
-  const Icon = icon;
+export const SideMenuLink = ({ url, title, state, active }: ExtendedSideMenuItem) => {
 
   return (
     <NavLink to={url} state={state} className={active ? "active" : ""}>
-      <IconWrap>
-        <Icon />
-      </IconWrap>
       {title}
     </NavLink>
   );

@@ -4,9 +4,9 @@ export const loginData = [
   {
     id: 1,
     value: "",
-    field: "username",
-    placeholder: "Your username or email address",
-    type: "text",
+    field: "email",
+    placeholder: "Email address",
+    type: "email",
     required: true,
   },
   {

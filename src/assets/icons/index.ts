@@ -21,3 +21,9 @@ export { ReactComponent as ArrowPolygonIcon } from "./arrowPolygon.svg";
 export { ReactComponent as UserIcon } from "./user.svg";
 export { ReactComponent as ArrowLeftIcon } from "./arrowLeft.svg";
 export { ReactComponent as ArrowRightIcon } from "./arrowRight.svg";
+
+export { ReactComponent as SearchIcon } from "./search.svg";
+export { ReactComponent as UserCircleIcon } from "./user-circle.svg";
+export { ReactComponent as ShopBagIcon } from "./shop-bag.svg";
+
+

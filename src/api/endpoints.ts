@@ -7,4 +7,7 @@ export enum Endpoints {
   REFRESH_TOKEN = "/auth/refresh-token",
   GET_USER = "/auth/profile",
   CREATE_USER = "/users",
+
+
+  GET_PRODUCTS = "/products"
 }

@@ -10,5 +10,23 @@ declare global {
       email?: string | null;
       creationAt?: string;
     }
+
+    interface Rating { rate: number; count: number };
+
+    interface Product {
+      id: number;
+      title: string;
+      price: number;
+      category: string;
+      description: string;
+      image: string;
+      rating: Rating
+      // thumbnail?: string;
+      // images?: string[];
+      // brand?: string;
+      // stock?: number;
+      // discountPercentage?: number;
+      // rating?: number;
+    };
   }
 }

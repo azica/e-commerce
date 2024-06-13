@@ -1,6 +1,5 @@
 export const baseApiUrl = process.env.REACT_APP_API_URL;
-export const exchangeApiUrl =
-  process.env.REACT_APP_EXCHANGE_API_URL || "https://v6.exchangerate-api.com/v6/e4f39e068106fda8d1eea528/latest/USD";
+export const shopApiUrl = process.env.REACT_APP_SHOP_API
 
 export const MONTH_NAMES_RU: string[] = [
   "янв",

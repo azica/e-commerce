@@ -52,26 +52,29 @@ export const basicPaths = [
     id: 5,
     element: <AuthWrapper />,
     children: [
-      { id: 1, path: "login", element: <Login /> },
-      { id: 2, path: "register", element: <Register /> },
+      {
+        id: 1, path: "login", element:
+          <ProtectedRoute>
+            <Login />
+          </ProtectedRoute>
+      },
+      {
+        id: 2,
+        path: "register",
+        element: <ProtectedRoute>
+          <Register />
+        </ProtectedRoute>
+      },
+      {
+        id: 3,
+        path: "/password-recovery",
+        element: (
+          <ProtectedRoute>
+            <PasswordRecovery />
+          </ProtectedRoute>
+        ),
+      },
     ]
   },
-  {
-    path: "/register",
-    id: 6,
-    element: (
-      <ProtectedRoute>
-        <Register />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/password-recovery",
-    id: 7,
-    element: (
-      <ProtectedRoute>
-        <PasswordRecovery />
-      </ProtectedRoute>
-    ),
-  },
+
 ];

@@ -5,6 +5,7 @@ import authBg from "assets/images/authBg.jpg";
 
 import { Content, LogoWrap, Wrapper, Image } from "./styles";
 import { Outlet, useLocation } from "react-router-dom";
+import { Logo } from "components/Logo/Index";
 
 export const AuthWrapper = () => {
   const { pathname } = useLocation();
@@ -14,7 +15,7 @@ export const AuthWrapper = () => {
     <Wrapper>
       <Image>
         <LogoWrap>
-          <img src={logo} alt="logo" />
+          <Logo />
         </LogoWrap>
         <img src={authBg} alt="authBg" />
       </Image>
