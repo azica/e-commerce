@@ -1,17 +1,14 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
+
 import { neutral07, white } from "styles/colors";
 import { InterBold } from "styles/fonts";
 import { flexAlignCenter, flexCenter } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
-${flexAlignCenter};
-margin-left: auto;
-
-// button:last-child {
-//     padding-right: 0;
-// }
-`
+  ${flexAlignCenter};
+  margin-left: auto;
+`;
 
 export const ProductQuantity = styled(Box)`
   width: 20px;
@@ -25,4 +22,4 @@ export const ProductQuantity = styled(Box)`
     font-family: ${InterBold};
     color: ${white};
   }
-`
+`;

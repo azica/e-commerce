@@ -1,26 +1,34 @@
-import { useLayoutEffect, useState } from "react";
+import { Box, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
-import { FullLogo } from "assets/icons";
+import { prices } from "assets/data/mockdata";
+import { FilterIcon } from "assets/icons";
+import { CheckboxList } from "components/FormElements/CheckboxList";
 import { SideMenu } from "components/SideMenu";
+import { useGetCategoriesQuery } from "shared/store/queries/product.query";
 
-import { LogoWrapper, Wrapper } from "./style";
+import { Title, Wrapper, Filter } from "./style";
 
 export const SideBar = () => {
-  const [commonPath, setCommonPath] = useState("");
-  const { pathname } = useLocation();
+  const { data, isSuccess, isLoading, error } = useGetCategoriesQuery();
 
-  useLayoutEffect(() => {
-    const splitedPath = pathname.split("/");
-    setCommonPath(`/${splitedPath[0]}`);
-  }, [pathname]);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.toString()}</div>;
 
   return (
     <Wrapper>
-      <LogoWrapper to="/">
-        <FullLogo />
-      </LogoWrapper>
-      {/* <SideMenu list={sideMenu} commonPath={commonPath} /> */}
+      <Filter>
+        <FilterIcon />
+        <Typography variant="body1">Filter</Typography>
+      </Filter>
+      <Box>
+        <Title variant="body2">CATEGORIES</Title>
+        {isSuccess && data ? <SideMenu list={data as string[]} /> : null}
+      </Box>
+      <Box>
+        <Title variant="body2">PRICE</Title>
+        <CheckboxList list={prices} searchParamName="prices" />
+      </Box>
     </Wrapper>
   );
 };

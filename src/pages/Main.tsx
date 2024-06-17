@@ -1,24 +1,28 @@
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useGetProductsQuery } from "shared/store/queries/product.query";
+
+import { Articles } from "components/Articles";
+import { Banner } from "components/Banner";
+import { NewArrivals } from "components/NewArrivals";
+import { NewsLetter } from "components/NewsLetter";
 import { Slider } from "components/Slider";
+import { Values } from "components/Values";
+import { useGetProductsQuery } from "shared/store/queries/product.query";
+
 const Main = () => {
-  const [sliderProducts, setSliderProducts] = useState<Model.Product[]>([]);
+  const { data, isSuccess, isLoading, error } = useGetProductsQuery();
 
-  const { data, isSuccess } = useGetProductsQuery();
-
-  useEffect(() => {
-    if (isSuccess && data) {
-      setSliderProducts((data as Model.Product[]))
-    }
-  }, [data, isSuccess]);
-
-
-  console.log(data);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.toString()}</div>;
 
   return (
     <Box>
-      <Slider list={sliderProducts} />
+      <Slider />
+      <NewArrivals />
+      <Values />
+      <Banner />
+      <Articles />
+      <NewsLetter />
     </Box>
   );
 };

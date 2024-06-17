@@ -1,53 +1,28 @@
 import { NavLink as RouterLink } from "react-router-dom";
 import styled from "styled-components";
 
-import { black, neutral04, white } from "styles/colors";
-import { PoppinsRegular } from "styles/fonts";
-import { flexAlignCenter, flexCenter } from "styles/mixins";
+import { black500, black900 } from "styles/colors";
+import { InterSemiBold } from "styles/fonts";
 
 const NavLink = styled(RouterLink)`
-  font-family: ${PoppinsRegular};
-  font-size: 16px;
-  line-height: 21px;
+  font-family: ${InterSemiBold};
+  text-transform: capitalize;
+  color: ${black500};
+  font-size: 14px;
+  line-height: 22px;
   text-decoration: none;
-  color: ${black};
-  ${flexAlignCenter};
-  height: 40px;
-  padding: 0 0 0 44px;
-  gap: 8px;
-  position: relative;
   transition: all 0.25s ease-in-out;
+  border-bottom: 1px solid transparent;
 
   &:hover {
-    color: ${white};
-    background: ${neutral04};
-    border-bottom-right-radius: 30px;
-    border-top-right-radius: 30px;
-    svg {
-      color: ${white};
-    }
+    border-color: ${black900};
+    color: ${black900};
   }
 
-  &.active {
-    border-bottom-right-radius: 30px;
-    border-top-right-radius: 30px;
-    color: ${white};
-    svg {
-      color: ${white};
-    }
+  &.activeLink {
+    border-color: ${black900};
+    color: ${black900};
   }
 `;
 
-const IconWrap = styled("span")`
-  width: 24px;
-  height: 24x;
-  ${flexCenter};
-
-  svg {
-    width: 100%;
-    height: 100%;
-    color: ${black};
-    transition: all 0.25s ease-in-out;
-  }
-`;
-export { NavLink, IconWrap };
+export { NavLink };

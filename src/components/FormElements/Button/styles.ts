@@ -1,69 +1,63 @@
 import { Box, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import {
-	neutral02,
-	white,
-	black,
-	blue,
-	textBlue,
-	neutral07,
-	green,
-	neutral04,
-} from "styles/colors";
+import { white, black, blue, textBlue, neutral07, green, neutral04 } from "styles/colors";
 import { InterMedium } from "styles/fonts";
 import { rgba } from "styles/mixins";
 
 interface ButtonProps {
-	secondary?: string;
-	variant: string;
-	inside?: string;
-	size?: "large" | "small" | "medium";
-	fullWidth?: boolean;
-	color:
-	| "inherit"
-	| "primary"
-	| "secondary"
-	| "success"
-	| "error"
-	| "info"
-	| "warning";
+  secondary?: string;
+  variant: string;
+  inside?: string;
+  size?: "large" | "small" | "medium" | "extraSmall";
+  fullWidth?: boolean;
+  color: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
 }
 
 const getSize = (size: ButtonProps["size"]) => {
-	switch (size) {
-		case "large":
-			return `
-				font-size: 18px;
+  switch (size) {
+    case "extraSmall":
+      return `
+				font-size: 14px;
+				line-height: 24px;
+				border-radius: 4px;
+				padding: 4px 16px;
+				height: 32px;
+			`;
+    case "small":
+      return `
+				font-size: 16px;
 				line-height: 28px;
 				border-radius: 8px;
+				padding: 8px 24px;
+				height: 40px;
+			`;
+    case "large":
+      return `
+				font-size: 18px;
+				line-height: 32px;
+				letter-spacing: -0.4px
+				border-radius: 8px;
 				padding: 10px 40px;
-				height: 48px;
+				height: 52px;
 			`;
-		case "small":
-			return `
-				font-size: 12px;
-				line-height: 135%;
-				border-radius: 15px;
-				padding: 10px;
-				height: 48px;
-			`;
-		case "medium":
-		default:
-			return `
+    case "medium":
+    default:
+      return `
 				font-size: 16px;
 				line-height: 28px;
 				letter-spacing: -0.4px;
 				border-radius: 8px;
-				padding: 10px 40px;
+				padding: 8px 24px;
+				height: 46px;
 			`;
-	}
+  }
 };
 
 const getColor = (color: ButtonProps["color"]) => {
-	switch (color) {
-		case "info":
-			return `
+  switch (color) {
+    case "info":
+      return `
 				background: ${blue};
 				color: ${textBlue};
 
@@ -72,8 +66,8 @@ const getColor = (color: ButtonProps["color"]) => {
 					color: ${white};
 				}
 			`;
-		case "primary":
-			return `
+    case "primary":
+      return `
 				background: ${neutral07};
 				color: ${white};
 
@@ -83,8 +77,8 @@ const getColor = (color: ButtonProps["color"]) => {
 				}
 					
 			`;
-		case "secondary":
-			return `
+    case "secondary":
+      return `
 				background: ${green};
 				color: ${white};
 
@@ -93,13 +87,13 @@ const getColor = (color: ButtonProps["color"]) => {
 					color: ${white};
 				}
 			`;
-	}
+  }
 };
 
 const getVariant = (variant: ButtonProps["variant"]) => {
-	switch (variant) {
-		case "outlined":
-			return `
+  switch (variant) {
+    case "outlined":
+      return `
 				background: white;
 				color: ${textBlue};
 				border: 1px solid ${neutral07} !important;
@@ -109,17 +103,18 @@ const getVariant = (variant: ButtonProps["variant"]) => {
 				border: 1px solid ${neutral07} !important;
 			}
 		`;
-		case "text":
-			return `
+    case "text":
+      return `
 				background: transparent;
 				color: ${neutral04};
 		
 		`;
-	}
+  }
 };
 
-export const ButtonCustom = styled(Button) <ButtonProps>`
+export const ButtonCustom = styled(Button)<ButtonProps>`
 	font-family: ${InterMedium};
+	font-weight: normal;
 	text-transform: none;
 	box-Shadow: none !important;
 	${({ size }) => getSize(size)}
@@ -158,11 +153,11 @@ export const Content = styled(Box)`
 `;
 
 export const ButtomWrapper = styled(Box)`
-	display: flex;
-	align-items: center;
-	position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
 
-	.MuiCircularProgress - root {
-		margin-left: 16px;
-	}
+  .MuiCircularProgress - root {
+    margin-left: 16px;
+  }
 `;

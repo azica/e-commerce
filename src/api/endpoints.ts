@@ -8,6 +8,7 @@ export enum Endpoints {
   GET_USER = "/auth/profile",
   CREATE_USER = "/users",
 
-
-  GET_PRODUCTS = "/products"
+  GET_PRODUCTS = "/products",
+  GET_POSTS = "/posts",
+  GET_CATEGORIES = "/products/category-list",
 }

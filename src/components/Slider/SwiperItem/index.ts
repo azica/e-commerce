@@ -1,1 +1,1 @@
-export { SwiperItem } from "./SwiperItem"
+export { SwiperItem } from "./SwiperItem";

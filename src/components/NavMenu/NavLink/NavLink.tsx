@@ -5,7 +5,6 @@ interface ExtendedSideMenuItem extends SideMenuItem {
 }
 
 export const NavLink = ({ url, title, state, active }: ExtendedSideMenuItem) => {
-
   return (
     <NavLinkWrap to={url} state={state} className={active ? "active" : ""}>
       {title}

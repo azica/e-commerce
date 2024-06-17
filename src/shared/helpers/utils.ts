@@ -1,5 +1,3 @@
-import { MONTH_NAMES_RU, WEEKDAY_NAMES_RU } from "shared/constants";
-
 export const declinationOfNumber = <T>(number: number, wordForms: T[]) => {
   const n = Math.abs(number) % 100;
   const n1 = n % 10;

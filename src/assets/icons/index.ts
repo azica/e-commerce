@@ -25,5 +25,18 @@ export { ReactComponent as ArrowRightIcon } from "./arrowRight.svg";
 export { ReactComponent as SearchIcon } from "./search.svg";
 export { ReactComponent as UserCircleIcon } from "./user-circle.svg";
 export { ReactComponent as ShopBagIcon } from "./shop-bag.svg";
-
-
+export { ReactComponent as HeartIcon } from "./heart.svg";
+export { ReactComponent as StarFilledIcon } from "./star-fill.svg";
+export { ReactComponent as StarIcon } from "./star.svg";
+export { ReactComponent as StarHalfIcon } from "./start-half.svg";
+export { ReactComponent as CheckedIcon } from "./checked.svg";
+export { ReactComponent as HeartFilledIcon } from "./heartFilled.svg";
+export { ReactComponent as CarIcon } from "./car.svg";
+export { ReactComponent as LockIcon } from "./lock.svg";
+export { ReactComponent as PhoneIcon } from "./phone.svg";
+export { ReactComponent as FacebookIcon } from "./facebook.svg";
+export { ReactComponent as InstagramIcon } from "./instagram.svg";
+export { ReactComponent as YoutubeIcon } from "./youtube.svg";
+export { ReactComponent as EmailIcon } from "./email.svg";
+export { ReactComponent as FilterIcon } from "./filter.svg";
+export { ReactComponent as ArrowNextIcon } from "./arrow-next.svg";

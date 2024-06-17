@@ -40,7 +40,6 @@ export const Form: Form = ({
         </Button>
         {linksAfterButton}
       </Box>
-
     </FormContent>
   );
 };

@@ -11,22 +11,26 @@ declare global {
       creationAt?: string;
     }
 
-    interface Rating { rate: number; count: number };
-
     interface Product {
       id: number;
       title: string;
       price: number;
+      discountPercentage?: number;
       category: string;
+      brand?: string;
       description: string;
+      images: string[];
+      thumbnail?: string;
+      description?: string;
+      rating: number;
+    }
+
+    interface Article {
+      id: number;
+      title: string;
+      body: string;
+      tags?: string[];
       image: string;
-      rating: Rating
-      // thumbnail?: string;
-      // images?: string[];
-      // brand?: string;
-      // stock?: number;
-      // discountPercentage?: number;
-      // rating?: number;
-    };
+    }
   }
 }

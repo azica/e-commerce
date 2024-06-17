@@ -1,4 +1,5 @@
 import { css } from "styled-components";
+
 import { neutral01, neutral04 } from "./colors";
 
 export const rgba = (color: string, opacity?: number) => {
@@ -35,32 +36,47 @@ export const flexSpaceAround = css`
 `;
 
 export const scrollBar = css`
-  scrollbar-color: ${neutral04};
+  scrollbar-color: ${neutral04} #eaeaea;
+  scrollbar-width: thin;
+
   &::-webkit-scrollbar {
-    width: 4px;
-    -color: transparent;
+    width: 8px;
+    height: 120px;
+    background-color: ${neutral04};
   }
+
   &::-webkit-scrollbar-thumb {
-    -color: ${neutral04};
-    // box-shadow: inset 1px 1px 4px ${neutral04};
-    border-radius: 2px;
+    background-color: ${neutral04};
+    border-radius: 28px;
+    border: 2px solid #eaeaea;
   }
+
   &::-webkit-scrollbar-thumb:hover {
-    -color: ${neutral01};
+    background-color: ${neutral01};
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #eaeaea;
+    border-radius: 28px;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
   }
 `;
 
-
 export const fadeAnimation = css`
   animation: show 0.4s ease-in-out;
-  
-  @keyframes show {
-      0% {
-          opacity: 0;
-      }
 
-      100% {
-          opacity: 1;
-      }
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
-`
+`;

@@ -18,14 +18,14 @@ export const Wrapper = styled(Box)`
   width: 100%;
   margin: auto;
   animation: show 0.4s ease-in-out;
-  
-  @keyframes show {
-      0% {
-          opacity: 0;
-      }
 
-      100% {
-          opacity: 1;
-      }
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 `;

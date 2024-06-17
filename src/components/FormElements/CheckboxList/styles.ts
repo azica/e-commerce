@@ -1,11 +1,13 @@
 import { FormGroup as FormGroupMui, FormControl as FormControlMui } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import styled from "styled-components";
 
-import { neutral04 } from "styles/colors";
+import { neutral04, neutral07 } from "styles/colors";
+import { InterSemiBold } from "styles/fonts";
+import { flexAlignCenter } from "styles/mixins";
 
 export const FormGroup = styled(FormGroupMui)`
   width: 100%;
-  gap: 4px;
+  gap: 8px;
 `;
 
 export const FormControl = styled(FormControlMui)`
@@ -15,8 +17,9 @@ export const FormControl = styled(FormControlMui)`
 
   .MuiFormControlLabel-root {
     transition: all 0.25s ease-in-out;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin: 0;
+    ${flexAlignCenter};
+    justify-content: space-between;
 
     &.Mui-disabled {
       opacity: 0.5;
@@ -26,7 +29,14 @@ export const FormControl = styled(FormControlMui)`
       }
     }
     &:hover {
-      background: ${neutral04};
+      color: ${neutral07};
+    }
+
+    .MuiFormControlLabel-label {
+      color: ${neutral04};
+      font-family: ${InterSemiBold};
+      font-size: 14px;
+      line-height: 22px;
     }
   }
 
@@ -34,13 +44,7 @@ export const FormControl = styled(FormControlMui)`
     background: ${neutral04};
   }
 
-  .MuiFormGroup-root.custom-select-container {
-    .MuiFormControlLabel-label {
-      // width: calc(100% - 38px);
-    }
-
-    .MuiFormControlLabel-root .MuiCheckbox-root.Mui-checked.Mui-disabled + .MuiFormControlLabel-label::before {
-      border: 1px solid ${neutral04};
-    }
+  .MuiCheckbox-root {
+    padding: 0;
   }
 `;

@@ -1,12 +1,12 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { loginData } from "assets/data/form";
 import { Form } from "components/Form";
-import { Input, Button } from "components/FormElements";
+import { Input } from "components/FormElements";
 import { Checkbox } from "components/FormElements/Checkbox";
-import { FormWrapper, LinkWrapper } from "components/Wrappers";
+import { FormWrapper } from "components/Wrappers";
 import { getValueFromArray } from "shared/helpers/utils";
 
 import { FormContent, InputsContainer, LinkRight, NoAccount } from "./styles";
@@ -62,7 +62,7 @@ export const LoginForm = ({
                       checked={Boolean(other.value)}
                       onChange={valueChange}
                     />
-                    <LinkRight to='/password-recovery'>Forgot password?</LinkRight>
+                    <LinkRight to="/password-recovery">Forgot password?</LinkRight>
                   </Box>
                 ) : (
                   <Input id={id} {...other} onChange={valueChange} />

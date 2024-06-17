@@ -7,7 +7,6 @@ import { store } from "shared/store";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(

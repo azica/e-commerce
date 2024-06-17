@@ -1,11 +1,11 @@
+import { Outlet, useLocation } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
-import logo from "assets/images/logo.jpg";
 import authBg from "assets/images/authBg.jpg";
+import logo from "assets/images/logo.jpg";
+import { Logo } from "components/Logo/Index";
 
 import { Content, LogoWrap, Wrapper, Image } from "./styles";
-import { Outlet, useLocation } from "react-router-dom";
-import { Logo } from "components/Logo/Index";
 
 export const AuthWrapper = () => {
   const { pathname } = useLocation();
@@ -30,4 +30,3 @@ export const AuthWrapper = () => {
     </Wrapper>
   );
 };
-

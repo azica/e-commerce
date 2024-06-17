@@ -23,14 +23,15 @@ const getCurrentParams = (searchParams: string | null, arr: CheckboxListItem[]):
 export const CheckboxList: CheckboxList = ({ list, searchParamName }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [listProps, setListProps] = useState<CheckboxListItem[]>(getCurrentParams(searchParams.get(searchParamName), list));
+  const [listProps, setListProps] = useState<CheckboxListItem[]>(() => getCurrentParams(searchParamName, list));
 
-  useEffect(() => {
-    setSearchParams((searchParams) => {
-      searchParams.set(searchParamName, getQueryString(listProps));
-      return searchParams;
-    });
-  }, [listProps]);
+  // useEffect(() => {
+  //   setSearchParams((prevSearchParams) => {
+  //     const newSearchParams = new URLSearchParams(prevSearchParams);
+  //     newSearchParams.set(searchParamName, getQueryString(listProps));
+  //     return newSearchParams;
+  //   });
+  // }, []);
 
   const valueChange: CheckboxOnChange = (newVal: { field: string; value: boolean }) => {
     setListProps(listProps.map((item) => (newVal.field === `${item.id}` ? { ...item, checked: newVal.value } : item)));
@@ -53,6 +54,7 @@ export const CheckboxList: CheckboxList = ({ list, searchParamName }) => {
             field={`${id}`}
             label={label}
             value={value}
+            labelPlacement="start"
           />
         ))}
       </FormGroup>

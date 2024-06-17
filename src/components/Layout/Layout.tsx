@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material";
 
+import { Footer } from "components/Footer";
 import { Header } from "components/Header";
-import { SideBar } from "components/SideBar";
 import { useIsMobile } from "hooks/useMobile";
 import { useUser } from "shared/store/hooks";
 import { theme } from "styles/theme";
@@ -15,16 +15,16 @@ export const Layout = () => {
   const isMobile = useIsMobile(1020);
 
   const isAuth = useUser();
-  console.log(isAuth)
+  console.log(isAuth);
   return (
     <ThemeProvider theme={theme}>
       {isAuth ? (
         <Wrapper>
-          {/* <SideBar /> */}
           <Header />
           <Container>
             <LayoutContent />
           </Container>
+          <Footer />
         </Wrapper>
       ) : (
         <Container>

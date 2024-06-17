@@ -25,7 +25,7 @@ const getSizeStyles = (size: AvatarProps["size"]) => {
   }
 };
 
-export const Wrapper = styled(Box) <AvatarProps>`
+export const Wrapper = styled(Box)<AvatarProps>`
   position: relative;
   border-radius: 50%;
   overflow: hidden;

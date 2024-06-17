@@ -1,9 +1,9 @@
 import { Logo } from "components/Logo/Index";
-import { Container } from "components/Wrappers/Container";
 import { NavMenu } from "components/NavMenu";
+import { Container } from "components/Wrappers/Container";
 
-import { Wrapper, Inner } from "./styles";
 import { HeaderActions } from "./HeaderActions";
+import { Wrapper, Inner } from "./styles";
 
 export const Header = () => {
   return (

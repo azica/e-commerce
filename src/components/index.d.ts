@@ -2,7 +2,6 @@ import type { ReactNode, FunctionComponent, SVGProps, FC } from "react";
 
 export declare global {
   interface SideMenuItem {
-    id: number;
     title: string;
     url: string;
     state?: { preloader?: boolean; commonPath?: string };
@@ -67,5 +66,31 @@ export declare global {
     beforeNode?: ReactNode;
     afterNode?: ReactNode;
     layout: string;
+  }
+
+  interface Badge {
+    greenBg?: boolean;
+    children: ReactNode;
+    size?: "medium" | "large";
+  }
+
+  interface Value {
+    icon: ReactNode;
+    id: number;
+    title: string;
+    subtitle: string;
+  }
+
+  interface SectionTopBlock {
+    title: string;
+    linkName: string;
+    link: string;
+  }
+
+  interface PageHeader {
+    title: string;
+    bg: string;
+    subtitle: string;
+    breadcrumbs: ReactNode;
   }
 }

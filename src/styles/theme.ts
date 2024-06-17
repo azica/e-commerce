@@ -1,28 +1,26 @@
 import { createTheme } from "@mui/material";
-import { red, white, blue, black, neutral02, neutral07, neutral04, neutral03 } from "styles/colors";
-import { PoppinsRegular, PoppinsBold, PoppinsMedium, InterRegular } from "styles/fonts";
-import { rgba } from "styles/mixins";
 
+import { red, white, black, neutral02, neutral07, neutral04, neutral03 } from "styles/colors";
+import { PoppinsRegular, PoppinsMedium, InterRegular } from "styles/fonts";
 
 export const theme = createTheme({
   typography: {
     heading7: {
-      fontSize: "28px",
-      lineHeight: "35px",
-      fontFamily: PoppinsMedium,
-      letterSpacing: "-0.6px",
+      fontSize: "20px",
+      lineHeight: "28px",
+      fontFamily: `${PoppinsMedium}!important`,
     },
   },
   components: {
     MuiTypography: {
       defaultProps: {
         variantMapping: {
-          heading7: 'p',
+          heading7: "p",
         },
       },
       styleOverrides: {
         root: {
-          // fontFamily: "'Inter', sans-serif",
+          fontFamily: "'Inter', sans-serif",
           fontWeight: "normal",
         },
         h1: {
@@ -64,12 +62,12 @@ export const theme = createTheme({
         body1: {
           fontSize: "20px",
           lineHeight: "32px",
-          letterSpacing: 0
+          letterSpacing: 0,
         },
         body2: {
           fontSize: "16px",
           lineHeight: "26px",
-          letterSpacing: 0
+          letterSpacing: 0,
         },
       },
     },
@@ -85,7 +83,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 0,
-          background: white,
+          background: "transparent",
           padding: "8px 0",
           lineHeight: "28px",
           fontSize: "16px",
@@ -93,17 +91,20 @@ export const theme = createTheme({
           border: "none",
           borderBottom: `1px solid ${neutral03}`,
           color: neutral04,
+          transition: "all .4s ease",
 
           "&:hover": {
+            transition: "all .4s ease",
+            borderBottom: `1px solid ${neutral07}`,
+
             ".MuiOutlinedInput-notchedOutline": {
               boxShadow: "none",
-              borderBottom: `1px solid ${neutral07}`,
             },
           },
 
           "&.Mui-focused": {
-            background: white,
-            borderColor: neutral07,
+            background: "transparent",
+            borderBottom: `1px solid ${neutral07}`,
 
             ".MuiOutlinedInput-input": {
               "&:-internal-autofill-selected, &:-internal-autofill-previewed": {
@@ -114,10 +115,10 @@ export const theme = createTheme({
           },
 
           "&.Mui-error": {
-            borderColor: rgba(red, 0.7),
+            borderBottom: `1px solid rgba(${red}, 0.7)`,
 
             "&.Mui-focused": {
-              borderColor: red,
+              borderBottom: `1px solid ${red}`,
             },
           },
 
@@ -126,11 +127,11 @@ export const theme = createTheme({
           },
 
           "&.MuiInputBase-adornedStart": {
-            ".adornedStart": {
-              stroke: neutral02,
-              marginRight: 10,
-              height: 20,
-              width: 20,
+            svg: {
+              // fill: "#121212",
+              marginRight: 8,
+              height: 24,
+              width: 28,
             },
           },
 
@@ -142,11 +143,13 @@ export const theme = createTheme({
             top: "calc(50% - .6em)",
           },
         },
+
         notchedOutline: {
           border: "none",
           boxShadow: "0px 0px 6px transparent, inset 0px 0px 0px 1px transparent",
           transition: "all 0.25s ease-in-out",
         },
+
         input: {
           fontFamily: InterRegular,
           fontSize: "16px",
@@ -155,6 +158,7 @@ export const theme = createTheme({
           padding: 0,
           transition: "all 0.25s ease-in-out",
           background: "transparent",
+
           "&::placeholder": {
             opacity: 1,
             color: neutral04,
@@ -165,6 +169,7 @@ export const theme = createTheme({
             WebkitBoxShadow: `0 0 0px 1000px ${neutral02} inset`,
             color: `${neutral07} !important`,
           },
+
           "&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus": {
             backgroundColor: "transparent !important",
             WebkitBoxShadow: `0 0 0px 1000px ${neutral02} inset`,
@@ -251,6 +256,5 @@ export const theme = createTheme({
         },
       },
     },
-
   },
 });

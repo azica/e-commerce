@@ -18,10 +18,10 @@ export const CheckboxContent = styled(Box)`
 `;
 
 export const Text = styled(Typography)`
-color: ${neutral04};
+  color: ${neutral04};
   a {
     color: ${neutral07};
     font-family: ${InterSemiBold};
     text-decoration: none;
   }
-`
+`;

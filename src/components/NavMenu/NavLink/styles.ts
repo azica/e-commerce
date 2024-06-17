@@ -2,13 +2,12 @@ import { NavLink as RouterLink } from "react-router-dom";
 import styled from "styled-components";
 
 import { neutral04, neutral07 } from "styles/colors";
-import { PoppinsMedium } from "styles/fonts";
 
 export const NavLinkWrap = styled(RouterLink)`
   transition: all 0.25s ease-in-out;
-  font-family: ${PoppinsMedium}
+ font-family: "Space Grotesk", sans-serif;
   font-size: 14px;
-  lin-height: 24px;
+  line-height: 24px;
   color: ${neutral04};
   font-weight: 500;
   padding: 0 10px;
@@ -43,5 +42,3 @@ export const NavLinkWrap = styled(RouterLink)`
     }
   }
 `;
-
-

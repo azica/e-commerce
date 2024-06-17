@@ -1,32 +1,15 @@
-import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import { SideMenuLink } from "./SideMenuLink";
 import { Wrapper } from "./styles";
 
-interface SideMenuProps {
-  list: SideMenuItem[];
-  commonPath: string;
-}
-
-export const SideMenu = ({ list, commonPath }: SideMenuProps) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    setIsActive(pathname === commonPath);
-  }, [pathname, commonPath]);
+export const SideMenu = ({ list }: { list: string[] }) => {
+  const { search } = useLocation();
 
   return (
     <Wrapper>
-      {list.map(({ id, url, ...other }, index) => (
-        <SideMenuLink
-          key={id}
-          id={id}
-          url={`${commonPath === "/" ? url : commonPath + url}`}
-          active={index === 0 && isActive}
-          {...other}
-        />
+      {list.map((item, index) => (
+        <SideMenuLink key={index + item} url={`/shop?filter=${item}`} active={search === `?filter=${item}`} title={item} />
       ))}
     </Wrapper>
   );

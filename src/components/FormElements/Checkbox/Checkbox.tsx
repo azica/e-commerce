@@ -15,6 +15,7 @@ export const Checkbox: Checkbox = ({
   disabled,
   className,
   value,
+  labelPlacement,
 }) => {
   const idForHelperText = `helper-text-${field}`;
   const idForInput = `${field}-${id}`;
@@ -45,6 +46,7 @@ export const Checkbox: Checkbox = ({
         label={label}
         disabled={disabled}
         className={className}
+        labelPlacement={labelPlacement}
       />
     </InputWrapper>
   );

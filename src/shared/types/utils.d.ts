@@ -40,6 +40,11 @@ export declare global {
     password: string;
   };
 
+  type Tokens = {
+    access_token: string;
+    refresh_token: string;
+  };
+
   type LoginResponse = {
     user: Model.User;
   } & Tokens;
@@ -49,12 +54,21 @@ export declare global {
     message: string;
   };
 
-  interface ErrorResponse {
+  type ErrorResponse = {
     errors: ErrorObject[] | ServerResponse;
+  };
+
+  interface FetchResponse {
+    skip: number;
+    limit: number;
+    total: number;
   }
 
-  type Tokens = {
-    access_token: string;
-    refresh_token: string;
-  };
+  interface GetProducts extends FetchResponse {
+    products: Model.Product[];
+  }
+
+  interface GetPosts extends FetchResponse {
+    posts: Module.Article[];
+  }
 }

@@ -16,21 +16,17 @@ export const LayoutContent = ({ auth }: LayoutContentProps) => {
   const lastItem = pathname.split("/").at(-1);
 
   useLayoutEffect(() => {
-    const transition = lastItem === "login" || lastItem === "register";
+    const transition =
+      lastItem === "login" || lastItem === "register" || lastItem === "password-recovery" || lastItem === "shop";
     setNoTransition(hash.length > 0 || transition || params.id !== undefined);
   }, [params, hash, lastItem, pathname]);
 
-  const authUrls = ["login", "register", "createPassword"];
-  console.log(lastItem);
+  const authUrls = ["login", "register", "createPassword", "password-recovery"];
 
   return (
     <Content padding={authUrls.includes(lastItem || "") ? undefined : "true"}>
       <SwitchTransition>
-        <CSSTransition
-          key={key}
-          classNames={noTransition ? "" : "fadeIn"}
-          timeout={noTransition ? 0 : 250}
-          unmountOnExit>
+        <CSSTransition key={key} classNames={noTransition ? "" : "fadeIn"} timeout={noTransition ? 0 : 250} unmountOnExit>
           <Outlet />
         </CSSTransition>
       </SwitchTransition>

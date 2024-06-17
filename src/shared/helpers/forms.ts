@@ -13,15 +13,15 @@ export const addedErrorOnField = (errors: ErrorObject[], inputs: InputData[]) =>
     const errorItem = errors?.find((error) => error.attr === item.field);
     return errorItem
       ? {
-        ...item,
-        helperText: errorItem.detail,
-        invalid: true,
-      }
+          ...item,
+          helperText: errorItem.detail,
+          invalid: true,
+        }
       : {
-        ...item,
-        helperText: "",
-        invalid: false,
-      };
+          ...item,
+          helperText: "",
+          invalid: false,
+        };
   });
 
   return newInputs;

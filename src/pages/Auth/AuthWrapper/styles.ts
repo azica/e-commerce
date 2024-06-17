@@ -14,13 +14,13 @@ export const Image = styled(Box)`
   position: relative;
   height: 100vh;
   background: ${neutral02};
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
   }
-`
+`;
 
 export const Content = styled(Box)`
   display: flex;
@@ -34,6 +34,4 @@ export const LogoWrap = styled(Box)`
   left: 50%;
   right: 50%;
   transform: translateX(-50%);
-  
 `;
-

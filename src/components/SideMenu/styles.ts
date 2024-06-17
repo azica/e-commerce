@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
-import { flexColumn } from "styles/mixins";
+import { neutral04, neutral01 } from "styles/colors";
+import { flexColumn, scrollBar } from "styles/mixins";
 
 const Wrapper = styled.div`
   ${flexColumn};
-  width: 216px;
+  gap: 12px;
+  height: 235px;
+  ${scrollBar};
+  align-items: flex-start;
+  overflow-y: scroll;
 `;
 
 export { Wrapper };

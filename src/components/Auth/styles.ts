@@ -7,7 +7,7 @@ import { InterRegular, InterSemiBold } from "styles/fonts";
 
 export const NoAccount = styled(Typography)`
   color: ${neutral04};
-  width: 100%; 
+  width: 100%;
   font-family: ${InterRegular};
   a {
     color: ${green};
@@ -30,9 +30,9 @@ export const InputsContainer = styled(Box)`
 `;
 
 export const LinkRight = styled(Link)`
-	margin-left: auto;
+  margin-left: auto;
   text-align: right;
-	width: 100%;
+  width: 100%;
   font-family: ${InterSemiBold};
   font-size: 16px;
   line-height: 26px;

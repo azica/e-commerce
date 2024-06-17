@@ -7,7 +7,6 @@ import { setTokenFromStorage } from "shared/helpers/localStorage";
 import { useActions } from "shared/store/hooks";
 import { useLazyGetUserQuery, useLoginMutation } from "shared/store/queries/auth.query";
 
-
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [login, loggedData] = useLoginMutation();
@@ -49,9 +48,7 @@ const Login = () => {
 
   if (isLoading) return <h2>Loading....</h2>;
 
-  return (
-    <LoginForm login={login} setIsLoading={setIsLoading} />
-  );
+  return <LoginForm login={login} setIsLoading={setIsLoading} />;
 };
 
 export default Login;

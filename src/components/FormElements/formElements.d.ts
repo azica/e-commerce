@@ -60,6 +60,10 @@ export declare global {
     value: string | number | boolean;
   };
 
+  type CheckboxOnChange = {
+    (value: { field: string; value: boolean; id: number | string }): void;
+  };
+
   type Checkbox = FC<{
     id: number | string;
     checked: boolean;
@@ -71,6 +75,7 @@ export declare global {
     disabled?: boolean;
     className?: string;
     value: string | number;
+    labelPlacement?: "start" | "end" | "bottom" | "top";
   }>;
 
   type ConsentLabel = FC<{
@@ -89,10 +94,6 @@ export declare global {
     list: CheckboxListItem[];
     searchParamName: string;
   }>;
-
-  type CheckboxOnChange = {
-    (value: { field: string; value: boolean; id: number | string }): void;
-  };
 
   type Preloader = {
     loading: boolean;

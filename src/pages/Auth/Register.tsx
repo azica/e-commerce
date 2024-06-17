@@ -50,9 +50,7 @@ export const Register = () => {
   if (isLoading) return <h2>Loading....</h2>;
   console.log(createdUser);
 
-  return (
-    <RegisterForm register={createUser} setIsLoading={setIsLoading} isLoading={isLoading} />
-  );
+  return <RegisterForm register={createUser} setIsLoading={setIsLoading} isLoading={isLoading} />;
 };
 
 export default Register;

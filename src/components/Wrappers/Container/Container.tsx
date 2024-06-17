@@ -1,10 +1,7 @@
-import { ReactNode } from 'react'
-import { Wrapper } from './styles'
+import type { ReactNode } from "react";
 
-export const Container = ({ children }: { children: ReactNode }) => {
-    return (
-        <Wrapper>
-            {children}
-        </Wrapper>
-    )
-}
+import { Wrapper } from "./styles";
+
+export const Container = ({ children, fullWidth }: { children: ReactNode; fullWidth?: boolean }) => {
+  return <Wrapper fullwidth={fullWidth}>{children}</Wrapper>;
+};

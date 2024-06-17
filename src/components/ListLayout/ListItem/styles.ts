@@ -7,7 +7,7 @@ interface WrapperProps {
   layout: string;
 }
 
-export const Wrapper = styled(Box) <WrapperProps>`
+export const Wrapper = styled(Box)<WrapperProps>`
   display: grid;
   align-items: center;
   grid-template-columns: ${(props) => props.layout};

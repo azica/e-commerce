@@ -7,14 +7,12 @@ interface FormTemplateProps {
   children: ReactNode;
 }
 
-export const FormWrapper = ({ title, children, }: FormTemplateProps) => {
+export const FormWrapper = ({ title, children }: FormTemplateProps) => {
   return (
     <Wrapper>
       {/* {link ? <BackButton link={link} /> : null} */}
 
-      <Title variant="h4">
-        {title}
-      </Title>
+      <Title variant="h4">{title}</Title>
       {children}
     </Wrapper>
   );
