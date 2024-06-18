@@ -1,8 +1,10 @@
-import { useLayoutEffect, useState } from "react";
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Box } from "@mui/material";
+import { useLayoutEffect, useRef, useState } from "react";
+import { useLocation, useOutlet, useParams } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import { layoutStyles } from "./styles";
+
 const { Content } = layoutStyles;
 
 interface LayoutContentProps {
@@ -12,6 +14,9 @@ interface LayoutContentProps {
 export const LayoutContent = ({ auth }: LayoutContentProps) => {
   const [noTransition, setNoTransition] = useState<boolean | string>(false);
   const params = useParams();
+  const outletRef = useRef(null);
+  const currentOutlet = useOutlet();
+
   const { key, hash, pathname } = useLocation();
   const lastItem = pathname.split("/").at(-1);
 
@@ -21,13 +26,16 @@ export const LayoutContent = ({ auth }: LayoutContentProps) => {
     setNoTransition(hash.length > 0 || transition || params.id !== undefined);
   }, [params, hash, lastItem, pathname]);
 
-  const authUrls = ["login", "register", "createPassword", "password-recovery"];
-
   return (
-    <Content padding={authUrls.includes(lastItem || "") ? undefined : "true"}>
+    <Content>
       <SwitchTransition>
-        <CSSTransition key={key} classNames={noTransition ? "" : "fadeIn"} timeout={noTransition ? 0 : 250} unmountOnExit>
-          <Outlet />
+        <CSSTransition
+          key={key}
+          classNames={noTransition ? "" : "fadeIn"}
+          timeout={noTransition ? 0 : 900}
+          nodeRef={outletRef}
+          unmountOnExit>
+          {(state) => <Box ref={outletRef}>{currentOutlet}</Box>}
         </CSSTransition>
       </SwitchTransition>
     </Content>

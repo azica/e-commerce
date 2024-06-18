@@ -27,3 +27,10 @@ export const prices: CheckboxListItem[] = [
   { id: 3, label: "$200.00 - 299.99", checked: false, value: 299 },
   { id: 4, label: "$300.00 - 399.99", checked: false, value: 300 },
 ];
+
+export const sortOptions = [
+  { name: "Title (A-Z)", value: "title-asc" },
+  { name: "Title (Z-A)", value: "title-desc" },
+  { name: "Price (Low to High)", value: "price-asc" },
+  { name: "Price (High to Low)", value: "price-desc" },
+];

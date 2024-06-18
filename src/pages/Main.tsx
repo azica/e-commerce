@@ -22,7 +22,6 @@ const Main = () => {
       <Values />
       <Banner />
       <Articles />
-      <NewsLetter />
     </Box>
   );
 };

@@ -1,12 +1,11 @@
-import { Typography } from "@mui/material";
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { registerData } from "assets/data/form";
 import { Form } from "components/Form";
-import { Input, Button } from "components/FormElements";
+import { Input } from "components/FormElements";
 import { Checkbox } from "components/FormElements/Checkbox";
-import { FormWrapper, LinkWrapper } from "components/Wrappers";
+import { FormWrapper } from "components/Wrappers";
 import { getValueFromArray } from "shared/helpers/utils";
 
 import { FormContent, InputsContainer, NoAccount } from "./styles";

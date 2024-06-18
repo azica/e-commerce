@@ -19,11 +19,11 @@ export const Slider = () => {
       {products.length > 0 ? (
         <Swiper
           slidesPerView={1}
-          // loop={true}
-          // autoplay={{
-          //   delay: 2500,
-          //   disableOnInteraction: false,
-          // }}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
           effect={"fade"}
           navigation={true}
           pagination={{

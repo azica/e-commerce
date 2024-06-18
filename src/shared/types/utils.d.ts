@@ -71,4 +71,11 @@ export declare global {
   interface GetPosts extends FetchResponse {
     posts: Module.Article[];
   }
+
+  type ProductFilters = {
+    category?: string;
+    limit?: number;
+    skip?: number;
+    sortBy?: string;
+  };
 }

@@ -47,7 +47,20 @@ export const productApi = createApi({
       },
       providesTags: ["Product"],
     }),
+    getAllProducts: builder.query<GetProducts | ErrorResponse, string>({
+      queryFn: async (query) => {
+        try {
+          const res = await ProductService.getAllProducts(query);
+          return { data: res };
+        } catch (error: any) {
+          return {
+            error: error.response?.data || error.message,
+          };
+        }
+      },
+      providesTags: ["Product"],
+    }),
   }),
 });
 
-export const { useGetProductsQuery, useGetCategoriesQuery } = productApi;
+export const { useGetProductsQuery, useGetCategoriesQuery, useGetAllProductsQuery } = productApi;

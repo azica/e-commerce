@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import { neutral04, neutral01 } from "styles/colors";
 import { flexColumn, scrollBar } from "styles/mixins";
 
 const Wrapper = styled.div`

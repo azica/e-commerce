@@ -1,16 +1,11 @@
-import { Outlet, useLocation } from "react-router-dom";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
+import { Outlet } from "react-router-dom";
 
 import authBg from "assets/images/authBg.jpg";
-import logo from "assets/images/logo.jpg";
 import { Logo } from "components/Logo/Index";
 
 import { Content, LogoWrap, Wrapper, Image } from "./styles";
 
 export const AuthWrapper = () => {
-  const { pathname } = useLocation();
-  console.log(pathname);
-
   return (
     <Wrapper>
       <Image>
@@ -19,14 +14,9 @@ export const AuthWrapper = () => {
         </LogoWrap>
         <img src={authBg} alt="authBg" />
       </Image>
-
-      <SwitchTransition>
-        <CSSTransition key={pathname} timeout={300} classNames="fadeIn" unmountOnExit>
-          <Content>
-            <Outlet />
-          </Content>
-        </CSSTransition>
-      </SwitchTransition>
+      <Content>
+        <Outlet />
+      </Content>
     </Wrapper>
   );
 };

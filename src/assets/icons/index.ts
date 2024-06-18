@@ -40,3 +40,7 @@ export { ReactComponent as YoutubeIcon } from "./youtube.svg";
 export { ReactComponent as EmailIcon } from "./email.svg";
 export { ReactComponent as FilterIcon } from "./filter.svg";
 export { ReactComponent as ArrowNextIcon } from "./arrow-next.svg";
+export { ReactComponent as Grid1Icon } from "./grid1.svg";
+export { ReactComponent as Grid2Icon } from "./grid2.svg";
+export { ReactComponent as Grid3Icon } from "./grid3.svg";
+export { ReactComponent as Grid4Icon } from "./grid4.svg";

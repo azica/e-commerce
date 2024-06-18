@@ -24,10 +24,15 @@ function getStyles(variant: Badge["size"]) {
 }
 
 export const Wrapper = styled("div")<Badge>`
-  background: ${({ greenBg }) => (greenBg ? green : white)};
+  background: ${white};
   font-family: ${InterBold};
-  color: ${({ greenBg }) => (greenBg ? white : "#121212")};
-  ${({ size }) => getStyles(size)};
+  color: #121212;
   text-transform: uppercase;
   text-align: center;
+  ${({ size }) => getStyles(size)};
+
+  &.green {
+    background: ${green};
+    color: ${white};
+  }
 `;

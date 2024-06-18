@@ -3,6 +3,8 @@ import { createTheme } from "@mui/material";
 import { red, white, black, neutral02, neutral07, neutral04, neutral03 } from "styles/colors";
 import { PoppinsRegular, PoppinsMedium, InterRegular } from "styles/fonts";
 
+import { flexColumn, rgba } from "./mixins";
+
 export const theme = createTheme({
   typography: {
     heading7: {
@@ -140,7 +142,10 @@ export const theme = createTheme({
           },
 
           ".MuiSelect-icon": {
-            top: "calc(50% - .6em)",
+            top: "calc(50% - .7em)",
+            width: "25px",
+            height: "25px",
+            color: neutral07,
           },
         },
 
@@ -246,6 +251,43 @@ export const theme = createTheme({
       styleOverrides: {
         select: {
           paddingRight: "20px !important",
+        },
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          padding: "8px",
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: "0px 1px 20px rgba(0, 0, 0, 0.08)",
+          borderRadius: 12,
+          marginTop: 8,
+
+          "&.select": {
+            "&::-webkit-scrollbar": {
+              width: "6px",
+              right: "2px",
+            },
+            "&::-webkit-scrollbar-track": {
+              background: "transparent",
+              borderRadius: "4px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: rgba(neutral02, 0.5),
+              borderRadius: "4px",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              background: neutral02,
+            },
+          },
         },
       },
     },

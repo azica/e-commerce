@@ -31,7 +31,7 @@ export const Inner = styled(Box)`
   }
 
   .swiper-button-prev:after {
-    background: url(${arrowLeft}) no-repeat;
+    background: url(${arrowLeft}) no-repeat center center;
   }
 
   .swiper-button-next:after {

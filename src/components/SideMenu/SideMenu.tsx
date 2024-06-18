@@ -9,7 +9,7 @@ export const SideMenu = ({ list }: { list: string[] }) => {
   return (
     <Wrapper>
       {list.map((item, index) => (
-        <SideMenuLink key={index + item} url={`/shop?filter=${item}`} active={search === `?filter=${item}`} title={item} />
+        <SideMenuLink key={item} url={`/shop?category=${item}`} active={search === `?category=${item}`} title={item} />
       ))}
     </Wrapper>
   );

@@ -10,6 +10,11 @@ export declare global {
     }): void;
   };
 
+  type Option = {
+    id?: number;
+    name: string;
+    value: number | string;
+  };
   type InputData = {
     id: number;
     value: string | number | boolean | string[];
@@ -24,11 +29,7 @@ export declare global {
     minLength?: number;
     maxLength?: number;
     invalid?: boolean;
-    options?: {
-      id?: number;
-      name: string;
-      value: number | string;
-    }[];
+    options?: Option[];
     mask?: string;
     maskProps?: {
       maskChar?: string | null;

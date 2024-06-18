@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
 
-import { neutral02 } from "styles/colors";
+import { neutral07 } from "styles/colors";
 import { flexCenter } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
@@ -26,7 +26,7 @@ export const Container = styled(Box)`
   }
 
   .MuiCircularProgress-root {
-    color: ${neutral02};
+    color: ${neutral07};
   }
 `;
 

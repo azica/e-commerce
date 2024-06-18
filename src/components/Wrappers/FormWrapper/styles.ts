@@ -17,7 +17,7 @@ export const Wrapper = styled(Box)`
   max-width: 456px;
   width: 100%;
   margin: auto;
-  animation: show 0.4s ease-in-out;
+  animation: show 0.7s ease-in-out;
 
   @keyframes show {
     0% {

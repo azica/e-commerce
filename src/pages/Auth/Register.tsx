@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { RegisterForm } from "components/Auth/RegisterForm";
-import { setTokenFromStorage } from "shared/helpers/localStorage";
 import { useActions } from "shared/store/hooks";
 import { useLazyGetUserQuery } from "shared/store/queries/auth.query";
 import { useCreateUserMutation } from "shared/store/queries/user.query";
@@ -48,7 +47,6 @@ export const Register = () => {
   }, [triggerUserData, setUser]);
 
   if (isLoading) return <h2>Loading....</h2>;
-  console.log(createdUser);
 
   return <RegisterForm register={createUser} setIsLoading={setIsLoading} isLoading={isLoading} />;
 };
