@@ -15,7 +15,7 @@ export { ReactComponent as Gift } from "./gift.svg";
 export { ReactComponent as EyeClosedIcon } from "./eye-closed.svg";
 export { ReactComponent as EyeIcon } from "./eye.svg";
 export { ReactComponent as ArrowDownIcon } from "./arrowdown.svg";
-export { ReactComponent as CloseIcon } from "./close.svg";
+
 export { ReactComponent as ExitIcon } from "./exit.svg";
 export { ReactComponent as ArrowPolygonIcon } from "./arrowPolygon.svg";
 export { ReactComponent as UserIcon } from "./user.svg";
@@ -44,3 +44,4 @@ export { ReactComponent as Grid1Icon } from "./grid1.svg";
 export { ReactComponent as Grid2Icon } from "./grid2.svg";
 export { ReactComponent as Grid3Icon } from "./grid3.svg";
 export { ReactComponent as Grid4Icon } from "./grid4.svg";
+export { ReactComponent as CloseIcon } from "./close.svg";

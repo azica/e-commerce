@@ -16,7 +16,7 @@ export const NewArrivals = () => {
 
   return (
     <Section>
-      <SectionTopBlock title="New Arrivals" linkName="More Products" link="/products" />
+      <SectionTopBlock title="New Arrivals" linkName="More Products" link="/shop" />
       <Inner>
         {products.length > 0 ? (
           <Swiper

@@ -9,17 +9,3 @@ export const Wrapper = styled(Box)`
   ${flexAlignCenter};
   margin-left: auto;
 `;
-
-export const ProductQuantity = styled(Box)`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  ${flexCenter};
-  background: ${neutral07};
-
-  span {
-    font-size: 12px;
-    font-family: ${InterBold};
-    color: ${white};
-  }
-`;

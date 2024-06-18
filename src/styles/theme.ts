@@ -298,5 +298,17 @@ export const theme = createTheme({
         },
       },
     },
+    MuiDrawer: {
+      styleOverrides: {
+        root: {
+          ".MuiPaper-root": {
+            marginTop: 0,
+            borderRadius: 0,
+            padding: "40px 24px",
+            maxWidth: "415px",
+          },
+        },
+      },
+    },
   },
 });

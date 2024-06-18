@@ -78,4 +78,28 @@ export declare global {
     skip?: number;
     sortBy?: string;
   };
+
+  interface CartProduct {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    total: number;
+    discountPercentage?: number;
+    discountedTotal: number;
+    thumbnail?: string;
+  }
+
+  interface Cart {
+    id: number;
+    products: CartProduct[];
+  }
+
+  interface GetProductsFromCart extends FetchResponse {
+    carts: Cart[];
+    total: number;
+    userId: number;
+    totalProducts: number;
+    totalQuantity: number;
+  }
 }
