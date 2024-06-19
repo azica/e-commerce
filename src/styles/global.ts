@@ -3,8 +3,6 @@ import { createGlobalStyle } from "styled-components";
 import { fonts } from "./fonts";
 
 export const GlobalStyle = createGlobalStyle`
-  ${fonts}
-  
   * {
     margin: 0;
     box-sizing: border-box;
@@ -38,6 +36,5 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0;
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
 `;
