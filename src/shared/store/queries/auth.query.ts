@@ -1,14 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { baseApiUrl } from "api/index";
 import { AuthService } from "services/AuthService";
 import { UserService } from "services/userService";
+import { authApiUrl } from "shared/constants";
 import { setTokenFromStorage } from "shared/helpers/localStorage";
 
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: baseApiUrl,
+    baseUrl: authApiUrl,
   }),
   tagTypes: ["Auth"],
   endpoints: (builder) => ({
@@ -54,7 +54,7 @@ export const authApi = createApi({
         }
       },
     }),
-    logout: builder.mutation<void, void>({
+    logout: builder.mutation<ServerResponse, void>({
       queryFn: async () => {
         try {
           const res = await AuthService.logout();

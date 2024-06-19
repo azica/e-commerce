@@ -1,14 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { ProductService } from "services/ProductService";
-import { shopApiUrl } from "shared/constants";
+import { baseApiUrl } from "shared/constants";
 
 import { setProducts } from "../slices/productSlice";
 
 export const productApi = createApi({
   reducerPath: "productApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: shopApiUrl,
+    baseUrl: baseApiUrl,
   }),
   tagTypes: ["Product"],
   endpoints: (builder) => ({

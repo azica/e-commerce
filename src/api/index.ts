@@ -6,7 +6,7 @@ import { getTokensFromStorage, setTokenFromStorage } from "shared/helpers/localS
 
 import { Endpoints } from "./endpoints";
 
-export const baseApiUrl = process.env.REACT_APP_API_URL;
+export const baseApiUrl = process.env.REACT_APP_AUTH_URL;
 
 export const $api: AxiosInstance = axios.create({
   // withCredentials: true,

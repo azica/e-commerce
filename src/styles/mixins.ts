@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-import { neutral01, neutral04 } from "./colors";
+import { neutral01, neutral04, neutral07 } from "./colors";
 
 export const rgba = (color: string, opacity?: number) => {
   const opacityValue = opacity === undefined ? 1 : opacity;
@@ -36,34 +36,23 @@ export const flexSpaceAround = css`
 `;
 
 export const scrollBar = css`
-  scrollbar-color: ${neutral04} #eaeaea;
-  scrollbar-width: thin;
-
   &::-webkit-scrollbar {
     width: 8px;
-    height: 120px;
-    background-color: ${neutral04};
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: ${neutral04};
     border-radius: 28px;
-    border: 2px solid #eaeaea;
+    cursor: pointer;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: ${neutral01};
+    background-color: ${neutral07};
   }
 
   &::-webkit-scrollbar-track {
     background: #eaeaea;
     border-radius: 28px;
-  }
-
-  &::-webkit-scrollbar-button {
-    display: none;
-    width: 0;
-    height: 0;
   }
 `;
 

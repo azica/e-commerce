@@ -10,13 +10,9 @@ import { ProductCartItem } from "./ProductCartItem/ProductCartItem";
 import { Title, ProductQuantity, CartList, Subtotal, Total, Summary } from "./styles";
 
 export const ProductCart = () => {
-  const [productQuantity, setProductQuantity] = useState(0);
   const [open, setOpen] = useState(false);
 
-  const [subtotal, setSubtota] = useState(0);
-  const [total, setTotal] = useState(0);
-
-  const { products } = useAppSelector((state) => state.product);
+  const { cartList, subtotal, total, totalQuantity } = useAppSelector((state) => state.cart);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -27,7 +23,7 @@ export const ProductCart = () => {
       <IconButton onClick={toggleDrawer(true)}>
         <ShopBagIcon />
         <ProductQuantity>
-          <span>{productQuantity || 0}</span>
+          <span>{totalQuantity || 0}</span>
         </ProductQuantity>
       </IconButton>
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
@@ -37,11 +33,16 @@ export const ProductCart = () => {
             <CloseIcon />
           </IconButton>
         </Title>
-        <CartList>
-          {products.map((product) => (
-            <ProductCartItem key={product.id} {...product} />
-          ))}
-        </CartList>
+        {cartList.length === 0 ? (
+          <Typography variant="body2">There is no products in the cart!</Typography>
+        ) : (
+          <CartList className={cartList.length > 2 ? "scrollbar" : ""}>
+            {cartList.map((product) => (
+              <ProductCartItem key={product.id} {...product} />
+            ))}
+          </CartList>
+        )}
+
         <Summary>
           <Subtotal>
             <Typography variant="body2">Subtotal</Typography>

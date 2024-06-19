@@ -26,7 +26,7 @@ export const Register = () => {
       setIsLoading(false);
       enqueueSnackbar("An error occurred while sending the request!" || createdUser.error, {
         variant: "error",
-        autoHideDuration: null,
+        autoHideDuration: 2000,
       });
     }
   }, [createdUser, trigger]);
@@ -41,7 +41,7 @@ export const Register = () => {
       setIsLoading(false);
       enqueueSnackbar("An error occurred while sending the request!" || triggerUserData.error, {
         variant: "error",
-        autoHideDuration: null,
+        autoHideDuration: 2000,
       });
     }
   }, [triggerUserData, setUser]);

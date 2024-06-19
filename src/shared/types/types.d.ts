@@ -4,10 +4,15 @@ declare global {
   namespace Model {
     interface User {
       id: number;
-      name: string;
-      avatar: string | null;
-      role: "customer" | "admin";
+      username: string;
       email?: string | null;
+      firstName: string;
+      lastName: string;
+      gender: string;
+      image: string | null;
+      token: string;
+      refreshToken: string;
+      role: "customer" | "admin";
       creationAt?: string;
     }
 
@@ -31,6 +36,10 @@ declare global {
       body: string;
       tags?: string[];
       image: string;
+    }
+
+    interface CartItem extends Model.Product {
+      quantity: number;
     }
   }
 }

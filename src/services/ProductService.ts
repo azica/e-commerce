@@ -1,15 +1,15 @@
 import axios from "axios";
 
 import { Endpoints } from "api/endpoints";
-import { shopApiUrl } from "shared/constants";
+import { baseApiUrl } from "shared/constants";
 
 export const ProductService = {
   async getProducts(): Promise<GetProducts | ErrorResponse> {
-    const res = await axios.get<GetProducts & ErrorResponse>(`${shopApiUrl}${Endpoints.GET_PRODUCTS}?limit=10`);
+    const res = await axios.get<GetProducts & ErrorResponse>(`${baseApiUrl}${Endpoints.GET_PRODUCTS}?limit=10`);
     return res.data;
   },
   async getCategories(): Promise<string[] | ErrorResponse> {
-    const res = await axios.get<string[] & ErrorResponse>(`${shopApiUrl}${Endpoints.GET_CATEGORIES}`);
+    const res = await axios.get<string[] & ErrorResponse>(`${baseApiUrl}${Endpoints.GET_CATEGORIES}`);
     return res.data;
   },
   async getAllProducts(query: string): Promise<GetProducts | ErrorResponse> {
@@ -19,10 +19,10 @@ export const ProductService = {
     const category = params.get("category");
     const sortBy = params.get("sortBy");
 
-    let url = `${shopApiUrl}${Endpoints.GET_PRODUCTS}?limit=${limit}&skip=${skip}`;
+    let url = `${baseApiUrl}${Endpoints.GET_PRODUCTS}?limit=${limit}&skip=${skip}`;
 
     if (category) {
-      url = `${shopApiUrl}${Endpoints.GET_PRODUCTS}/category/${category}?limit=${limit}&skip=${skip}`;
+      url = `${baseApiUrl}${Endpoints.GET_PRODUCTS}/category/${category}?limit=${limit}&skip=${skip}`;
     }
 
     if (sortBy) {

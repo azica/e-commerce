@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: AuthSlice = {
+const initialState: AuthState = {
   authData: null,
   successEmail: "",
 };

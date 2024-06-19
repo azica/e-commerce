@@ -32,15 +32,19 @@ export const ProductQuantity = styled(Box)`
 
 export const CartList = styled(List)`
   gap: 24px !important;
-  padding: 0 20px 0 0 !important;
+  padding: 0 !important;
   height: 100%;
-  overflow-y: scroll;
-  ${scrollBar};
+  max-height: calc(100vh - 46px - 191px - 80px);
+
+  &.scrollbar {
+    overflow-y: auto;
+    ${scrollBar};
+    padding-right: 20px !important;
+  }
 `;
 
 export const Summary = styled(Box)`
   margin-top: auto;
-  padding-top: 50px;
 
   a {
     font-family: ${InterBold};

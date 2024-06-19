@@ -18,3 +18,35 @@ export const getTokensFromStorage = (): Tokens | null => {
     return null;
   }
 };
+
+export const loadStateFromLocalStorage = (): CartState => {
+  try {
+    const serializedState = localStorage.getItem("cartState");
+    if (serializedState === null) {
+      return {
+        cartList: [],
+        subtotal: 0,
+        totalQuantity: 0,
+        total: 0,
+      };
+    }
+    return JSON.parse(serializedState);
+  } catch (err) {
+    console.error("Could not load state from localStorage:", err);
+    return {
+      cartList: [],
+      subtotal: 0,
+      totalQuantity: 0,
+      total: 0,
+    };
+  }
+};
+
+export const saveStateToLocalStorage = (state: CartState) => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem("cartState", serializedState);
+  } catch (err) {
+    console.error("Could not save state to localStorage:", err);
+  }
+};

@@ -6,6 +6,7 @@ import { postApi } from "./queries/post.query";
 import { productApi } from "./queries/product.query";
 import { userApi } from "./queries/user.query";
 import authReducer from "./slices/authSlice";
+import cartReducer from "./slices/cartSlice";
 import productReducer from "./slices/productSlice";
 import userReducer from "./slices/userSlice";
 
@@ -18,6 +19,7 @@ export const store = configureStore({
     auth: authReducer,
     user: userReducer,
     product: productReducer,
+    cart: cartReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -7,14 +7,21 @@ export declare global {
     office?: number;
   };
 
-  type AuthSlice = {
+  type AuthState = {
     authData: AuthData | null;
     successEmail: string;
   };
 
-  type UserSlice = {
+  type UserState = {
     user: Model.User | null;
     isAdmin: boolean | null;
     isSystemAdmin: boolean | null;
+  };
+
+  type CartState = {
+    cartList: CartItem[];
+    subtotal: number;
+    total: number;
+    totalQuantity: number;
   };
 }

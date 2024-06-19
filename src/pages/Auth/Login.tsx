@@ -26,7 +26,7 @@ const Login = () => {
       setIsLoading(false);
       enqueueSnackbar("An error occurred while sending the request!" || loggedData.error, {
         variant: "error",
-        autoHideDuration: null,
+        autoHideDuration: 2000,
       });
     }
   }, [loggedData, trigger]);
@@ -34,6 +34,10 @@ const Login = () => {
   useEffect(() => {
     if (triggerUserData.isSuccess) {
       setUser(triggerUserData.data as Model.User);
+      enqueueSnackbar("You have logged in successfully", {
+        variant: "success",
+        autoHideDuration: 2000,
+      });
       navigate("/");
     }
 
@@ -41,7 +45,7 @@ const Login = () => {
       setIsLoading(false);
       enqueueSnackbar("An error occurred while sending the request!" || triggerUserData.error, {
         variant: "error",
-        autoHideDuration: null,
+        autoHideDuration: 2000,
       });
     }
   }, [triggerUserData, setUser]);

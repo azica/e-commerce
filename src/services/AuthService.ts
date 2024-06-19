@@ -19,10 +19,16 @@ export const AuthService = {
     const res = await $api.post<ServerResponse & ErrorResponse>(Endpoints.FORGET_PASSOWRD, data);
     return res.data;
   },
-  async logout(): Promise<void> {
+  logout(): Promise<ServerResponse> {
     clearLocalStorage();
-    const res = await $api.postForm(Endpoints.LOGOUT);
-    // return res.data;
+    return new Promise<ServerResponse>((resolve) => {
+      setTimeout(() => {
+        resolve({
+          statusCode: 200,
+          message: "Logged out successfully",
+        });
+      }, 1000);
+    });
   },
   async checkPasswordVerify(data: { token: string }): Promise<ServerResponse & ErrorResponse> {
     const res = await $api.post<ServerResponse & ErrorResponse>(Endpoints.PASSWORD_TOKEN_VERIFY, data);

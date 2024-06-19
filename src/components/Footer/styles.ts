@@ -41,7 +41,6 @@ export const FooterLink = styled(Link)`
 
   &:hover {
     color: ${neutral04};
-    font-size: 27px;
     opacity: 0.7;
   }
 `;
