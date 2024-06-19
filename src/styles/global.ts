@@ -3,16 +3,12 @@ import { createGlobalStyle } from "styled-components";
 import { fonts } from "./fonts";
 
 export const GlobalStyle = createGlobalStyle`
+  ${fonts}
+  
   * {
     margin: 0;
     box-sizing: border-box;
   }
-
-   body {
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
   .fade-enter, .fade-exit-active {
     opacity: 0;
   }
@@ -35,6 +31,5 @@ export const GlobalStyle = createGlobalStyle`
   .fadeIn-exit  {
     opacity: 0;
   }
-
 
 `;
