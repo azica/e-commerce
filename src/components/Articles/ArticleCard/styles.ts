@@ -13,12 +13,23 @@ export const Wrapper = styled(Box)`
 
 export const Image = styled(Box)`
   height: 325px;
+  overflow: hidden;
   margin-bottom: 24px;
+  transition: all 0.3s ease-in-out;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    overflow: hidden;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.2);
+    }
   }
 `;
 

@@ -29,12 +29,21 @@ export const Image = styled(Box)`
   height: 350px;
   overflow: hidden;
   ${flexColumn};
+  transition: 0.3s ease-in-out;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     margin: auto;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover {
+    img {
+      transform: scale(0.7);
+    }
   }
 `;
 
@@ -74,8 +83,12 @@ export const Content = styled(Box)`
 `;
 
 export const Title = styled(Typography)`
-  color: ${neutral07};
   font-family: ${InterSemiBold}!important;
+
+  a {
+    color: ${neutral07};
+    text-decoration: none;
+  }
 `;
 
 export const Price = styled(Box)`

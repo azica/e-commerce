@@ -117,6 +117,7 @@ export const ButtonCustom = styled(Button)<ButtonProps>`
 	font-weight: normal;
 	text-transform: none;
 	box-Shadow: none !important;
+	align-items: center;
 	${({ size }) => getSize(size)}
 	${({ color }) => getColor(color)}
 	${({ variant }) => getVariant(variant)}
@@ -142,14 +143,14 @@ export const ButtonCustom = styled(Button)<ButtonProps>`
 `;
 
 export const Content = styled(Box)`
-	display: flex;
-	align - items: center;
-	position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
 
-	.MuiCircularProgress - root {
-		position: absolute;
-		right: -30px;
-	}
+  .MuiCircularProgress - root {
+    position: absolute;
+    right: -30px;
+  }
 `;
 
 export const ButtomWrapper = styled(Box)`

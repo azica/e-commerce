@@ -85,8 +85,6 @@ export const fonts = css`
     font-style: normal;
   }
 
-  // Inter fonts
-
   @font-face {
     font-family: "Inter Thin";
     src:

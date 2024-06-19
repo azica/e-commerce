@@ -1,16 +1,18 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { CheckedIcon, HeartFilledIcon, HeartIcon } from "assets/icons";
 import { Badge } from "components/Badge";
 import { Button } from "components/FormElements";
 import { Rating } from "components/Rating";
-import { useActions } from "shared/store/hooks";
+import { useActions, useAppSelector } from "shared/store/hooks";
 
 import { Wrapper, Image, Badges, AddToCart, Wishlist, Content, Title, Price } from "./styles";
 
-export const ProductCard = ({ title, thumbnail, rating, price, discountPercentage, ...other }: Model.Product) => {
-  const [added, setAdded] = useState(false);
+export const ProductCard = ({ title, thumbnail, rating, price, discountPercentage, id, ...other }: Model.Product) => {
   const [wishlistAdded, setWishlistAdded] = useState(true);
+  const { cartList } = useAppSelector((state) => state.cart);
+  const isInCart = cartList.some((item) => item.id === id);
 
   const discountedPrice = discountPercentage ? price * (1 - discountPercentage / 100) : null;
 
@@ -38,8 +40,8 @@ export const ProductCard = ({ title, thumbnail, rating, price, discountPercentag
             variant="contained"
             size="medium"
             fullWidth
-            onClick={() => addToCartHandle({ title, thumbnail, rating, price, discountPercentage, ...other })}>
-            {added ? (
+            onClick={() => addToCartHandle({ id, title, thumbnail, rating, price, discountPercentage, ...other })}>
+            {isInCart ? (
               <>
                 <CheckedIcon style={{ marginRight: "4px" }} /> Added
               </>
@@ -51,7 +53,9 @@ export const ProductCard = ({ title, thumbnail, rating, price, discountPercentag
       </Image>
       <Content>
         <Rating stars={rating} />
-        <Title variant="body2">{title}</Title>
+        <Title variant="body2">
+          <Link to={`/products/${id}`}>{title}</Link>
+        </Title>
         <Price>
           <span>$ {price}</span>
           {discountedPrice ? <span className="oldPrice">$ {discountedPrice.toFixed(2)}</span> : null}

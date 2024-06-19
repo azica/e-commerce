@@ -20,6 +20,7 @@ export const Inner = styled(Box)`
 
   .swiper-wrapper {
     margin-bottom: 48px;
+    cursor: grab;
   }
 
   .swiper-scrollbar {
@@ -33,5 +34,6 @@ export const Inner = styled(Box)`
   .swiper-scrollbar-drag {
     background: ${neutral05};
     border-radius: 80px;
+    cursor: pointer;
   }
 `;
