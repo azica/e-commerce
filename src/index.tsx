@@ -13,19 +13,21 @@ import reportWebVitals from "./reportWebVitals";
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
-  <Provider store={store}>
+  <>
     <GlobalStyle />
-    <SnackbarProvider
-      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-      maxSnack={4}
-      action={(snackbarId) => (
-        <IconButton onClick={() => closeSnackbar(snackbarId)}>
-          <CloseIcon />
-        </IconButton>
-      )}>
-      <App />
-    </SnackbarProvider>
-  </Provider>,
+    <Provider store={store}>
+      <SnackbarProvider
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        maxSnack={4}
+        action={(snackbarId) => (
+          <IconButton onClick={() => closeSnackbar(snackbarId)}>
+            <CloseIcon />
+          </IconButton>
+        )}>
+        <App />
+      </SnackbarProvider>
+    </Provider>
+  </>,
 );
 
 reportWebVitals();
