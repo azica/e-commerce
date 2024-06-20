@@ -6,11 +6,6 @@ import { useAppSelector } from "shared/store/hooks";
 import { Inner } from "./styles";
 import { SwiperItem } from "./SwiperItem";
 
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
 export const Slider = () => {
   const { products } = useAppSelector((state) => state.product);
 

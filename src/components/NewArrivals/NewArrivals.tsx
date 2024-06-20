@@ -7,10 +7,6 @@ import { useAppSelector } from "shared/store/hooks";
 
 import { Inner, Section } from "./styles";
 
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/scrollbar";
-
 export const NewArrivals = () => {
   const { products } = useAppSelector((state) => state.product);
 
