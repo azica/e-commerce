@@ -4,11 +4,13 @@ import { fonts } from "./fonts";
 
 export const GlobalStyle = createGlobalStyle`
   ${fonts}
-  
+   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
   * {
     margin: 0;
     box-sizing: border-box;
   }
+
   .fade-enter, .fade-exit-active {
     opacity: 0;
   }
@@ -32,4 +34,5 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0;
   }
 
+ 
 `;

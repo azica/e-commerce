@@ -1,9 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
 import { blue, neutral02, neutral07 } from "styles/colors";
 import { InterBold } from "styles/fonts";
-import { flexAlignCenter, flexColumn } from "styles/mixins";
+import { flexAlignCenter } from "styles/mixins";
 
 export const Section = styled("section")`
   background: ${neutral02};

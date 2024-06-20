@@ -1,16 +1,8 @@
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
 import { Checkbox } from "components/FormElements/Checkbox";
 
 import { FormGroup, FormControl } from "./styles";
-
-const getQueryString = (arr: CheckboxListItem[]): string => {
-  return arr
-    .filter((item) => item.checked)
-    .map((item) => item.value)
-    .join(",");
-};
 
 const getCurrentParams = (searchParams: string | null, arr: CheckboxListItem[]): CheckboxListItem[] => {
   if (searchParams) {
@@ -21,17 +13,7 @@ const getCurrentParams = (searchParams: string | null, arr: CheckboxListItem[]):
 };
 
 export const CheckboxList: CheckboxList = ({ list, searchParamName }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
   const [listProps, setListProps] = useState<CheckboxListItem[]>(() => getCurrentParams(searchParamName, list));
-
-  // useEffect(() => {
-  //   setSearchParams((prevSearchParams) => {
-  //     const newSearchParams = new URLSearchParams(prevSearchParams);
-  //     newSearchParams.set(searchParamName, getQueryString(listProps));
-  //     return newSearchParams;
-  //   });
-  // }, []);
 
   const valueChange: CheckboxOnChange = (newVal: { field: string; value: boolean }) => {
     setListProps(listProps.map((item) => (newVal.field === `${item.id}` ? { ...item, checked: newVal.value } : item)));
@@ -43,7 +25,7 @@ export const CheckboxList: CheckboxList = ({ list, searchParamName }) => {
       component="fieldset"
       variant="outlined">
       <FormGroup>
-        {listProps.map(({ id, checked, label, disabled, value, ...other }) => (
+        {listProps.map(({ id, checked, label, disabled, value }) => (
           <Checkbox
             key={id}
             id={id}

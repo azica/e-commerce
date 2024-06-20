@@ -86,7 +86,6 @@ export const Select = ({
               <ChipList>
                 {/* @ts-ignore */}
                 {selected.map((value) => {
-                  console.log(value);
                   const data = replaceName ? JSON.parse(value) : null;
                   return (
                     <ChipItem key={value}>

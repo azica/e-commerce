@@ -6,6 +6,7 @@ import { Footer } from "components/Footer";
 import { Header } from "components/Header";
 import { NewsLetter } from "components/NewsLetter";
 import { useUser } from "shared/store/hooks";
+import { GlobalStyle } from "styles/global";
 import { theme } from "styles/theme";
 
 import { LayoutContent } from "./LayoutContent";
@@ -28,6 +29,7 @@ export const Layout = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyle />
       {authUrls.includes(lastItem || "") ? (
         <Container>
           <LayoutContent />

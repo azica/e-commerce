@@ -3,7 +3,7 @@ import { Link } from "components/Link";
 
 import { Wrapper, Image, Title } from "./styles";
 
-export const ArticleCard = ({ image, title, id }: Model.Article) => {
+export const ArticleCard = ({ title, id }: Model.Article) => {
   return (
     <Wrapper>
       <Image>

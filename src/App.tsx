@@ -5,7 +5,6 @@ import { getTokensFromStorage } from "shared/helpers/localStorage";
 import { Navigation } from "shared/router/Navigation";
 import { useActions } from "shared/store/hooks";
 import { useLazyGetUserQuery } from "shared/store/queries/auth.query";
-import { GlobalStyle } from "styles/global";
 
 const App = () => {
   const { setUser } = useActions();
@@ -25,7 +24,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navigation />
-      <GlobalStyle />
     </BrowserRouter>
   );
 };

@@ -2,7 +2,7 @@ import { Box, MenuItem as MenuItemMui } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 import { neutral02, black, white, neutral07, neutral04 } from "styles/colors";
-import { InterBold, InterRegular, InterSemiBold } from "styles/fonts";
+import { InterSemiBold } from "styles/fonts";
 import { rgba } from "styles/mixins";
 
 export const Placeholder = styled(Box)`

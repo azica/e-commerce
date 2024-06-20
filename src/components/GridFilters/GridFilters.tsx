@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { Grid1Icon, Grid2Icon, Grid3Icon, Grid4Icon } from "assets/icons";
 
 import { Wrapper, Button } from "./styles";

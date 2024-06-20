@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import { black, neutral04, neutral07 } from "styles/colors";
-import { InterSemiBold, PoppinsRegular } from "styles/fonts";
+import { neutral04, neutral07 } from "styles/colors";
+import { InterSemiBold } from "styles/fonts";
 
 interface CheckboxContentProps {
   centered: string;
