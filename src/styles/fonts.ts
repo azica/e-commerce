@@ -48,9 +48,10 @@ export const fonts = css`
 
   @font-face {
     font-family: "Poppins Regular";
-    src: url(${PoppinsRegularEot}') format('embedded-opentype'),
-        url(${PoppinsRegularWoff}') format('woff'),
-        url(${PoppinsRegularTtf}') format('truetype');
+    src:
+      url(${PoppinsRegularEot}) format("embedded-opentype"),
+      url(${PoppinsRegularWoff}) format("woff"),
+      url(${PoppinsRegularTtf}) format("truetype");
     font-weight: normal;
     font-style: normal;
   }
