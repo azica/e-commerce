@@ -17,7 +17,6 @@ export const LinkWrapper = ({ url, children, className, targetBlank, state, onCl
   const navigate = useNavigate();
   const goLink = () => {
     if (url) {
-      console.log(url);
       if (targetBlank) {
         window.open(url, "_blank");
       } else {

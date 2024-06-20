@@ -7,11 +7,7 @@ import { layoutStyles } from "./styles";
 
 const { Content } = layoutStyles;
 
-interface LayoutContentProps {
-  auth?: boolean;
-}
-
-export const LayoutContent = ({ auth }: LayoutContentProps) => {
+export const LayoutContent = () => {
   const [noTransition, setNoTransition] = useState<boolean | string>(false);
   const params = useParams();
   const outletRef = useRef(null);
@@ -35,7 +31,7 @@ export const LayoutContent = ({ auth }: LayoutContentProps) => {
           timeout={noTransition ? 0 : 900}
           nodeRef={outletRef}
           unmountOnExit>
-          {(state) => <Box ref={outletRef}>{currentOutlet}</Box>}
+          {() => <Box ref={outletRef}>{currentOutlet}</Box>}
         </CSSTransition>
       </SwitchTransition>
     </Content>

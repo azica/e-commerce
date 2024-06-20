@@ -11,7 +11,7 @@ export const Sort = ({ options, placeholder }: { options: Option[]; placeholder:
   const desiredOption = options.filter(({ value }) => value === `${sortBy}-${order}`);
   const defaultValue = desiredOption[0]?.name || placeholder;
 
-  const changeValue: InputOnChange = ({ value, field, id }) => {
+  const changeValue: InputOnChange = ({ value }) => {
     const param = JSON.parse(`${value}`).value;
     const [sortBy, order] = param.split("-");
 

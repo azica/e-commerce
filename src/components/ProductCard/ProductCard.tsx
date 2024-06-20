@@ -10,7 +10,7 @@ import { useActions, useAppSelector } from "shared/store/hooks";
 import { Wrapper, Image, Badges, AddToCart, Wishlist, Content, Title, Price } from "./styles";
 
 export const ProductCard = ({ title, thumbnail, rating, price, discountPercentage, id, ...other }: Model.Product) => {
-  const [wishlistAdded, setWishlistAdded] = useState(true);
+  const [wishlistAdded] = useState(true);
   const { cartList } = useAppSelector((state) => state.cart);
   const isInCart = cartList.some((item) => item.id === id);
 

@@ -5,7 +5,6 @@ import { Grid } from "./styles";
 
 export const ProductsGrid = ({
   products = [],
-  gridLayout,
   isLoading,
 }: {
   products?: Model.Product[];

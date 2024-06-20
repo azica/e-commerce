@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { useLocation } from "react-router-dom";
 
 import { prices } from "assets/data/mockdata";
 import { FilterIcon } from "assets/icons";

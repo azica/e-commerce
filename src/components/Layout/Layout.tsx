@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import { Footer } from "components/Footer";
 import { Header } from "components/Header";
 import { NewsLetter } from "components/NewsLetter";
-import { useUser } from "shared/store/hooks";
 import { GlobalStyle } from "styles/global";
 import { theme } from "styles/theme";
 
@@ -17,7 +16,6 @@ const { Container, Wrapper } = layoutStyles;
 export const Layout = () => {
   const [showNewsLetterSection, setShowNewsLetterSection] = useState(false);
 
-  const isAuth = useUser();
   const { hash, pathname } = useLocation();
   const lastItem = pathname.split("/").at(-1);
 

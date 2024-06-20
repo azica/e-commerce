@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 import { red, white, black, neutral02, neutral07, neutral04, neutral03 } from "styles/colors";
 import { PoppinsRegular, PoppinsMedium, InterRegular } from "styles/fonts";
 
-import { flexColumn, rgba } from "./mixins";
+import { rgba } from "./mixins";
 
 export const theme = createTheme({
   typography: {

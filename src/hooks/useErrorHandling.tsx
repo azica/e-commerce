@@ -24,8 +24,6 @@ export const useErrorHandling = ({ data, navigateUrl, setValues, setIsLoading, i
   useEffect(() => {
     if (data.isSuccess) {
       setIsLoading(false);
-      console.log(navigateUrl);
-
       navigateUrl && navigate(navigateUrl);
     }
 

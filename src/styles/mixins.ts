@@ -1,6 +1,6 @@
 import { css } from "styled-components";
 
-import { neutral01, neutral04, neutral07 } from "./colors";
+import { neutral04, neutral07 } from "./colors";
 
 export const rgba = (color: string, opacity?: number) => {
   const opacityValue = opacity === undefined ? 1 : opacity;

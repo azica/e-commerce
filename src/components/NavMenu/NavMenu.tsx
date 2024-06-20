@@ -7,7 +7,7 @@ import { NavLink } from "./NavLink";
 import { MenuWrap } from "./styles";
 
 export const NavMenu = () => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive] = useState<boolean>(false);
   const { pathname } = useLocation();
 
   return (

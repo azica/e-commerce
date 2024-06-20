@@ -1,4 +1,4 @@
-import type { ReactNode, FunctionComponent, SVGProps, FC } from "react";
+import type { ReactNode, FC } from "react";
 
 export declare global {
   interface SideMenuItem {

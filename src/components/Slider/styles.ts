@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 
 import arrowLeft from "assets/icons/arrowLeft.svg";
-import { neutral04, white } from "styles/colors";
+import { white } from "styles/colors";
 
 export const Inner = styled(Box)`
   height: 536px;

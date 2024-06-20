@@ -1,6 +1,6 @@
 import { SubTitle, Wrapper, Title, IconWrap } from "./styles";
 
-const ValueCard = ({ id, title, subtitle, icon }: Value) => {
+const ValueCard = ({ title, subtitle, icon }: Value) => {
   return (
     <Wrapper>
       <IconWrap>{icon}</IconWrap>
