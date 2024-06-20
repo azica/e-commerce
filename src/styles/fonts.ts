@@ -41,14 +41,14 @@ export const fonts = css`
     src:
       url(${PoppinsThinWoff}) format("woff"),
       url(${PoppinsThinTtf}) format("truetype"),
-      url(${PoppinsThinEot}?#iefix) format("embedded-opentype");
+      url(${PoppinsThinEot}) format("embedded-opentype");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
     font-family: "Poppins Regular";
-    src: url(${PoppinsRegularEot}?#iefix') format('embedded-opentype'),
+    src: url(${PoppinsRegularEot}') format('embedded-opentype'),
         url(${PoppinsRegularWoff}') format('woff'),
         url(${PoppinsRegularTtf}') format('truetype');
     font-weight: normal;
@@ -60,7 +60,7 @@ export const fonts = css`
     src:
       url(${PoppinsMediumWoff}) format("woff"),
       url(${PoppinsMediumTtf}) format("truetype"),
-      url(${PoppinsMediumEot}?#iefix) format("embedded-opentype");
+      url(${PoppinsMediumEot}) format("embedded-opentype");
     font-weight: normal;
     font-style: normal;
   }
@@ -70,7 +70,7 @@ export const fonts = css`
     src:
       url(${PoppinsSemiBoldWoff}) format("woff"),
       url(${PoppinsSemiBoldTtf}) format("truetype"),
-      url(${PoppinsSemiBoldEot}?#iefix) format("embedded-opentype");
+      url(${PoppinsSemiBoldEot}) format("embedded-opentype");
     font-weight: normal;
     font-style: normal;
   }
@@ -80,7 +80,7 @@ export const fonts = css`
     src:
       url(${PoppinsBoldWoff}) format("woff"),
       url(${PoppinsBoldTtf}) format("truetype"),
-      url(${PoppinsBoldEot}?#iefix) format("embedded-opentype");
+      url(${PoppinsBoldEot}) format("embedded-opentype");
     font-weight: normal;
     font-style: normal;
   }
@@ -90,7 +90,7 @@ export const fonts = css`
     src:
       url(${InterThinWoff}) format("woff"),
       url(${InterThinTtf}) format("truetype"),
-      url(${InterThinOtf}?#iefix) format("opentype");
+      url(${InterThinOtf}) format("opentype");
     font-weight: normal;
     font-style: normal;
   }
@@ -100,7 +100,7 @@ export const fonts = css`
     src:
       url(${InterRegularWoff}) format("woff"),
       url(${InterRegularTtf}) format("truetype"),
-      url(${InterRegularOtf}?#iefix) format("opentype");
+      url(${InterRegularOtf}) format("opentype");
     font-weight: normal;
     font-style: normal;
   }
@@ -110,7 +110,7 @@ export const fonts = css`
     src:
       url(${InterMediumWoff}) format("woff"),
       url(${InterMediumTtf}) format("truetype"),
-      url(${InterMediumOtf}?#iefix) format("opentype");
+      url(${InterMediumOtf}) format("opentype");
     font-weight: normal;
     font-style: normal;
   }
@@ -120,7 +120,7 @@ export const fonts = css`
     src:
       url(${InterSemiBoldWoff}) format("woff"),
       url(${InterSemiBoldTtf}) format("truetype"),
-      url(${InterSemiBoldOtf}?#iefix) format("opentype");
+      url(${InterSemiBoldOtf}) format("opentype");
     font-weight: normal;
     font-style: normal;
   }
@@ -130,7 +130,7 @@ export const fonts = css`
     src:
       url(${InterBoldWoff}) format("woff"),
       url(${InterBoldTtf}) format("truetype"),
-      url(${InterBoldOtf}?#iefix) format("opentype");
+      url(${InterBoldOtf}) format("opentype");
     font-weight: normal;
     font-style: normal;
   }

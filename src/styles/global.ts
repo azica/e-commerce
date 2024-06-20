@@ -11,6 +11,8 @@ import "swiper/css/scrollbar";
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
+  ${fonts}
+
   * {
     margin: 0;
     box-sizing: border-box;
