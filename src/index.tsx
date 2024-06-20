@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 
 import { CloseIcon } from "assets/icons";
 import { store } from "shared/store";
+import { GlobalStyle } from "styles/global";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -13,6 +14,7 @@ const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
   <Provider store={store}>
+    <GlobalStyle />
     <SnackbarProvider
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       maxSnack={4}
