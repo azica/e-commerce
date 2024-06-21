@@ -3,7 +3,7 @@ import { CarIcon, FacebookIcon, InstagramIcon, LockIcon, MoneyIcon, PhoneIcon, Y
 export const navmenu = [
   { id: 1, url: "/", title: "Home" },
   { id: 2, url: "/shop", title: "Shop" },
-  { id: 3, url: "/product", title: "Product" },
+  { id: 3, url: "/blog", title: "Blog" },
   { id: 4, url: "/contact-us", title: "Contact Us" },
 ];
 

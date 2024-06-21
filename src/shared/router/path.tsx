@@ -1,6 +1,8 @@
 import { AuthWrapper } from "pages/Auth/AuthWrapper/AuthWrapper";
 import Login from "pages/Auth/Login";
 import Register from "pages/Auth/Register";
+import Blog from "pages/Blog";
+import ContactUs from "pages/ContactUs";
 import Main from "pages/Main";
 import PasswordRecovery from "pages/PasswordRecovery";
 import { Shop } from "pages/Shop";
@@ -51,5 +53,15 @@ export const basicPaths = [
         ),
       },
     ],
+  },
+  {
+    path: "/contact-us",
+    id: 6,
+    element: <ContactUs />,
+  },
+  {
+    path: "/blog",
+    id: 7,
+    element: <Blog />,
   },
 ];

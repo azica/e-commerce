@@ -21,9 +21,11 @@ export const GlobalStyle = createGlobalStyle`
   .fade-enter, .fade-exit-active {
     opacity: 0;
   }
+
   .fade-exit, .fade-enter-active {
     opacity: 1;
   }
+
   .fade-enter-active, .fade-exit-active {
     transition: all .25s ease-in;
   }
@@ -31,11 +33,33 @@ export const GlobalStyle = createGlobalStyle`
   .fadeIn-enter {
     opacity: 0;
   }
+    
   .fadeIn-enter-active {
     opacity: 1;
-    transition: all .50s ease-in;
+    transition: all .3s ease-in;
   }
+
   .fadeIn-exit {
     opacity: 0;
   }
+
+
+.filterTitle-enter {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.filterTitle-enter-active {
+  opacity: 1;
+}
+
+.filterTitle-exit {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+
+.filterTitle-exit-active {
+  opacity: 0;
+}
+
 `;

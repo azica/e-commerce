@@ -21,6 +21,7 @@ export const Sort = ({ options, placeholder }: { options: Option[]; placeholder:
       return searchParams;
     });
   };
+  console.log(defaultValue);
 
   return (
     <Wrapper>

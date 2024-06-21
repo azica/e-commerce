@@ -8,7 +8,8 @@ import { layoutStyles } from "./styles";
 const { Content } = layoutStyles;
 
 export const LayoutContent = () => {
-  const [noTransition, setNoTransition] = useState<boolean | string>(false);
+  const [noTransition, setNoTransition] = useState<boolean>(false);
+  const [prevPathname, setPrevPathname] = useState<string>("");
   const params = useParams();
   const outletRef = useRef(null);
   const currentOutlet = useOutlet();
@@ -17,10 +18,18 @@ export const LayoutContent = () => {
   const lastItem = pathname.split("/").at(-1);
 
   useLayoutEffect(() => {
-    const transition =
-      lastItem === "login" || lastItem === "register" || lastItem === "password-recovery" || lastItem === "shop";
-    setNoTransition(hash.length > 0 || transition || params.id !== undefined);
-  }, [params, hash, lastItem, pathname]);
+    const transitionPaths = ["login", "register", "password-recovery"];
+    const isShopPath = pathname.includes("/shop");
+
+    const shouldSkipTransition = transitionPaths.includes(lastItem || "") || (isShopPath && pathname === prevPathname);
+
+    setNoTransition(shouldSkipTransition);
+
+    // Update previous pathname only if the pathname changed
+    if (pathname !== prevPathname) {
+      setPrevPathname(pathname);
+    }
+  }, [params, hash, lastItem, pathname, prevPathname]);
 
   return (
     <Content>
@@ -31,7 +40,7 @@ export const LayoutContent = () => {
           timeout={noTransition ? 0 : 900}
           nodeRef={outletRef}
           unmountOnExit>
-          {() => <Box ref={outletRef}>{currentOutlet}</Box>}
+          <Box ref={outletRef}>{currentOutlet}</Box>
         </CSSTransition>
       </SwitchTransition>
     </Content>
