@@ -100,5 +100,6 @@ export declare global {
     open?: boolean;
     children: ReactNode;
     isRight?: boolean;
+    fullWidth?: boolean;
   }
 }

@@ -1,11 +1,19 @@
 import styled from "styled-components";
 
-import { neutral01, neutral04 } from "styles/colors";
+import { neutral01, neutral04, neutral07 } from "styles/colors";
 import { flexAlignCenter } from "styles/mixins";
 
 export const Wrapper = styled("ul")`
   ${flexAlignCenter};
   gap: 24px;
+  padding-left: 0;
+
+  &.mobile {
+      svg {
+      color: ${neutral07};
+      transition: all 0.3s ease;
+    }
+  }
 `;
 
 export const IconWrap = styled("li")`

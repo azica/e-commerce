@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { flexAlignCenter } from "styles/mixins";
 
 export const Wrapper = styled(Drawer)`
+    &.fullWidth > .MuiPaper-root{
+        max-width: 100%;
+        width: calc(100% - 32px);
+    }
 `
 
 export const Title = styled(Typography)`

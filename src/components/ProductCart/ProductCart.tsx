@@ -7,10 +7,10 @@ import { Button } from "components/FormElements";
 import { useAppSelector } from "shared/store/hooks";
 
 import { ProductCartItem } from "./ProductCartItem/ProductCartItem";
-import { ProductQuantity, CartList, Subtotal, Total, Summary, IconButton } from "./styles";
+import { ProductQuantity, CartList, Subtotal, Total, Summary, IconButton, Buttons } from "./styles";
 import { Drawer } from "components/Drawer";
 
-export const ProductCart = () => {
+export const ProductCart = ({ isMobileMenu }: { isMobileMenu?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   const { cartList, subtotal, total, totalQuantity } = useAppSelector((state) => state.cart);
@@ -21,14 +21,15 @@ export const ProductCart = () => {
 
   return (
     <>
-      <IconButton onClick={toggleDrawer(true)}>
-        <ShopBagIcon />
-      </IconButton>
-      <ProductQuantity>
-        <span>{totalQuantity || 0}</span>
-      </ProductQuantity>
-
-      <Drawer title="Cart" toggleDrawer={() => toggleDrawer(false)} open={open} isRight>
+      <Buttons className={isMobileMenu ? "mobile" : ""}>
+        <IconButton onClick={toggleDrawer(true)}>
+          <ShopBagIcon />
+        </IconButton>
+        <ProductQuantity>
+          <span>{totalQuantity || 0}</span>
+        </ProductQuantity>
+      </Buttons>
+      <Drawer title="Cart" toggleDrawer={toggleDrawer(false)} open={open} isRight>
         {cartList.length === 0 ? (
           <Typography variant="body2" fontFamily="interSemiBold" color="primary.700">
             There is no products in the cart!

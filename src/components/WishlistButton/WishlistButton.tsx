@@ -5,7 +5,7 @@ import { Button } from "components/FormElements";
 
 import { IconButton } from "./styles";
 
-export const WishlistButton = ({ small, product }: { small?: boolean; product: Model.Product }) => {
+export const WishlistButton = ({ small, product, isMobileMenu }: { small?: boolean; product?: Model.Product; isMobileMenu?: boolean }) => {
   const [wishlistAdded] = useState(false);
   return (
     <>

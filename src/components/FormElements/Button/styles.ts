@@ -40,6 +40,12 @@ const getSize = (size: ButtonProps["size"]) => {
 				border-radius: 8px;
 				padding: 10px 40px;
 				height: 52px;
+
+				svg {
+					width: 24px;
+					height: 24px;
+				}
+					
 			`;
 		case "medium":
 		default:
@@ -50,6 +56,11 @@ const getSize = (size: ButtonProps["size"]) => {
 				border-radius: 8px;
 				padding: 8px 24px;
 				height: 46px;
+
+				svg {
+					width: 24px;
+					height: 24px;
+				}
 			`;
 	}
 };

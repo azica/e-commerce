@@ -64,8 +64,16 @@ export const Total = styled(Box)`
   padding: 13px 0;
 `;
 
+export const Buttons = styled(Box)`
+  ${flexAlignCenter};
+  margin-left: auto;
+  &.mobile {
+    margin-top: auto;
+  }
+`
 export const IconButton = styled(MuiIconButton)`
     width: 40px;
     height: 40px;
+    margin-left: auto!important;
     }
 `

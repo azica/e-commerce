@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 
 import { white } from "styles/colors";
-import { flexAlignCenter } from "styles/mixins";
+import { flexAlignCenter, flexColumn } from "styles/mixins";
 
 export const Wrapper = styled("header")`
   position: fixed;
@@ -33,4 +33,11 @@ export const LogoWrap = styled(Box)`
       }
     }
 
+`
+
+export const MobileInner = styled(Box)`
+  ${flexColumn};
+  width: 100%;
+  gap: 16px;
+  height: 100%;
 `
