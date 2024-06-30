@@ -12,15 +12,20 @@ export const Section = styled("section")`
   flex-wrap: wrap;
 
   & > div {
-    @media ${device.md} {
+    @media ${device.sm} {
       width: 100%;
     }
   }
 `;
 
 export const Image = styled(Box)`
-  min-height: 367px;
+  max-height: 532px;
+  align-self: stretch;
   width: 50%;
+
+  @media ${device.xs} {
+    height: 367px;
+  }
 
   img {
     width: 100%;

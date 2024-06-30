@@ -4,13 +4,13 @@ import styled from "styled-components";
 import { device } from "styles/media";
 
 export const Inner = styled(Box)`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   padding: 48px 0;
+  justify-content: center;
 
   @media ${device.md} {
     padding: 32px 0;
-    grid-template-columns: repeat(2, 1fr);
   }
 `;

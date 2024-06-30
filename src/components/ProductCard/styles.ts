@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { neutral02, neutral04, neutral07 } from "styles/colors";
 import { InterSemiBold } from "styles/fonts";
+import { device } from "styles/media";
 import { flexAlignCenter, flexColumn } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
@@ -31,6 +32,10 @@ export const Image = styled(Box)`
   ${flexColumn};
   transition: 0.3s ease-in-out;
 
+  @media ${device.xs} {
+    height: 307px;
+  }
+    
   img {
     width: 100%;
     height: 100%;

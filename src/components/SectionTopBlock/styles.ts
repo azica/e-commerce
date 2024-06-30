@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { neutral07 } from "styles/colors";
 import { InterMedium } from "styles/fonts";
+import { device } from "styles/media";
 import { flexAlignCenter } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
@@ -20,6 +21,11 @@ export const Title = styled(Typography)`
   word-break: break-word;
   overflow-wrap: break-word;
   width: 250px;
+
+   @media ${device.xs} {
+    font-size: 30px!important;
+    line-height: 34px!important;
+  }
 `;
 
 export const SectionLink = styled(Link)`

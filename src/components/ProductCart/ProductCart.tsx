@@ -1,13 +1,14 @@
-import { Drawer, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { CloseIcon, ShopBagIcon } from "assets/icons";
+import { ShopBagIcon } from "assets/icons";
 import { Button } from "components/FormElements";
 import { useAppSelector } from "shared/store/hooks";
 
 import { ProductCartItem } from "./ProductCartItem/ProductCartItem";
-import { Title, ProductQuantity, CartList, Subtotal, Total, Summary, IconButton } from "./styles";
+import { ProductQuantity, CartList, Subtotal, Total, Summary, IconButton } from "./styles";
+import { Drawer } from "components/Drawer";
 
 export const ProductCart = () => {
   const [open, setOpen] = useState(false);
@@ -27,13 +28,7 @@ export const ProductCart = () => {
         <span>{totalQuantity || 0}</span>
       </ProductQuantity>
 
-      <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-        <Title variant="h6" color="black.900">
-          Cart
-          <IconButton onClick={toggleDrawer(false)}>
-            <CloseIcon />
-          </IconButton>
-        </Title>
+      <Drawer title="Cart" toggleDrawer={() => toggleDrawer(false)} open={open} isRight>
         {cartList.length === 0 ? (
           <Typography variant="body2" fontFamily="interSemiBold" color="primary.700">
             There is no products in the cart!

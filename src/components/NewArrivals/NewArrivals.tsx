@@ -11,11 +11,11 @@ import { Inner, Section } from "./styles";
 const breakpoints = {
   420: {
     slidesPerView: 1.5,
-    spaceBetween: 0,
+    spaceBetween: 16,
   },
   640: {
     slidesPerView: 3.5,
-    spaceBetween: 24,
+    spaceBetween: 20,
   },
   1024: {
     slidesPerView: 4.5,
@@ -34,12 +34,11 @@ export const NewArrivals = () => {
       <Inner>
         {products.length > 0 ? (
           <Swiper
-            centeredSlides={true}
             breakpoints={{
               ...breakpoints,
             }}
             slidesPerView={1.5}
-            spaceBetween={0}
+            spaceBetween={16}
             loop={true}
             autoplay={{
               delay: 2500,

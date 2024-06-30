@@ -14,8 +14,8 @@ export const Footer = () => {
   return (
     <FooterWrap>
       <Container>
-        <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Box display="flex" alignItems="center" gap={3}>
+        <Box display="flex" alignItems="center" justifyContent="space-between" flexWrap="wrap">
+          <Box display="flex" alignItems="center" gap={3} flexWrap="wrap">
             <Logo isWhite />
             <span> | </span>
             <Slogan fontFamily="fontFamily.interRegular" color="primary.300">

@@ -21,4 +21,16 @@ export const Inner = styled(Box)`
 export const LogoWrap = styled(Box)`
    ${flexAlignCenter};
     gap: 5px;
+
+    button {
+      width: 24px;
+      height: 24px;
+      padding: 0!important;
+
+      svg {
+        width: 10px;
+        height: 8px;
+      }
+    }
+
 `

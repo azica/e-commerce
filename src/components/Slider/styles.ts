@@ -3,10 +3,15 @@ import styled from "styled-components";
 
 import arrowLeft from "assets/icons/arrowLeft.svg?react";
 import { white } from "styles/colors";
+import { device } from "styles/media";
 
 export const Inner = styled(Box)`
   height: 536px;
   overflow: hidden;
+
+   @media ${device.sm} {
+      height: 304px;
+    }
 
   .swiper {
     width: 100%;
@@ -20,6 +25,10 @@ export const Inner = styled(Box)`
     background: ${white};
     border-radius: 50%;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 3.64%);
+
+    @media ${device.sm} {
+      display: none;
+    }
   }
 
   .swiper-button-prev:after,
@@ -30,12 +39,12 @@ export const Inner = styled(Box)`
     height: 32px;
   }
 
-  .swiper-button-prev:after {
-    background: url(${arrowLeft}) no-repeat center center;
+  .swiper-button-prev::after {
+    background: url(${arrowLeft as unknown as string}) no-repeat center center;
   }
 
-  .swiper-button-next:after {
-    background: url(${arrowLeft}) no-repeat;
+  .swiper-button-next::after {
+    background: url(${arrowLeft as unknown as string}) no-repeat;
     transform: rotate(180deg);
   }
 

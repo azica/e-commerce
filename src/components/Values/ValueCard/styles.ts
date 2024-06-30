@@ -3,13 +3,19 @@ import styled from "styled-components";
 
 import { neutral02, neutral04, neutral07 } from "styles/colors";
 import { PoppinsRegular } from "styles/fonts";
+import { device } from "styles/media";
 import { flexColumn } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
   background: ${neutral02};
   ${flexColumn};
   padding: 48px 32px;
-  width: 100%;
+  width: calc(100% / 4 - 24px);
+
+  @media ${device.sm} {
+    padding: 32px 16px;
+    width: calc(100% / 2 - 12px);
+  }
 `;
 
 export const Title = styled(Typography)`

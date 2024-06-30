@@ -5,15 +5,7 @@ import { black900, neutral03, neutral04, neutral07, white } from "styles/colors"
 import { InterBold } from "styles/fonts";
 import { flexAlignCenter, flexCenter, scrollBar } from "styles/mixins";
 
-export const Title = styled(Typography)`
-  ${flexAlignCenter};
-  justify-content: space-between;
-  margin-bottom: 16px !important;
 
-  button {
-    padding: 0 !important;
-  }
-`;
 
 export const ProductQuantity = styled(Box)`
   width: 20px;
@@ -75,4 +67,5 @@ export const Total = styled(Box)`
 export const IconButton = styled(MuiIconButton)`
     width: 40px;
     height: 40px;
+    }
 `

@@ -43,6 +43,12 @@ declare module "*.webp" {
   export default src;
 }
 
+declare module "*.svg?react" {
+  import type { FC, SVGProps } from "react";
+  const content: FC<SVGProps<SVGElement>>;
+  export default content;
+}
+
 declare module "*.svg" {
   import type * as React from "react";
 
@@ -50,12 +56,6 @@ declare module "*.svg" {
 
   const src: string;
   export default src;
-}
-
-declare module "*.svg?react" {
-  import type { FC, SVGProps } from "react";
-  const content: FC<SVGProps<SVGElement>>;
-  export default content;
 }
 
 declare module "*.woff";

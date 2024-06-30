@@ -93,4 +93,12 @@ export declare global {
     subtitle: string;
     breadcrumbs: ReactNode;
   }
+
+  interface Drawer {
+    title: string;
+    toggleDrawer: () => void;
+    open?: boolean;
+    children: ReactNode;
+    isRight?: boolean;
+  }
 }

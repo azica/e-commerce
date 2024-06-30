@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { neutral01, neutral03, neutral04, neutral07 } from "styles/colors";
 import { InterRegular, PoppinsRegular, PoppinsSemiBold } from "styles/fonts";
+import { device } from "styles/media";
 import { flexAlignCenter, flexColumn } from "styles/mixins";
 
 export const FooterWrap = styled("footer")`
@@ -13,7 +14,11 @@ export const FooterWrap = styled("footer")`
   & > div {
     ${flexColumn};
     gap: 56px;
-  }
+
+     @media ${device.xs} {
+      justify-content: center;
+      text-align: center;
+    }
 
   span {
     width: 1px;
@@ -48,6 +53,16 @@ export const FooterBottomBar = styled(Box)`
   gap: 28px;
   border-top: 1px solid ${neutral04};
   padding: 14px 0;
+  flex-wrap: wrap;
+
+  @media ${device.xs} {
+    justify-content: center;
+    text-align: center;
+
+    & ul {
+      margin: auto;
+    }
+  }
 
   a {
     font-family: ${PoppinsSemiBold};
@@ -64,6 +79,7 @@ export const FooterBottomBar = styled(Box)`
 
   & ul {
     margin-left: auto;
+    padding: 0
   }
 `;
 

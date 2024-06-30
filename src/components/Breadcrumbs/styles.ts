@@ -22,6 +22,11 @@ export const BreadcrumbsWrapper = styled(MiuBreadcrumbs)`
   .MuiBreadcrumbs-separator {
     width: 12px;
   }
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
 `;
 
 export const BreadcrumbsLink = styled(Link)`

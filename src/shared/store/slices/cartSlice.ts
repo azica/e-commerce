@@ -18,7 +18,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, { payload }: PayloadAction<Model.Product>) => {
-      const itemIndex = state.cartList.findIndex((item) => item.id === payload.id);
+      const itemIndex = state.cartList.findIndex((item: Model.Product) => item.id === payload.id);
       if (itemIndex >= 0) {
         state.cartList[itemIndex].quantity++;
       } else {
@@ -28,12 +28,12 @@ const cartSlice = createSlice({
       localStorage.setItem("cartList", JSON.stringify(state.cartList));
     },
     removeFromCart: (state, { payload }: PayloadAction<number>) => {
-      state.cartList = state.cartList.filter((item) => item.id !== payload);
+      state.cartList = state.cartList.filter((item: Model.Product) => item.id !== payload);
       updateTotals(state);
       localStorage.setItem("cartList", JSON.stringify(state.cartList));
     },
     incrementQuantity: (state, { payload }: PayloadAction<number>) => {
-      const itemIndex = state.cartList.findIndex((item) => item.id === payload);
+      const itemIndex = state.cartList.findIndex((item: Model.Product) => item.id === payload);
       if (itemIndex >= 0) {
         state.cartList[itemIndex].quantity++;
         updateTotals(state);
@@ -41,7 +41,7 @@ const cartSlice = createSlice({
       }
     },
     decrementQuantity: (state, { payload }: PayloadAction<number>) => {
-      const itemIndex = state.cartList.findIndex((item) => item.id === payload);
+      const itemIndex = state.cartList.findIndex((item: Model.Product) => item.id === payload);
       if (itemIndex >= 0 && state.cartList[itemIndex].quantity > 1) {
         state.cartList[itemIndex].quantity--;
         updateTotals(state);

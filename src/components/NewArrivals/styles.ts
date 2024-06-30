@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 
 import { neutral05 } from "styles/colors";
+import { device } from "styles/media";
 import { flexColumn } from "styles/mixins";
 
 const calculateMarginLeft = () => {
@@ -15,8 +16,13 @@ export const Section = styled("section")`
   ${flexColumn};
   gap: 48px;
 `;
+
 export const Inner = styled(Box)`
   margin-left: ${calculateMarginLeft}px;
+
+  @media ${device.xs} {
+    margin-left: 32px;
+  }
 
   .swiper-wrapper {
     margin-bottom: 48px;
@@ -27,8 +33,11 @@ export const Inner = styled(Box)`
     margin-top: 48px;
     bottom: 0;
     left: 0;
-    width: 100%;
     max-width: 1120px;
+
+    @media ${device.xs} {
+      width: calc(100% - 32px);
+    }
   }
 
   .swiper-scrollbar-drag {

@@ -18,6 +18,7 @@ export const Content = styled(Box)`
   width: 100%;
   color: ${neutral07};
   text-align: center;
+  margin: 0 auto;
 
   p {
     font-size: 18px;
