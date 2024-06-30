@@ -25,7 +25,6 @@ export const LayoutContent = () => {
 
     setNoTransition(shouldSkipTransition);
 
-    // Update previous pathname only if the pathname changed
     if (pathname !== prevPathname) {
       setPrevPathname(pathname);
     }

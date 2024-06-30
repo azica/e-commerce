@@ -1,25 +1,21 @@
-import { IconButton } from "@mui/material";
-import { useState } from "react";
-
-import { SearchIcon } from "assets/icons";
 import { ProductCart } from "components/ProductCart";
 import { ProfileMenu } from "components/ProfileMenu";
+import { SearchBlock } from "components/SearchBlock";
+import { useIsMobile } from "hooks/useMobile";
 
 import { Wrapper } from "./styles";
 
 export const HeaderActions = () => {
-  const [showSearchBar, setShowSearchBar] = useState(false);
-
-  const searchHandle = () => {
-    setShowSearchBar(!showSearchBar);
-  };
+  const isMobile = useIsMobile(1020);
 
   return (
     <Wrapper>
-      <IconButton onClick={searchHandle}>
-        <SearchIcon />
-      </IconButton>
-      <ProfileMenu />
+      {isMobile ? null : (
+        <>
+          <SearchBlock />
+          <ProfileMenu />
+        </>
+      )}
       <ProductCart />
     </Wrapper>
   );

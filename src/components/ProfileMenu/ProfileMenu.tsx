@@ -1,6 +1,6 @@
 import type { MouseEvent } from "react";
 
-import { Menu, IconButton, MenuItem } from "@mui/material";
+import { Menu, MenuItem } from "@mui/material";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { UserCircleIcon } from "assets/icons";
 import { clearLocalStorage } from "shared/helpers/localStorage";
 import { useActions, useAppSelector } from "shared/store/hooks";
 import { neutral07, green } from "styles/colors";
+import { Button } from "./styles";
 
 export const ProfileMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -42,14 +43,14 @@ export const ProfileMenu = () => {
 
   return (
     <>
-      <IconButton
+      <Button
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}>
         <UserCircleIcon style={{ color: user ? green : neutral07 }} />
-      </IconButton>
+      </Button>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}

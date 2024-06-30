@@ -1,4 +1,4 @@
-import { IconButton, Drawer, Typography } from "@mui/material";
+import { Drawer, Typography } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import { Button } from "components/FormElements";
 import { useAppSelector } from "shared/store/hooks";
 
 import { ProductCartItem } from "./ProductCartItem/ProductCartItem";
-import { Title, ProductQuantity, CartList, Subtotal, Total, Summary } from "./styles";
+import { Title, ProductQuantity, CartList, Subtotal, Total, Summary, IconButton } from "./styles";
 
 export const ProductCart = () => {
   const [open, setOpen] = useState(false);
@@ -22,19 +22,22 @@ export const ProductCart = () => {
     <>
       <IconButton onClick={toggleDrawer(true)}>
         <ShopBagIcon />
-        <ProductQuantity>
-          <span>{totalQuantity || 0}</span>
-        </ProductQuantity>
       </IconButton>
+      <ProductQuantity>
+        <span>{totalQuantity || 0}</span>
+      </ProductQuantity>
+
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
-        <Title variant="h6">
+        <Title variant="h6" color="black.900">
           Cart
           <IconButton onClick={toggleDrawer(false)}>
             <CloseIcon />
           </IconButton>
         </Title>
         {cartList.length === 0 ? (
-          <Typography variant="body2">There is no products in the cart!</Typography>
+          <Typography variant="body2" fontFamily="interSemiBold" color="primary.700">
+            There is no products in the cart!
+          </Typography>
         ) : (
           <CartList className={cartList.length > 2 ? "scrollbar" : ""}>
             {cartList.map((product) => (
@@ -45,14 +48,20 @@ export const ProductCart = () => {
 
         <Summary>
           <Subtotal>
-            <Typography variant="body2">Subtotal</Typography>
-            <Typography variant="body2" className="subtotal">
+            <Typography variant="body2" fontFamily="interRegular" color="primary.700">
+              Subtotal
+            </Typography>
+            <Typography variant="body2" fontFamily="interSemiBold" color="primary.700">
               ${subtotal}
             </Typography>
           </Subtotal>
           <Total>
-            <Typography variant="heading7">Total</Typography>
-            <Typography variant="heading7">${total}</Typography>
+            <Typography variant="heading7" color="primary.700">
+              Total
+            </Typography>
+            <Typography variant="heading7" color="primary.700">
+              ${total}
+            </Typography>
           </Total>
           <Button variant="contained" fullWidth>
             Checkout

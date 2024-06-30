@@ -33,7 +33,7 @@ export const Layout = () => {
       ) : (
         <Wrapper>
           <Header />
-          <Container>
+          <Container className={authUrls.includes(lastItem || "") ? "" : "hasMarginTop"}>
             <LayoutContent />
           </Container>
           {showNewsLetterSection && <NewsLetter />}

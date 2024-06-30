@@ -12,6 +12,10 @@ export const layoutStyles = {
   `,
   Container: styled.main`
     position: relative;
+
+    &.hasMarginTop {
+      margin-top: 60px;
+    }
   `,
   Wrapper: styled.div`
     min-height: 100vh;

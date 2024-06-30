@@ -1,5 +1,5 @@
-export const baseApiUrl = process.env.REACT_APP_API_URL;
-export const authApiUrl = process.env.REACT_APP_AUTH_URL;
+export const baseApiUrl = import.meta.env.VITE_API_URL;
+export const authApiUrl = import.meta.env.VITE_AUTH_URL;
 
 export const MONTH_NAMES_RU: string[] = [
   "янв",

@@ -31,4 +31,9 @@ export const IconWrap = styled(Box)`
   width: 48px;
   height: 48px;
   margin-bottom: 17px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `;

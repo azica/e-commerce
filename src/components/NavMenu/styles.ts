@@ -6,4 +6,8 @@ export const MenuWrap = styled("nav")`
   flex: 1;
   ${flexCenter};
   gap: 20px;
+
+  &.mobileMenu {
+    display: none;
+  }
 `;

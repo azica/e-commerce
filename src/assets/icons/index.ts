@@ -46,4 +46,5 @@ export { ReactComponent as Grid3Icon } from "./grid3.svg";
 export { ReactComponent as Grid4Icon } from "./grid4.svg";
 export { ReactComponent as CloseIcon } from "./close.svg";
 export { ReactComponent as MinusIcon } from "./minus.svg";
-export { ReactComponent as AddIcon } from "./add.svg";
+export { ReactComponent as PlusIcon } from "./plus.svg";
+export { ReactComponent as HamburgerIcon } from "./hamburger.svg";

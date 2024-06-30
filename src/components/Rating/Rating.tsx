@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { StarFilledIcon, StarHalfIcon, StarIcon } from "assets/icons";
 
-import { Star, Wrapper } from "./styles";
+import { Star, Wrapper, Reviews, Stars } from "./styles";
 
-export const Rating = ({ stars }: { stars: number }) => {
+export const Rating = ({ stars, reviews }: { stars: number; reviews?: Model.Review[] }) => {
   const [rating, setRating] = useState(stars);
 
   const handleHover = (value: number) => {
@@ -20,26 +20,33 @@ export const Rating = ({ stars }: { stars: number }) => {
 
   return (
     <Wrapper>
-      {[1, 2, 3, 4, 5].map((index) => {
-        const roundedRating = Math.round(rating * 2) / 2;
-        let icon;
-        if (index <= roundedRating) {
-          icon = <StarFilledIcon />;
-        } else if (index - 0.5 === roundedRating) {
-          icon = <StarHalfIcon />;
-        } else {
-          icon = <StarIcon />;
-        }
-        return (
-          <Star
-            key={index}
-            onMouseEnter={() => handleHover(index)}
-            onMouseLeave={() => handleHover(stars)}
-            onClick={() => handleClick(index)}>
-            {icon}
-          </Star>
-        );
-      })}
+      <Stars>
+        {[1, 2, 3, 4, 5].map((index) => {
+          const roundedRating = Math.round(rating * 2) / 2;
+          let icon;
+          if (index <= roundedRating) {
+            icon = <StarFilledIcon />;
+          } else if (index - 0.5 === roundedRating) {
+            icon = <StarHalfIcon />;
+          } else {
+            icon = <StarIcon />;
+          }
+          return (
+            <Star
+              key={index}
+              onMouseEnter={() => handleHover(index)}
+              onMouseLeave={() => handleHover(stars)}
+              onClick={() => handleClick(index)}>
+              {icon}
+            </Star>
+          );
+        })}
+      </Stars>
+      {reviews && reviews.length > 0 ? (
+        <Reviews fontFamily="fontFamily.interRegular" color="primary.700">
+          {reviews.length} reviews
+        </Reviews>
+      ) : null}
     </Wrapper>
   );
 };

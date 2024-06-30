@@ -14,19 +14,12 @@ export const Filter = styled(Box)`
   ${flexAlignCenter};
   gap: 8px;
 
-  p {
-    color: ${black900};
-    font-family: ${InterSemiBold};
-  }
-
   svg {
     width: 24px;
     height: 24px;
   }
 `;
 export const Title = styled(Typography)`
-  color: ${black900};
-  font-family: ${InterSemiBold}!important;
   text-transform: uppercase;
   margin-bottom: 16px !important;
 `;

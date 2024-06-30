@@ -32,4 +32,8 @@ export const ProductService = {
     const res = await axios.get<GetProducts>(url);
     return res.data;
   },
+  async getProduct(id: number): Promise<Model.Product | ErrorResponse> {
+    const res = await axios.get<GetProducts & ErrorResponse>(`${baseApiUrl}${Endpoints.GET_PRODUCTS}/${id}`);
+    return res.data;
+  },
 };

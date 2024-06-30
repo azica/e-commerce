@@ -1,12 +1,18 @@
-import { Section, Title, SubTitle, Inner } from "./styles";
+import { Typography } from "@mui/material";
+
+import { Section, Inner } from "./styles";
 
 export const PageHeader = ({ title, bg, subtitle, breadcrumbs }: PageHeader) => {
   return (
     <Section bg={bg}>
       <Inner>
         {breadcrumbs}
-        <Title variant="h3">{title}</Title>
-        <SubTitle variant="body1">{subtitle}</SubTitle>
+        <Typography variant="h3" color="black.100">
+          {title}
+        </Typography>
+        <Typography variant="body1" color="black.900">
+          {subtitle}
+        </Typography>
       </Inner>
     </Section>
   );

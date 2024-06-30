@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -24,11 +24,9 @@ export const FooterWrap = styled("footer")`
   }
 `;
 
-export const Slogan = styled("p")`
-  font-family: ${InterRegular}!important;
+export const Slogan = styled(Typography)`
   font-size: 14px;
   line-height: 22px;
-  color: ${neutral03};
 `;
 
 export const FooterLink = styled(Link)`

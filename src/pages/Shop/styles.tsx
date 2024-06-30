@@ -2,8 +2,6 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 
 import { Button } from "components/FormElements";
-import { black } from "styles/colors";
-import { InterSemiBold } from "styles/fonts";
 import { flexColumn } from "styles/mixins";
 
 export const Inner = styled(Box)`
@@ -24,8 +22,6 @@ export const Toolbar = styled(Box)`
   gap: 32px;
 
   .MuiTypography-body1 {
-    font-family: ${InterSemiBold};
-    color: ${black};
     margin-right: auto;
     text-transform: capitalize;
   }

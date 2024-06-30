@@ -1,7 +1,7 @@
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
 
-import { neutral02, neutral04, neutral07, white } from "styles/colors";
+import { neutral02, neutral04, neutral07 } from "styles/colors";
 import { InterSemiBold } from "styles/fonts";
 import { flexAlignCenter, flexColumn } from "styles/mixins";
 
@@ -55,26 +55,12 @@ export const Badges = styled(Box)`
   gap: 8px;
 `;
 
-export const Wishlist = styled(IconButton)`
+export const WishlistButtonWrap = styled(Box)`
   position: absolute !important;
   top: 16px;
   right: -32px;
-  gap: 16px;
-  width: 32px;
-  height: 32px;
-  background-color: ${white}!important;
-  box-shadow: 0 8px 16px -8px rgba(15, 15, 15, 12%);
-`;
-
-export const AddToCart = styled(Box)`
-  position: absolute;
-  bottom: -100px;
-  right: 16px;
-  left: 16px;
-
-  button {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 3.64%) !important;
-  }
+  border-radius: 50% !important;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 3.64%) !important;
 `;
 
 export const Content = styled(Box)`
@@ -105,5 +91,16 @@ export const Price = styled(Box)`
       color: ${neutral04};
       text-decoration: line-through;
     }
+  }
+`;
+
+export const AddToCartButton = styled(Box)`
+  position: absolute;
+  bottom: -100px;
+  right: 16px;
+  left: 16px;
+
+  button {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 3.64%) !important;
   }
 `;

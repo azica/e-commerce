@@ -37,5 +37,5 @@ export const useErrorHandling = ({ data, navigateUrl, setValues, setIsLoading, i
         autoHideDuration: null,
       });
     }
-  }, [navigate, navigateUrl, setValues, setIsLoading, inputProps, enqueueSnackbar, data]);
+  }, [navigate, navigateUrl, inputProps, enqueueSnackbar, data]);
 };

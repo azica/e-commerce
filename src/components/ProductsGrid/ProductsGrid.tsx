@@ -15,7 +15,7 @@ export const ProductsGrid = ({
     <Grid>
       {isLoading && products.length === 0
         ? Array.from({ length: 9 }).map((_, index) => <ProductCardSkeleton key={index} />)
-        : products.map((product) => <ProductCard key={product.id} {...product} />)}
+        : products.map((product) => <ProductCard key={product.id} product={product} />)}
     </Grid>
   );
 };

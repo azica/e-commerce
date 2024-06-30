@@ -1,7 +1,6 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
-import { black, black900 } from "styles/colors";
 import { flexCenter, flexColumn } from "styles/mixins";
 
 export const Section = styled("section")<{ bg: string }>`
@@ -17,12 +16,4 @@ export const Inner = styled(Box)`
   max-width: 450px;
   margin: auto;
   text-align: center;
-`;
-
-export const Title = styled(Typography)`
-  color: ${black};
-`;
-
-export const SubTitle = styled(Typography)`
-  color: ${black900};
 `;

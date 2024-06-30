@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
 
-import arrowLeft from "assets/icons/arrowLeft.svg";
+import arrowLeft from "assets/icons/arrowLeft.svg?react";
 import { white } from "styles/colors";
 
 export const Inner = styled(Box)`

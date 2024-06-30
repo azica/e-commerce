@@ -1,3 +1,6 @@
+/// <reference types="vite/client" />
+/// <reference types="vite-plugin-svgr/client" />
+
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly NODE_ENV: "development" | "production" | "test";
@@ -47,6 +50,12 @@ declare module "*.svg" {
 
   const src: string;
   export default src;
+}
+
+declare module "*.svg?react" {
+  import type { FC, SVGProps } from "react";
+  const content: FC<SVGProps<SVGElement>>;
+  export default content;
 }
 
 declare module "*.woff";

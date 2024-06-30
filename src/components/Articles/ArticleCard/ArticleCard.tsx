@@ -9,7 +9,9 @@ export const ArticleCard = ({ title, id }: Model.Article) => {
       <Image>
         <img src={articleImage1} alt={title} />
       </Image>
-      <Title variant="heading7">{title}</Title>
+      <Title variant="heading7" color="primary.600">
+        {title}
+      </Title>
       <Link linkLabel="Read More" link={`/posts/${id}`} />
     </Wrapper>
   );

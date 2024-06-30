@@ -21,19 +21,10 @@ export const Sort = ({ options, placeholder }: { options: Option[]; placeholder:
       return searchParams;
     });
   };
-  console.log(defaultValue);
 
   return (
     <Wrapper>
-      <Select
-        options={options}
-        onChange={changeValue}
-        id={1}
-        value={defaultValue}
-        field={"sortBy"}
-        placeholder={placeholder}
-        replaceName
-      />
+      <Select options={options} onChange={changeValue} id={1} value={defaultValue} field={"sortBy"} replaceName />
     </Wrapper>
   );
 };

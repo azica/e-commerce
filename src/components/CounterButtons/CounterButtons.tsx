@@ -1,9 +1,17 @@
-import { AddIcon, MinusIcon } from "assets/icons";
+import { MinusIcon, PlusIcon } from "assets/icons";
 import { useActions, useAppSelector } from "shared/store/hooks";
 
 import { Wrapper, Button } from "./styles";
 
-export const CounterButtons = ({ productId }: { productId: number }) => {
+export const CounterButtons = ({
+  productId,
+  outlined,
+  isBig,
+}: {
+  productId: number;
+  outlined?: boolean;
+  isBig?: boolean;
+}) => {
   const { incrementQuantity, decrementQuantity } = useActions();
   const product = useAppSelector((state) => state.cart.cartList.find((item) => item.id === productId));
 
@@ -15,14 +23,15 @@ export const CounterButtons = ({ productId }: { productId: number }) => {
     decrementQuantity(productId);
   };
 
+  const className = `${outlined ? "outlined" : ""} ${isBig ? "big" : ""}`;
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <Button onClick={handleDecrement} disabled={!product}>
         <MinusIcon />
       </Button>
       <span>{product?.quantity || 0}</span>
       <Button onClick={handleIncrement}>
-        <AddIcon />
+        <PlusIcon />
       </Button>
     </Wrapper>
   );

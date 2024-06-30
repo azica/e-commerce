@@ -42,8 +42,7 @@ export const GlobalStyle = createGlobalStyle`
   .fadeIn-exit {
     opacity: 0;
   }
-
-
+    
 .filterTitle-enter {
   opacity: 0;
   transition: opacity 300ms ease-in-out;

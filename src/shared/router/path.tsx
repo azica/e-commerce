@@ -5,6 +5,7 @@ import Blog from "pages/Blog";
 import ContactUs from "pages/ContactUs";
 import Main from "pages/Main";
 import PasswordRecovery from "pages/PasswordRecovery";
+import Product from "pages/Product";
 import { Shop } from "pages/Shop";
 
 import ProtectedRoute from "./ProtectedRoute";
@@ -63,5 +64,10 @@ export const basicPaths = [
     path: "/blog",
     id: 7,
     element: <Blog />,
+  },
+  {
+    path: "/product/:id",
+    id: 8,
+    element: <Product />,
   },
 ];

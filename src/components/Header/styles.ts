@@ -17,3 +17,8 @@ export const Wrapper = styled("header")`
 export const Inner = styled(Box)`
   ${flexAlignCenter}
 `;
+
+export const LogoWrap = styled(Box)`
+   ${flexAlignCenter};
+    gap: 5px;
+`

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { navmenu } from "assets/data/mockdata";
+import { navMenu } from "assets/data/mockdata";
 import { Logo } from "components/Logo/Logo";
 import { SocialLinks } from "components/SocialLinks";
 import { Container } from "components/Wrappers/Container";
@@ -18,10 +18,12 @@ export const Footer = () => {
           <Box display="flex" alignItems="center" gap={3}>
             <Logo isWhite />
             <span> | </span>
-            <Slogan> Gift & Decoration Store</Slogan>
+            <Slogan fontFamily="fontFamily.interRegular" color="primary.300">
+              Gift & Decoration Store
+            </Slogan>
           </Box>
           <Box display="flex" alignItems="center" gap={3}>
-            {navmenu.map((link) => (
+            {navMenu.map((link) => (
               <FooterLink to={link.url} key={link.id}>
                 {link.title}
               </FooterLink>

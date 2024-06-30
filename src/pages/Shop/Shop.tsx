@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { sortOptions } from "assets/data/mockdata";
@@ -18,6 +18,7 @@ import { Content, Inner, Toolbar, ShowMoreButton } from "./styles";
 
 export const Shop = () => {
   const [gridLayout, setGridLayout] = useState("grid1");
+  const productsGridRef = useRef<HTMLDivElement>(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const [limit, setLimit] = useState(10);
   const [skip, setSkip] = useState(0);
@@ -40,6 +41,10 @@ export const Shop = () => {
       newParams.set("skip", (skip + limit).toString());
       return newParams;
     });
+
+    if (productsGridRef.current) {
+      productsGridRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -48,10 +53,10 @@ export const Shop = () => {
         bg={shopBg}
         title="Shop Page"
         subtitle="Let’s design the place you always imagined."
-        breadcrumbs={<Breadcrumbs />}
+        breadcrumbs={<Breadcrumbs center />}
       />
       <Container>
-        <Inner>
+        <Inner ref={productsGridRef}>
           <SideBar />
           <Content>
             <Toolbar>

@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
 
-import { neutral06 } from "styles/colors";
 import { flexColumn } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
@@ -34,7 +33,6 @@ export const Image = styled(Box)`
 `;
 
 export const Title = styled(Typography)`
-  color: ${neutral06};
   margin-bottom: 8px !important;
   width: 100%;
   white-space: nowrap;

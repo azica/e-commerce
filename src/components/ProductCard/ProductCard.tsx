@@ -1,63 +1,43 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { CheckedIcon, HeartFilledIcon, HeartIcon } from "assets/icons";
+import { HeartFilledIcon, HeartIcon } from "assets/icons";
+import { AddToCart } from "components/AddToCart";
 import { Badge } from "components/Badge";
-import { Button } from "components/FormElements";
 import { Rating } from "components/Rating";
-import { useActions, useAppSelector } from "shared/store/hooks";
+import { WishlistButton } from "components/WishlistButton";
 
-import { Wrapper, Image, Badges, AddToCart, Wishlist, Content, Title, Price } from "./styles";
+import { Wrapper, Image, Badges, WishlistButtonWrap, Content, Title, Price, AddToCartButton } from "./styles";
 
-export const ProductCard = ({ title, thumbnail, rating, price, discountPercentage, id, ...other }: Model.Product) => {
-  const [wishlistAdded] = useState(true);
-  const { cartList } = useAppSelector((state) => state.cart);
-  const isInCart = cartList.some((item) => item.id === id);
-
-  const discountedPrice = discountPercentage ? price * (1 - discountPercentage / 100) : null;
-
-  const { addToCart } = useActions();
-
-  const addToCartHandle = (product: Model.Product) => {
-    addToCart(product);
-  };
+export const ProductCard = ({ product }: { product: Model.Product }) => {
+  const discountedPrice = product.discountPercentage ? product.price * (1 - product.discountPercentage / 100) : null;
 
   return (
     <Wrapper>
       <Image>
-        <img src={thumbnail} alt={title} />
+        <img src={product.thumbnail} alt={product.title} />
         <Badges>
           <Badge size="medium">New</Badge>
-          {discountPercentage ? (
+          {product.discountPercentage ? (
             <Badge greenBg={true} size="medium">
-              -{discountPercentage.toFixed(0)}%
+              -{product.discountPercentage.toFixed(0)}%
             </Badge>
           ) : null}
         </Badges>
-        <Wishlist className="wishlist">{wishlistAdded ? <HeartFilledIcon /> : <HeartIcon />}</Wishlist>
-        <AddToCart className="addToCart">
-          <Button
-            variant="contained"
-            size="medium"
-            fullWidth
-            onClick={() => addToCartHandle({ id, title, thumbnail, rating, price, discountPercentage, ...other })}>
-            {isInCart ? (
-              <>
-                <CheckedIcon style={{ marginRight: "4px" }} /> Added
-              </>
-            ) : (
-              "Add to cart"
-            )}
-          </Button>
-        </AddToCart>
+        <WishlistButtonWrap className="wishlist">
+          <WishlistButton product={product} small />
+        </WishlistButtonWrap>
+        <AddToCartButton className="addToCart">
+          <AddToCart product={product} size="medium" />
+        </AddToCartButton>
       </Image>
       <Content>
-        <Rating stars={rating} />
+        <Rating stars={product.rating} />
         <Title variant="body2">
-          <Link to={`/products/${id}`}>{title}</Link>
+          <Link to={`/product/${product.id}`}>{product.title}</Link>
         </Title>
         <Price>
-          <span>$ {price}</span>
+          <span>$ {product.price}</span>
           {discountedPrice ? <span className="oldPrice">$ {discountedPrice.toFixed(2)}</span> : null}
         </Price>
       </Content>

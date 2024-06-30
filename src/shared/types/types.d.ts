@@ -16,6 +16,19 @@ declare global {
       creationAt?: string;
     }
 
+    interface Dimensions {
+      width: number;
+      height: number;
+      depth: number;
+    }
+
+    interface Review {
+      rating: number;
+      comment: string;
+      reviewerEmail: string;
+      reviewerName: string;
+    }
+
     interface Product {
       id: number;
       title: string;
@@ -28,6 +41,9 @@ declare global {
       thumbnail?: string;
       description?: string;
       rating: number;
+      dimensions?: Dimensions;
+      sku?: string;
+      reviews?: Review[];
     }
 
     interface Article {

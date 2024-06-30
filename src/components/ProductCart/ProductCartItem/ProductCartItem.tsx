@@ -1,10 +1,10 @@
 import { IconButton } from "@mui/material";
 
 import { CloseIcon } from "assets/icons";
+import { CounterButtons } from "components/CounterButtons";
 import { useActions } from "shared/store/hooks";
 
 import { Title, Image, SubTitle, Wrapper, RightSide, Info } from "./styles";
-import { CounterButtons } from "../CounterButtons";
 
 export const ProductCartItem = ({ title, price, thumbnail, category, id }: Model.Product) => {
   const { removeFromCart } = useActions();
@@ -21,7 +21,7 @@ export const ProductCartItem = ({ title, price, thumbnail, category, id }: Model
       <Info>
         <Title>{title}</Title>
         <SubTitle>{category}</SubTitle>
-        <CounterButtons productId={id} />
+        <CounterButtons productId={id} outlined />
       </Info>
       <RightSide>
         <Title>${price}</Title>

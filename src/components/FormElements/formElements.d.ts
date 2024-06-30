@@ -106,10 +106,12 @@ export declare global {
     disabled?: boolean;
   } & Preloader;
 
+  type Size = "large" | "small" | "medium";
+
   type Button = FC<{
     variant?: "outlined" | "contained" | "text";
     color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning";
-    size?: "large" | "small" | "medium";
+    size?: Size;
     type?: "button" | "submit" | "reset";
     disabled?: boolean;
     children: ReactNode;

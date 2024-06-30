@@ -7,3 +7,8 @@ export const Wrapper = styled(Box)`
   ${flexAlignCenter};
   margin-left: auto;
 `;
+
+export const LogoWrap = styled(Box)`
+  ${flexAlignCenter};
+  gap: 4px;
+`;

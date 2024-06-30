@@ -6,14 +6,13 @@ import { neutral07 } from "styles/colors";
 import { InterMedium } from "styles/fonts";
 import { flexAlignCenter } from "styles/mixins";
 
-export const Inner = styled(Box)`
+export const Wrapper = styled(Box)`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 `;
 
 export const Title = styled(Typography)`
-  color: ${neutral07};
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

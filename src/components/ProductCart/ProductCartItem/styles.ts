@@ -25,6 +25,7 @@ export const SubTitle = styled("p")`
   color: ${neutral04};
   font-family: ${InterRegular};
   text-transform: capitalize;
+  margin-bottom: 8px;
 `;
 
 export const Image = styled(Box)`

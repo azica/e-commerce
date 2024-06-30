@@ -18,14 +18,20 @@ export const SideBar = () => {
     <Wrapper>
       <Filter>
         <FilterIcon />
-        <Typography variant="body1">Filter</Typography>
+        <Typography variant="body1" color="black.900" fontFamily="fontFamily.interSemiBold">
+          Filter
+        </Typography>
       </Filter>
       <Box>
-        <Title variant="body2">CATEGORIES</Title>
+        <Title variant="body2" color="black.900" fontFamily="fontFamily.interSemiBold">
+          CATEGORIES
+        </Title>
         {isSuccess && data ? <SideMenu list={data as string[]} /> : null}
       </Box>
       <Box>
-        <Title variant="body2">PRICE</Title>
+        <Title variant="body2" color="black.900" fontFamily="fontFamily.interSemiBold">
+          PRICE
+        </Title>
         <CheckboxList list={prices} searchParamName="prices" />
       </Box>
     </Wrapper>

@@ -5,12 +5,12 @@ import axios from "axios";
 import { getTokensFromStorage, setTokenFromStorage } from "shared/helpers/localStorage";
 
 import { Endpoints } from "./endpoints";
+import { authApiUrl } from "shared/constants";
 
-export const baseApiUrl = process.env.REACT_APP_AUTH_URL;
 
 export const $api: AxiosInstance = axios.create({
   // withCredentials: true,
-  baseURL: baseApiUrl,
+  baseURL: authApiUrl,
   headers: { "Content-Type": "application/json" },
 });
 
@@ -26,7 +26,7 @@ $api.interceptors.request.use((config) => {
 
 export const refreshToken = async ({ response, token }: { response: AxiosResponse; token: string }) => {
   try {
-    const { data }: AxiosResponse<Tokens> = await axios.post(baseApiUrl + Endpoints.REFRESH_TOKEN, {
+    const { data }: AxiosResponse<Tokens> = await axios.post(authApiUrl + Endpoints.REFRESH_TOKEN, {
       refresh: token,
     });
     setTokenFromStorage(data);
@@ -70,6 +70,6 @@ export default $api;
 
 export const $withoutTokenApi: AxiosInstance = axios.create({
   // withCredentials: true,
-  baseURL: baseApiUrl,
+  baseURL: authApiUrl,
   headers: { "Content-Type": "application/json" },
 });

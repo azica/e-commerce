@@ -1,7 +1,7 @@
 import { Box, MenuItem as MenuItemMui } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import { neutral02, black, white, neutral07, neutral04 } from "styles/colors";
+import { neutral02, black, white, neutral07, neutral04, black900 } from "styles/colors";
 import { InterSemiBold } from "styles/fonts";
 import { rgba } from "styles/mixins";
 
@@ -9,7 +9,7 @@ export const Placeholder = styled(Box)`
   font-family: ${InterSemiBold};
   font-size: 16px;
   line-height: 26px;
-  color: ${neutral07};
+  color: ${black900};
 `;
 
 export const MenuItem = styled(MenuItemMui)`

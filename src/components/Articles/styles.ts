@@ -8,6 +8,13 @@ export const Section = styled("section")`
 `;
 export const Inner = styled(Box)`
   ${flexAlignCenter};
+  justify-content: center;
   gap: 25px;
   margin-top: 40px;
+  flex-wrap: wrap;
+
+  & > div {
+    width: 100%;
+    max-width: 355px;
+  }
 `;

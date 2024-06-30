@@ -1,12 +1,11 @@
-import { Box, List, Typography } from "@mui/material";
+import { Box, IconButton as MuiIconButton, List, Typography } from "@mui/material";
 import styled from "styled-components";
 
 import { black900, neutral03, neutral04, neutral07, white } from "styles/colors";
-import { InterBold, InterRegular } from "styles/fonts";
+import { InterBold } from "styles/fonts";
 import { flexAlignCenter, flexCenter, scrollBar } from "styles/mixins";
 
 export const Title = styled(Typography)`
-  color: ${black900};
   ${flexAlignCenter};
   justify-content: space-between;
   margin-bottom: 16px !important;
@@ -65,18 +64,15 @@ export const Subtotal = styled(Box)`
   justify-content: space-between;
   border-bottom: 1px solid ${neutral03};
   padding: 13px 0;
-  color: ${neutral07};
-  p {
-    font-family: ${InterRegular};
-  }
-  .subtotal {
-    font-family: ${InterBold};
-  }
 `;
 
 export const Total = styled(Box)`
   ${flexAlignCenter};
   justify-content: space-between;
   padding: 13px 0;
-  color: ${neutral07};
 `;
+
+export const IconButton = styled(MuiIconButton)`
+    width: 40px;
+    height: 40px;
+`

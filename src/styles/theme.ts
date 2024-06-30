@@ -1,12 +1,49 @@
 import { createTheme } from "@mui/material";
 
-import { red, white, black, neutral02, neutral07, neutral04, neutral03 } from "styles/colors";
-import { PoppinsRegular, PoppinsMedium, InterRegular } from "styles/fonts";
+import {
+  red,
+  white,
+  black,
+  neutral02,
+  neutral07,
+  neutral04,
+  neutral03,
+  black900,
+  neutral01,
+  neutral05,
+  neutral06,
+  black500,
+  black600,
+} from "styles/colors";
+import { PoppinsRegular, PoppinsMedium, InterRegular, InterSemiBold, InterBold, InterMedium } from "styles/fonts";
 
 import { rgba } from "./mixins";
 
 export const theme = createTheme({
+  palette: {
+    primary: {
+      100: neutral01,
+      200: neutral02,
+      300: neutral03,
+      400: neutral04,
+      500: neutral05,
+      600: neutral06,
+      700: neutral07,
+    },
+    black: {
+      100: black,
+      500: black500,
+      600: black600,
+      900: black900,
+    },
+  },
   typography: {
+    fontFamily: {
+      interRegular: InterRegular,
+      interMedium: InterMedium,
+      interSemiBold: InterSemiBold,
+      interBold: InterBold,
+    },
     heading7: {
       fontSize: "20px",
       lineHeight: "28px",
@@ -251,6 +288,8 @@ export const theme = createTheme({
       styleOverrides: {
         select: {
           paddingRight: "20px !important",
+          color: black900,
+          fontFamily: InterSemiBold,
         },
       },
     },

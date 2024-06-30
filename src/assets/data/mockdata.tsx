@@ -1,6 +1,6 @@
 import { CarIcon, FacebookIcon, InstagramIcon, LockIcon, MoneyIcon, PhoneIcon, YoutubeIcon } from "assets/icons";
 
-export const navmenu = [
+export const navMenu = [
   { id: 1, url: "/", title: "Home" },
   { id: 2, url: "/shop", title: "Shop" },
   { id: 3, url: "/blog", title: "Blog" },

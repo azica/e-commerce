@@ -17,6 +17,7 @@ export const neutral08 = "rgb(252, 252, 253)";
 
 export const textBlue = "rgb(62,62,89)";
 
+export const black100 = "rgb(245,245, 245)";
 export const black500 = "rgb(128, 126,126)";
 export const black600 = "rgb(96,95,95)";
 export const black900 = "rgb(18, 18,18)";

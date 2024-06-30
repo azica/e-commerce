@@ -12,6 +12,19 @@ export const productApi = createApi({
   }),
   tagTypes: ["Product"],
   endpoints: (builder) => ({
+    getProduct: builder.query<Model.Product | ErrorResponse, number>({
+      queryFn: async (id) => {
+        try {
+          const res = await ProductService.getProduct(id);
+          return { data: res };
+        } catch (error: any) {
+          return {
+            error: error.response?.data || error.message,
+          };
+        }
+      },
+      providesTags: ["Product"],
+    }),
     getProducts: builder.query<GetProducts | ErrorResponse, void>({
       queryFn: async () => {
         try {
@@ -63,4 +76,4 @@ export const productApi = createApi({
   }),
 });
 
-export const { useGetProductsQuery, useGetCategoriesQuery, useGetAllProductsQuery } = productApi;
+export const { useGetProductsQuery, useGetCategoriesQuery, useGetAllProductsQuery, useGetProductQuery } = productApi;
