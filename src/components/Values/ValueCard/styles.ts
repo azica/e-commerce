@@ -10,11 +10,16 @@ export const Wrapper = styled(Box)`
   background: ${neutral02};
   ${flexColumn};
   padding: 48px 32px;
-  width: calc(100% / 4 - 24px);
+  flex: 1 1 calc(25% - 24px);
 
   @media ${device.sm} {
     padding: 32px 16px;
-    width: calc(100% / 2 - 12px);
+    flex: 1 1 calc(33.33% - 24px);
+  }
+    @media ${device.xs} {
+    padding: 32px 16px;
+    flex: 1 1 calc(50% - 24px);
+    width: calc(100% / 2 - 24px);
   }
 `;
 
