@@ -3,10 +3,6 @@ import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-    esbuild: {
-        jsxFactory: 'jsx',
-        jsxInject: `import { jsx } from '@emotion/react'`,
-    },
     plugins: [
         svgr({
             include: "**/*.svg",
