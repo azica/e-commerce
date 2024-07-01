@@ -15,7 +15,7 @@ export default defineConfig({
                 }
             },
         }),
-        react(),
+        react({ jsxImportSource: "@emotion/react" })
     ],
     resolve: {
         alias: {
@@ -28,5 +28,15 @@ export default defineConfig({
             pages: '/src/pages',
             api: '/src/api',
         },
+    },
+    build: {
+        outDir: 'dist'
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@import "src/styles/global.scss";`
+            }
+        }
     },
 });
