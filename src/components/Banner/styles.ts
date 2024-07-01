@@ -53,7 +53,6 @@ export const Content = styled(Box)`
   }
 `;
 
-export const Inner = styled(Box)``;
 export const Sale = styled("div")`
   font-family: ${InterBold};
   text-transform: uppercase;

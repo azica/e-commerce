@@ -3,6 +3,10 @@ import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
+    esbuild: {
+        jsxFactory: 'jsx',
+        jsxInject: `import { jsx } from '@emotion/react'`,
+    },
     plugins: [
         svgr({
             include: "**/*.svg",
@@ -16,6 +20,7 @@ export default defineConfig({
             },
         }),
         react({
+            jsxRuntime: 'automatic',
             jsxImportSource: "@emotion/react",
             babel: {
                 plugins: ["@emotion/babel-plugin"],
@@ -36,12 +41,5 @@ export default defineConfig({
     },
     build: {
         outDir: 'dist'
-    },
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `@import "src/styles/global.scss";`
-            }
-        }
     },
 });
