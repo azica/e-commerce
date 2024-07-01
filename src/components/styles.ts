@@ -24,3 +24,8 @@ export const Wrapper = styled(Box)`
     grid-row: 1/2;
   }
 `;
+
+export const FooterWrapper = styled.div`
+  padding: 25px 0;
+  color: white;
+`;
