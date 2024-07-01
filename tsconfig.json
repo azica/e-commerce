@@ -22,7 +22,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "baseUrl": "./src",
-    "types": ["vite-plugin-svgr/client"]
+    "types": ["vite/client", "@emotion/react/types/css-prop"]
   },
   "include": [
     "src"

@@ -15,7 +15,12 @@ export default defineConfig({
                 }
             },
         }),
-        react({ jsxImportSource: "@emotion/react" })
+        react({
+            jsxImportSource: "@emotion/react",
+            babel: {
+                plugins: ["@emotion/babel-plugin"],
+            },
+        }),
     ],
     resolve: {
         alias: {
