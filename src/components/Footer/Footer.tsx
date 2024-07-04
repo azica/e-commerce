@@ -6,7 +6,7 @@ import { Logo } from "components/Logo/Logo";
 import { SocialLinks } from "components/SocialLinks";
 import { Container } from "components/Wrappers/Container";
 
-import { FooterLink, FooterWrap, Slogan, FooterBottomBar, Copyright } from "./styles";
+import { FooterLink, FooterWrap, Slogan, FooterBottomBar, Copyright, FooterTopInner } from "./styles";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,10 +14,9 @@ export const Footer = () => {
   return (
     <FooterWrap>
       <Container>
-        <Box display="flex" alignItems="center" justifyContent="space-between" flexWrap="wrap">
+        <FooterTopInner>
           <Box display="flex" alignItems="center" gap={3} flexWrap="wrap">
-            <Logo isWhite />
-            <span> | </span>
+            <Logo isWhite lined />
             <Slogan fontFamily="fontFamily.interRegular" color="primary.300">
               Gift & Decoration Store
             </Slogan>
@@ -29,7 +28,7 @@ export const Footer = () => {
               </FooterLink>
             ))}
           </Box>
-        </Box>
+        </FooterTopInner>
         <FooterBottomBar>
           <Copyright>Copyright &copy; {currentYear} 3legant. All rights reserved</Copyright>
           <Link to="/privacy-policy">Privacy Policy</Link>

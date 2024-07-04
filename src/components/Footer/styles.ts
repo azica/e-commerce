@@ -18,20 +18,37 @@ export const FooterWrap = styled("footer")`
      @media ${device.xs} {
       justify-content: center;
       text-align: center;
+      gap: 40px;
     }
-
-  span {
-    width: 1px;
-    height: 24px;
-    background: ${neutral04};
-    display: inline-block;
-    margin: 0 33px;
-  }
 `;
 
+export const FooterTopInner = styled(Box)`
+  ${flexAlignCenter};
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media ${device.xs} {
+    gap: 40px;
+    justify-content: center;
+
+    & > div {
+      gap: 16px;
+    }
+
+    p {
+      margin-top: 16px;
+    }
+  }
+
+`
 export const Slogan = styled(Typography)`
   font-size: 14px;
   line-height: 22px;
+
+  @media ${device.xs} {
+    text-align: center;
+    width: 100%;
+  }
 `;
 
 export const FooterLink = styled(Link)`

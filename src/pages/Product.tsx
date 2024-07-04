@@ -5,6 +5,7 @@ import { Breadcrumbs } from "components/Breadcrumbs";
 import { ProductContent } from "components/ProductContent";
 import { ProductSlider } from "components/ProductSlider";
 import { ProductWrapper } from "components/Wrappers/ProductWrapper";
+import { ProductTabs } from "components/ProductTabs";
 import { useGetProductQuery } from "shared/store/queries/product.query";
 
 const Product = () => {
@@ -21,6 +22,7 @@ const Product = () => {
         <ProductSlider images={product.images} discountPercentage={product.discountPercentage} />
         <ProductContent {...product} />
       </Box>
+      <ProductTabs {...product} />
     </ProductWrapper>
   );
 };

@@ -43,7 +43,7 @@ declare global {
       rating: number;
       dimensions?: Dimensions;
       sku?: string;
-      reviews?: Review[];
+      reviews?: Model.Review[];
     }
 
     interface Article {
@@ -56,6 +56,14 @@ declare global {
 
     interface CartItem extends Model.Product {
       quantity: number;
+    }
+
+    interface Review {
+      reviewerName: string;
+      reviewerEmail: string;
+      comment: string;
+      rating: number;
+      date: string;
     }
   }
 }

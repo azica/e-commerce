@@ -349,5 +349,26 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          borderBottom: `1px solid ${neutral03}`,
+
+          ".MuiTab-root": {
+            padding: 0,
+            marginRight: "80px",
+            fontFamily: InterMedium,
+            fontSize: "18px",
+            lineHeight: "32px",
+            textAlign: "left",
+            textTransform: "capitalize",
+
+            "&.Mui-selected": {
+              color: black900
+            }
+          }
+        }
+      }
+    }
   },
 });

@@ -5,12 +5,11 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
     plugins: [
         react({
-            jsxImportSource: "@emotion/react",
+            include: /\.(jsx|tsx)$/,
             babel: {
-                plugins: [
-                    "@emotion/babel-plugin",
-                    "babel-plugin-styled-components" // Добавьте этот плагин
-                ],
+                plugins: ['styled-components'],
+                babelrc: false,
+                configFile: false,
             },
         }),
         svgr({

@@ -4,7 +4,7 @@ import { StarFilledIcon, StarHalfIcon, StarIcon } from "assets/icons";
 
 import { Star, Wrapper, Reviews, Stars } from "./styles";
 
-export const Rating = ({ stars, reviews }: { stars: number; reviews?: Model.Review[] }) => {
+export const Rating = ({ stars, reviews, enable }: { stars: number; reviews?: Model.Review[]; enable?: boolean }) => {
   const [rating, setRating] = useState(stars);
 
   const handleHover = (value: number) => {
@@ -36,17 +36,21 @@ export const Rating = ({ stars, reviews }: { stars: number; reviews?: Model.Revi
               key={index}
               onMouseEnter={() => handleHover(index)}
               onMouseLeave={() => handleHover(stars)}
-              onClick={() => handleClick(index)}>
+              onClick={() => handleClick(index)}
+              className={enable ? "enable" : ""}
+            >
               {icon}
             </Star>
           );
         })}
       </Stars>
-      {reviews && reviews.length > 0 ? (
-        <Reviews fontFamily="fontFamily.interRegular" color="primary.700">
-          {reviews.length} reviews
-        </Reviews>
-      ) : null}
-    </Wrapper>
+      {
+        reviews && reviews.length > 0 ? (
+          <Reviews fontFamily="fontFamily.interRegular" color="primary.700">
+            {reviews.length} reviews
+          </Reviews>
+        ) : null
+      }
+    </Wrapper >
   );
 };

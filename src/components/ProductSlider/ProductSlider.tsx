@@ -11,13 +11,13 @@ export const ProductSlider = ({ images, discountPercentage }: { images: string[]
 
   return (
     <Wrapper>
-      {images.length < 1 ? (
+      {images.length >= 1 ? (
         <Image>
           <img src={images[0]} alt="" />
           <Badges>
-            <Badge size="medium">New</Badge>
+            <Badge size="large">New</Badge>
             {discountPercentage ? (
-              <Badge greenBg={true} size="medium">
+              <Badge greenBg={true} size="large">
                 -{discountPercentage.toFixed(0)}%
               </Badge>
             ) : null}
@@ -41,9 +41,9 @@ export const ProductSlider = ({ images, discountPercentage }: { images: string[]
                 <Image>
                   <img src={image} alt="" />
                   <Badges>
-                    <Badge size="medium">New</Badge>
+                    <Badge size="large">New</Badge>
                     {discountPercentage ? (
-                      <Badge greenBg={true} size="medium">
+                      <Badge greenBg={true} size="large">
                         -{discountPercentage.toFixed(0)}%
                       </Badge>
                     ) : null}
