@@ -7,7 +7,15 @@ export default defineConfig({
         react({
             include: /\.(jsx|tsx)$/,
             babel: {
-                plugins: ['styled-components'],
+                plugins: [
+                    [
+                        'styled-components',
+                        {
+                            displayName: true,
+                            ssr: true,
+                        },
+                    ],
+                ],
                 babelrc: false,
                 configFile: false,
             },
@@ -23,7 +31,6 @@ export default defineConfig({
                 }
             },
         }),
-
     ],
     resolve: {
         alias: {
