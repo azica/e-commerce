@@ -5,19 +5,16 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
     plugins: [
         react({
-            include: /\.(jsx|tsx)$/,
             babel: {
                 plugins: [
                     [
-                        'styled-components',
+                        'babel-plugin-styled-components',
                         {
                             displayName: true,
                             ssr: true,
                         },
                     ],
                 ],
-                babelrc: false,
-                configFile: false,
             },
         }),
         svgr({
@@ -45,6 +42,6 @@ export default defineConfig({
         },
     },
     build: {
-        outDir: 'dist'
+        outDir: 'dist',
     },
 });
