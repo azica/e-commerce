@@ -29,6 +29,9 @@ export default defineConfig({
             },
         }),
     ],
+    css: {
+        devSourcemap: true,
+    },
     resolve: {
         alias: {
             assets: '/src/assets',
