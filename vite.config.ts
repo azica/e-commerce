@@ -30,9 +30,6 @@ export default defineConfig({
             },
         }),
     ],
-    esbuild: {
-        jsxInject: `import React from 'react'`
-    },
     resolve: {
         alias: {
             assets: '/src/assets',

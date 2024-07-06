@@ -20,7 +20,7 @@ export declare global {
     linksAfterButton?: JSX.Element;
     noAccounts?: JSX.Element;
     layout?: string;
-    afterSubmit: (data: any) => void;
+    afterSubmit: (data: T) => void;
     beforeSubmit?: () => void;
     mainButton: {
       preloader?: ButtonPreloader;
@@ -89,7 +89,7 @@ export declare global {
 
   interface PageHeader {
     title: string;
-    bg: string;
+    backgroundImage?: string;
     subtitle: string;
     breadcrumbs: ReactNode;
   }

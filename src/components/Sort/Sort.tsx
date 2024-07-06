@@ -8,8 +8,9 @@ export const Sort = ({ options, placeholder }: { options: Option[]; placeholder:
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get("sortBy"),
     order = searchParams.get("order");
-  const desiredOption = options.filter(({ value }) => value === `${sortBy}-${order}`);
-  const defaultValue = desiredOption[0]?.name || placeholder;
+
+  const desiredOption = options.find(({ value }) => value === `${sortBy}-${order}`);
+  const defaultValue = desiredOption ? desiredOption.name : '';
 
   const changeValue: InputOnChange = ({ value }) => {
     const param = JSON.parse(`${value}`).value;
@@ -24,7 +25,7 @@ export const Sort = ({ options, placeholder }: { options: Option[]; placeholder:
 
   return (
     <Wrapper>
-      <Select options={options} onChange={changeValue} id={1} value={defaultValue} field={"sortBy"} replaceName />
+      <Select placeholder={placeholder} options={options} onChange={changeValue} id={1} value={defaultValue} field={"sortBy"} replaceName />
     </Wrapper>
   );
 };

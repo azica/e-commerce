@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import { flexCenter, flexColumn } from "styles/mixins";
 
-export const Section = styled("section")<{ bg: string }>`
-  background: url(${(props) => props.bg}) no-repeat;
+export const Section = styled("section")`
+  background-repeat: no-repeat;
   background-size: cover;
   height: 392px;
   ${flexCenter};

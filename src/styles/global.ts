@@ -9,8 +9,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-
   ${fonts}
 
   * {

@@ -12,7 +12,6 @@ export const FilterTitle = () => {
   useEffect(() => {
     setFilterTitle(searchParams.get("category") || "All Products");
   }, [searchParams]);
-  console.log(search);
 
   return (
     <SwitchTransition>

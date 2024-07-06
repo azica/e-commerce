@@ -2,9 +2,9 @@ import { Typography } from "@mui/material";
 
 import { Section, Inner } from "./styles";
 
-export const PageHeader = ({ title, bg, subtitle, breadcrumbs }: PageHeader) => {
+export const PageHeader = ({ title, backgroundImage, subtitle, breadcrumbs }: PageHeader) => {
   return (
-    <Section bg={bg}>
+    <Section style={{ backgroundImage: `url(${backgroundImage})` }}>
       <Inner>
         {breadcrumbs}
         <Typography variant="h3" color="black.100">

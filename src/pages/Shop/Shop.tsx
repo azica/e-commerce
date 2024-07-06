@@ -50,7 +50,7 @@ export const Shop = () => {
   return (
     <Box>
       <PageHeader
-        bg={shopBg}
+        backgroundImage={shopBg}
         title="Shop Page"
         subtitle="Let’s design the place you always imagined."
         breadcrumbs={<Breadcrumbs center />}

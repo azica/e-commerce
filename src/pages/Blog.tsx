@@ -5,7 +5,7 @@ import { PageHeader } from "components/PageHeader";
 const Blog = () => {
   return (
     <PageHeader
-      bg={blogBg}
+      backgroundImage={blogBg}
       title="Blog Us Page"
       subtitle="Home ideas and design inspiration"
       breadcrumbs={<Breadcrumbs />}
