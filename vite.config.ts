@@ -4,7 +4,20 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
     plugins: [
-        react(),
+        react({
+            babel: {
+                plugins: [
+                    [
+                        'babel-plugin-styled-components',
+                        {
+                            ssr: true,
+                            displayName: true,
+                            preprocess: false
+                        }
+                    ]
+                ]
+            }
+        }),
         svgr({
             include: "**/*.svg",
             svgrOptions: {
@@ -16,10 +29,9 @@ export default defineConfig({
                 }
             },
         }),
-
     ],
-    css: {
-        devSourcemap: true,
+    esbuild: {
+        jsxInject: `import React from 'react'`
     },
     resolve: {
         alias: {

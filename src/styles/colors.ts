@@ -1,5 +1,5 @@
-export const black = "rgb(45, 49, 60)";
-export const white = "rgb(255, 255, 255)";
+export const black = "rgb(45,49,60)";
+export const white = "rgb(255,255,255)";
 
 export const green = "rgb(56,203,137)";
 export const blue = "rgb(55,125,255)";
@@ -13,11 +13,11 @@ export const neutral04 = "rgb(108,114,117)";
 export const neutral05 = "rgb(52,56,57)";
 export const neutral06 = "rgb(35,38,39)";
 export const neutral07 = "rgb(20,23,24)";
-export const neutral08 = "rgb(252, 252, 253)";
+export const neutral08 = "rgb(252,252,253)";
 
 export const textBlue = "rgb(62,62,89)";
 
-export const black100 = "rgb(245,245, 245)";
-export const black500 = "rgb(128, 126,126)";
+export const black100 = "rgb(245,245,245)";
+export const black500 = "rgb(128,126,126)";
 export const black600 = "rgb(96,95,95)";
-export const black900 = "rgb(18, 18,18)";
+export const black900 = "rgb(18,18,18)";

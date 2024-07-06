@@ -4,7 +4,7 @@ import { StarFilledIcon, StarHalfIcon, StarIcon } from "assets/icons";
 
 import { Star, Wrapper, Reviews, Stars } from "./styles";
 
-export const Rating = ({ stars, reviews, enable }: { stars: number; reviews?: Model.Review[]; enable?: boolean }) => {
+export const Rating = ({ stars, reviewsQuantity, showText }: { stars: number; reviewsQuantity?: number; showText?: boolean }) => {
   const [rating, setRating] = useState(stars);
 
   const handleHover = (value: number) => {
@@ -37,7 +37,7 @@ export const Rating = ({ stars, reviews, enable }: { stars: number; reviews?: Mo
               onMouseEnter={() => handleHover(index)}
               onMouseLeave={() => handleHover(stars)}
               onClick={() => handleClick(index)}
-              className={enable ? "enable" : ""}
+              className={showText ? "showText" : ""}
             >
               {icon}
             </Star>
@@ -45,9 +45,9 @@ export const Rating = ({ stars, reviews, enable }: { stars: number; reviews?: Mo
         })}
       </Stars>
       {
-        reviews && reviews.length > 0 ? (
+        showText && reviewsQuantity ? (
           <Reviews fontFamily="fontFamily.interRegular" color="primary.700">
-            {reviews.length} reviews
+            {reviewsQuantity} Reviews
           </Reviews>
         ) : null
       }

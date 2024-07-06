@@ -22,7 +22,11 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "baseUrl": "./src",
-    "types": ["vite/client", "@emotion/react/types/css-prop"]
+    "plugins": [
+      {
+        "name": "typescript-plugin-styled-components"
+      }
+    ]
   },
   "include": [
     "src"

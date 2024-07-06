@@ -51,6 +51,8 @@ export const RightSide = styled(Box)`
     padding: 0 !important;
 
     svg {
-    color: ${neutral04};
+      color: ${neutral04};
+      width: 14px;
+      height: 14px;
   }
 `;

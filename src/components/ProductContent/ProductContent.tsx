@@ -14,7 +14,7 @@ export const ProductContent = (product: Model.Product) => {
   return (
     <Wrapper>
       <Info>
-        <Rating stars={product.rating} reviews={product.reviews} />
+        <Rating stars={product.rating} reviewsQuantity={product.reviews?.length} />
         <Typography variant="h4" color="primary.700">
           {product.title}
         </Typography>

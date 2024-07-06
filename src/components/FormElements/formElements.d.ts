@@ -15,6 +15,7 @@ export declare global {
     name: string;
     value: number | string;
   };
+
   type InputData = {
     id: number;
     value: string | number | boolean | string[];
@@ -54,7 +55,7 @@ export declare global {
     startAdornment?: ReactNode;
     onChange: InputOnChange;
     onKeyDown?: (event: any) => void;
-  } & InputDataProps;
+  } & InputData;
 
   type InputsValue = {
     field: string;

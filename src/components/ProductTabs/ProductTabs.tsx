@@ -32,7 +32,7 @@ const CustomTabPanel = (props: TabPanelProps) => {
     );
 }
 
-export const ProductTabs = ({ reviews }: Model.Product) => {
+export const ProductTabs = ({ title, reviews }: Model.Product) => {
     const [value, setValue] = useState(0);
 
     const handleChange = (event: SyntheticEvent, newValue: number) => {
@@ -55,7 +55,7 @@ export const ProductTabs = ({ reviews }: Model.Product) => {
                 ))}
             </Tabs>
             <CustomTabPanel value={value} index={0}>
-                <Reviews reviews={reviews} />
+                <Reviews reviews={reviews} title={title} />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
                 <Typography variant="h6" color="black">Additional Info</Typography>

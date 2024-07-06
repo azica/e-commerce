@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css, Interpolation } from "styled-components";
 
 import { neutral04, neutral07 } from "./colors";
 
@@ -20,7 +20,7 @@ export const flexColumn = css`
   flex-direction: column;
 `;
 
-export const flexAlignCenter = css`
+export const flexAlignCenter: Interpolation<any> = css`
   display: flex;
   align-items: center;
 `;

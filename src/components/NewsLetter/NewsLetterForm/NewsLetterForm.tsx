@@ -22,7 +22,7 @@ export const NewsLetterForm = () => {
     <Wrapper>
       <Form component="form" onSubmit={(e) => submitHandle(e)}>
         <Input
-          id="email"
+          id={0}
           type="email"
           value={email}
           field="email"

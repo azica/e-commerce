@@ -23,6 +23,8 @@ export const SearchBlock = ({ isMobile }: { isMobile?: boolean }) => {
             {isMobile ? (
                 <Wrapper>
                     <Input
+                        id={0}
+                        field="search"
                         type="search"
                         value={value}
                         onChange={changeValue}
