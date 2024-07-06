@@ -8,6 +8,7 @@ import { InterRegular } from "styles/fonts";
 
 export const CheckMark = styled(CheckIcon)`
   stroke: ${neutral08};
+  width: 15px;
 `;
 
 export const CheckContainer = styledMui(Box)`

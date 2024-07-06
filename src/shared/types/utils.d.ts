@@ -31,7 +31,6 @@ export declare global {
     name: string;
     email: string;
     password: string;
-    secondPassword?: string;
     avatar?: string;
   };
 

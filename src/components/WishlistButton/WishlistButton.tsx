@@ -4,16 +4,27 @@ import { HeartFilledIcon, HeartIcon } from "assets/icons";
 import { Button } from "components/FormElements";
 
 import { IconButton } from "./styles";
+import { useActions, useAppSelector } from "shared/store/hooks";
 
 export const WishlistButton = ({ small, product, isMobileMenu }: { small?: boolean; product?: Model.Product; isMobileMenu?: boolean }) => {
-  const [wishlistAdded] = useState(false);
+  const { wishList } = useAppSelector((state) => state.wishlist);
+  const inWishList = wishList.find((item) => item.id === product?.id);
+
+  const { addItem, removeItem } = useActions();
+
+  const addToWishListHandle = (product?: Model.Product) => {
+    if (product) {
+      inWishList ? removeItem(product.id) : addItem(product)
+    }
+  };
+
   return (
     <>
       {small ? (
-        <IconButton> {wishlistAdded ? <HeartFilledIcon /> : <HeartIcon />}</IconButton>
+        <IconButton onClick={() => addToWishListHandle(product)}> {inWishList ? <HeartFilledIcon /> : <HeartIcon />}</IconButton>
       ) : (
-        <Button variant="outlined" size="large" fullWidth>
-          {wishlistAdded ? <HeartFilledIcon /> : <HeartIcon />} Wishlist{" "}
+        <Button variant="outlined" size="large" fullWidth onClick={() => addToWishListHandle(product)}>
+          {inWishList ? <HeartFilledIcon /> : <HeartIcon />} Wishlist{" "}
         </Button>
       )}
     </>

@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 
 import arrowLeft from "assets/icons/arrowLeft.svg?react";
+import arrowRight from "assets/icons/arrowRight.svg?react";
 import { white } from "styles/colors";
 import { device } from "styles/media";
 
@@ -39,13 +40,27 @@ export const Inner = styled(Box)`
     height: 32px;
   }
 
+  .swiper-button-disabled {
+    opacity: 0.9;
+  }
+    
   .swiper-button-prev::after {
-    background: url(${arrowLeft as unknown as string}) no-repeat center center;
+    background: url(${arrowRight as unknown as string}) no-repeat center center;
+    transform: rotate(180deg);
   }
 
   .swiper-button-next::after {
-    background: url(${arrowLeft as unknown as string}) no-repeat;
-    transform: rotate(180deg);
+    background: url(${arrowRight as unknown as string}) no-repeat;
+  }
+
+  .swiper-button-prev.swiper-button-disabled::after {
+     background: url(${arrowLeft as unknown as string}) no-repeat center center;
+     transform: rotate(0deg);
+  }
+
+ .swiper-button-next.swiper-button-disabled::after {
+     background: url(${arrowLeft as unknown as string}) no-repeat center center;
+     transform: rotate(180deg);
   }
 
   .swiper-pagination-bullet {

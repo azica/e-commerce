@@ -9,11 +9,17 @@ export const AddToCart = ({ product, size, className }: { product: Model.Product
   const { addToCart } = useActions();
 
   const addToCartHandle = (product: Model.Product) => {
-    addToCart(product);
+    addToCart(product as Model.CartItem);
   };
 
   return (
-    <Button variant="contained" size={size} fullWidth onClick={() => addToCartHandle(product)} className={className}>
+    <Button
+      variant="contained"
+      size={size}
+      fullWidth
+      onClick={() => addToCartHandle(product)}
+      className={className}
+    >
       {isInCart ? (
         <>
           <CheckedIcon style={{ marginRight: "4px" }} /> Added

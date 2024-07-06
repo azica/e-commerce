@@ -34,3 +34,8 @@ export const sortOptions = [
   { name: "Price (Low to High)", value: "price-asc" },
   { name: "Price (High to Low)", value: "price-desc" },
 ];
+
+export const reviewsOptions = [
+  { name: "Newest", value: "newest" },
+  { name: "Oldest", value: "oldest" },
+]

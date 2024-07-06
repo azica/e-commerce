@@ -1,15 +1,15 @@
 import type { MouseEvent } from "react";
 
-import { Menu, MenuItem } from "@mui/material";
+import { Menu } from "@mui/material";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { UserCircleIcon } from "assets/icons";
 import { clearLocalStorage } from "shared/helpers/localStorage";
 import { useActions, useAppSelector } from "shared/store/hooks";
 import { neutral07, green } from "styles/colors";
-import { Button } from "./styles";
+import { Button, MenuItem } from "./styles";
 
 export const ProfileMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -60,7 +60,9 @@ export const ProfileMenu = () => {
           "aria-labelledby": "basic-button",
         }}>
         <MenuItem>Profile</MenuItem>
-        <MenuItem href="/dashboard">My account</MenuItem>
+        <MenuItem>
+          <Link to="/dashboard">My account</Link>
+        </MenuItem>
         <MenuItem onClick={logHandle}>{user ? "Logout" : "Login"}</MenuItem>
       </Menu>
     </>

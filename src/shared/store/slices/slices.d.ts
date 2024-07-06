@@ -18,10 +18,16 @@ export declare global {
     isSystemAdmin: boolean | null;
   };
 
-  type CartState = {
-    cartList: CartItem[];
+  interface CartState {
+    cartList: Model.CartItem[];
     subtotal: number;
-    total: number;
     totalQuantity: number;
-  };
+    total: number;
+  }
+
+  interface WishlistState {
+    items: string[];
+  }
+
+  type AppState = CartState | WishlistState;
 }

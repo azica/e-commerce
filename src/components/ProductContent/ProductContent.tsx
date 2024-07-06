@@ -33,7 +33,7 @@ export const ProductContent = (product: Model.Product) => {
         </PriceWrapper>
       </Info>
 
-      <Timer endTime="July 4, 2024" />
+      <Timer endTime="August 4, 2024" />
 
       {product.dimensions ? (
         <Box>

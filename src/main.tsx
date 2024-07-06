@@ -20,7 +20,7 @@ root.render(
                 maxSnack={4}
                 action={(snackbarId) => (
                     <IconButton onClick={() => closeSnackbar(snackbarId)}>
-                        <CloseIcon />
+                        <CloseIcon width={16} height={16} />
                     </IconButton>
                 )}>
                 <App />

@@ -8,7 +8,7 @@ const ContactUs = () => {
       backgroundImage={shopBg}
       title="Contact Us Page"
       subtitle="Let’s design the place you always imagined."
-      breadcrumbs={<Breadcrumbs />}
+      breadcrumbs={<Breadcrumbs center />}
     />
   );
 };

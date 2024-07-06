@@ -28,25 +28,12 @@ export const RegisterForm = ({
     register(desiredValues);
   };
 
-  const comparePassword = (newInputProps: InputData[]) => {
-    const newProps = newInputProps;
-    const noMatch = newProps[2].value !== newProps[3].value;
-
-    newProps[3] = {
-      ...newProps[3],
-      invalid: noMatch,
-    };
-
-    setIsDisabled(noMatch);
-    setValues(newProps);
-  };
-
   const valueChange: InputOnChange = (newVal) => {
     const newInputProps = values.map((item) =>
       newVal.field === item.field ? { ...item, value: newVal.value, invalid: false } : item,
     );
-
-    comparePassword(newInputProps);
+    setValues(newInputProps);
+    setIsDisabled(false)
   };
 
   return (

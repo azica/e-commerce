@@ -27,6 +27,7 @@ declare global {
       comment: string;
       reviewerEmail: string;
       reviewerName: string;
+      date: string;
     }
 
     interface Product {

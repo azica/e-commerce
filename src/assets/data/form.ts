@@ -29,18 +29,10 @@ export const loginData = [
 
 export const registerData = [
   {
-    id: 0,
+    id: 1,
     value: "",
     field: "name",
     placeholder: "Your name",
-    type: "text",
-    required: true,
-  },
-  {
-    id: 1,
-    value: "",
-    placeholder: "Username",
-    field: "username",
     type: "text",
     required: true,
   },

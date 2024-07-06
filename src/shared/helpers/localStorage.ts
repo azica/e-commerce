@@ -19,33 +19,25 @@ export const getTokensFromStorage = (): Tokens | null => {
   }
 };
 
-export const loadStateFromLocalStorage = (): CartState => {
+export const loadStateFromLocalStorage = <T>(key: string, defaultState: T): T => {
   try {
-    const serializedState = localStorage.getItem("cartState");
+    const serializedState = localStorage.getItem(key);
     if (serializedState === null) {
-      return {
-        cartList: [],
-        subtotal: 0,
-        totalQuantity: 0,
-        total: 0,
-      };
+      return defaultState;
     }
-    return JSON.parse(serializedState);
+    return JSON.parse(serializedState) as T;
   } catch (err) {
-    return {
-      cartList: [],
-      subtotal: 0,
-      totalQuantity: 0,
-      total: 0,
-    };
+    console.error("Error loading state from local storage", err);
+    return defaultState;
   }
 };
 
-export const saveStateToLocalStorage = (state: CartState) => {
+export const saveStateToLocalStorage = <T>(key: string, state: T): void => {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem("cartState", serializedState);
+    localStorage.setItem(key, serializedState);
   } catch (err) {
-    return err;
+    console.error("Error saving state to local storage", err);
   }
 };
+

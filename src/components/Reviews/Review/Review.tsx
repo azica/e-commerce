@@ -1,8 +1,11 @@
-import { Typography } from "@mui/material"
-import { Wrapper } from "../styles"
+import { Box, Typography } from "@mui/material"
 import { Rating } from "components/Rating"
 
-export const Review = ({ reviewerEmail, reviewerName, comment, rating }: Model.Review) => {
+import { Wrapper } from "./styles";
+import { timeAgo } from "shared/helpers/utils";
+
+export const Review = ({ reviewerEmail, reviewerName, comment, rating, date }: Model.Review) => {
+
     return (
         <Wrapper display="flex" flexDirection="column" gap={2}>
             <Typography
@@ -18,7 +21,19 @@ export const Review = ({ reviewerEmail, reviewerName, comment, rating }: Model.R
                 variant="body2">
                 {comment}
             </Typography>
-
+            <Box display="flex" gap={2}>
+                <Typography fontFamily="fontFamily.interRegular" >
+                    {timeAgo(date)}
+                </Typography>
+                <Typography
+                    fontFamily="fontFamily.interSemiBold"
+                    color="neutral.700"
+                >Like</Typography>
+                <Typography
+                    fontFamily="fontFamily.interSemiBold"
+                    color="neutral.700"
+                >Reply</Typography>
+            </Box>
         </Wrapper>
     )
 }

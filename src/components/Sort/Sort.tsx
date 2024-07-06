@@ -4,7 +4,7 @@ import { Select } from "components/FormElements";
 
 import { Wrapper } from "./styles";
 
-export const Sort = ({ options, placeholder }: { options: Option[]; placeholder: string }) => {
+export const Sort = ({ options, placeholder, bordered }: { options: Option[]; placeholder: string; bordered?: boolean }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get("sortBy"),
     order = searchParams.get("order");
@@ -24,7 +24,7 @@ export const Sort = ({ options, placeholder }: { options: Option[]; placeholder:
   };
 
   return (
-    <Wrapper>
+    <Wrapper className={bordered ? "bordered" : ""}>
       <Select placeholder={placeholder} options={options} onChange={changeValue} id={1} value={defaultValue} field={"sortBy"} replaceName />
     </Wrapper>
   );

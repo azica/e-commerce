@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export const GlobalStyle = createGlobalStyle`
+
   ${fonts}
 
   * {

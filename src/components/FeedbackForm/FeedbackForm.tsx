@@ -9,7 +9,6 @@ export const FeedbackForm = () => {
 
     const submitHandle = () => {
         setIsLoading(true);
-
     };
 
     const valueChange: InputOnChange = (newVal) => {
@@ -24,7 +23,7 @@ export const FeedbackForm = () => {
                 value={value}
                 type="email"
                 field="email"
-                placeholder="Text"
+                placeholder=""
                 id={0}
                 onChange={valueChange}
                 endAdornment={
