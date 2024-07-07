@@ -6,7 +6,7 @@ import { useActions } from "shared/store/hooks";
 
 import { Title, Image, SubTitle, Wrapper, RightSide, Info } from "./styles";
 
-export const ProductCartItem = ({ title, price, thumbnail, category, id }: Model.Product) => {
+export const ProductCartItem = (product: Model.Product) => {
   const { removeFromCart } = useActions();
 
   const removeHandle = (id: number) => {
@@ -16,16 +16,16 @@ export const ProductCartItem = ({ title, price, thumbnail, category, id }: Model
   return (
     <Wrapper>
       <Image>
-        <img src={thumbnail} alt={title} />
+        <img src={product.thumbnail} alt={product.title} />
       </Image>
       <Info>
-        <Title>{title}</Title>
-        <SubTitle>{category}</SubTitle>
-        <CounterButtons productId={id} outlined />
+        <Title>{product.title}</Title>
+        <SubTitle>{product.category}</SubTitle>
+        <CounterButtons product={product} outlined />
       </Info>
       <RightSide>
-        <Title>${price}</Title>
-        <IconButton onClick={() => removeHandle(id)}>
+        <Title>${product.price}</Title>
+        <IconButton onClick={() => removeHandle(product.id)}>
           <CloseIcon />
         </IconButton>
       </RightSide>

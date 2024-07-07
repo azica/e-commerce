@@ -1,4 +1,3 @@
-import { memo, useMemo } from "react";
 import { Box, Typography } from "@mui/material";
 import { prices } from "assets/data/mockdata";
 import { FilterIcon } from "assets/icons";
@@ -6,8 +5,7 @@ import { CheckboxList } from "components/FormElements/CheckboxList";
 import { SideMenu } from "components/SideMenu";
 import { Title, Wrapper, Filter } from "./style";
 
-export const SideBar = memo(() => {
-  const memoizedPrices = useMemo(() => prices, []);
+export const SideBar = () => {
 
   return (
     <Wrapper>
@@ -27,9 +25,9 @@ export const SideBar = memo(() => {
         <Title variant="body2" color="black.900" fontFamily="fontFamily.interSemiBold">
           PRICE
         </Title>
-        <CheckboxList list={memoizedPrices} searchParamName="prices" />
+        <CheckboxList list={prices} searchParamName="prices" />
       </Box>
     </Wrapper >
   );
-});
+};
 

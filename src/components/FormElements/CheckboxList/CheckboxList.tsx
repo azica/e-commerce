@@ -1,29 +1,48 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Checkbox } from "components/FormElements/Checkbox";
-
 import { FormGroup, FormControl } from "./styles";
-
-const getCurrentParams = (searchParams: string | null, arr: CheckboxListItem[]): CheckboxListItem[] => {
-  if (searchParams) {
-    const currentParams = searchParams.split("");
-    return arr.map((el) => (currentParams.includes(el.value.toString()) ? { ...el, checked: true } : el));
-  }
-  return arr;
-};
+import { getCurrentParams } from "shared/helpers/utils";
 
 export const CheckboxList: CheckboxList = ({ list, searchParamName }) => {
-  const [listProps, setListProps] = useState<CheckboxListItem[]>(() => getCurrentParams(searchParamName, list));
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [listProps, setListProps] = useState<CheckboxListItem[]>(getCurrentParams(searchParams, list));
 
-  const valueChange: CheckboxOnChange = (newVal: { field: string; value: boolean }) => {
-    setListProps(listProps.map((item) => (newVal.field === `${item.id}` ? { ...item, checked: newVal.value } : item)));
+  useEffect(() => {
+    setListProps(getCurrentParams(searchParams, list));
+  }, [searchParams, list]);
+
+  const valueChange: CheckboxOnChange = (newVal) => {
+    const newListProps = listProps.map((item) =>
+      newVal.field === `${item.id}` ? { ...item, checked: newVal.value } : item,
+    );
+    setListProps(newListProps);
+
+    const newString = newListProps
+      .filter((el) => el.checked)
+      .map((el) => el.value)
+      .join("%");
+
+    console.log(newString)
+    setSearchParams((prevParams) => {
+      // const newParams = new URLSearchParams(prevParams.toString());
+
+      if (newString) {
+        prevParams.set(searchParamName, newString);
+      } else {
+        prevParams.delete(searchParamName);
+      }
+
+      return prevParams;
+    });
   };
 
   return (
     <FormControl
       // @ts-ignore
       component="fieldset"
-      variant="outlined">
+      variant="outlined"
+    >
       <FormGroup>
         {listProps.map(({ id, checked, label, disabled, value }) => (
           <Checkbox
@@ -37,6 +56,7 @@ export const CheckboxList: CheckboxList = ({ list, searchParamName }) => {
             label={label}
             value={value}
             labelPlacement="start"
+
           />
         ))}
       </FormGroup>

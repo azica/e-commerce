@@ -33,12 +33,15 @@ const cartSlice = createSlice({
       state.cartList = state.cartList.filter((item) => item.id !== payload);
       updateTotals(state as CartState);
     },
-    incrementQuantity: (state, { payload }: PayloadAction<number>) => {
-      const itemIndex = state.cartList.findIndex((item) => item.id === payload);
+    incrementQuantity: (state, { payload }: PayloadAction<Model.CartItem>) => {
+      console.log(payload)
+      const itemIndex = state.cartList.findIndex((item) => item.id === payload.id);
       if (itemIndex >= 0) {
         state.cartList[itemIndex].quantity++;
-        updateTotals(state as CartState);
+      } else {
+        state.cartList.push({ ...payload, quantity: 1 });
       }
+      updateTotals(state as CartState);
     },
     decrementQuantity: (state, { payload }: PayloadAction<number>) => {
       const itemIndex = state.cartList.findIndex((item) => item.id === payload);

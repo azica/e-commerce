@@ -54,6 +54,7 @@ export const Select = ({
       className={filter ? "filter common-input" : "common-input"}
       required={required}
       error={invalid}
+
       ref={selectWrapper}>
       {label ? (
         <InputLabel id={idForLabel} required={required}>
@@ -74,6 +75,7 @@ export const Select = ({
           PaperProps: {
             className: "select",
           },
+          disableScrollLock: true
         }}
         multiple={multiple}
         displayEmpty
@@ -98,7 +100,8 @@ export const Select = ({
           } else {
             return selected;
           }
-        }}>
+        }}
+      >
         {options &&
           options.map(({ name, value }) => (
             <MenuItem key={value} value={replaceName ? JSON.stringify({ name, value }) : value} autoFocus={false}>

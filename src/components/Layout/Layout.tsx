@@ -13,11 +13,10 @@ import { layoutStyles } from "./styles";
 const { Container, Wrapper } = layoutStyles;
 
 export const Layout = () => {
-  const { hash, pathname } = useLocation();
+  const { pathname } = useLocation();
   const lastItem = pathname.split("/").at(-1);
 
   const authUrls = ["login", "register", "createPassword", "password-recovery"];
-  console.log(authUrls.includes(lastItem || ""))
   return (
     <ThemeProvider theme={theme}>
       {authUrls.includes(lastItem || "") ? (

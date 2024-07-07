@@ -7,7 +7,7 @@ interface ExtendedSideMenuItem extends SideMenuItem {
 export const SideMenuLink = ({ url, title, state, active }: ExtendedSideMenuItem) => {
   return (
     <NavLink to={url} state={state} className={active ? "activeLink" : ""}>
-      {title}
+      {title.split("-").join(" ")}
     </NavLink>
   );
 };

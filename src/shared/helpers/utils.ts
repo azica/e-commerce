@@ -47,3 +47,11 @@ export const timeAgo = (dateString: string): string => {
 
   return 'just now';
 };
+
+export const getCurrentParams = (searchParams: URLSearchParams, list: CheckboxListItem[]): CheckboxListItem[] => {
+  const currentParams = searchParams.get("prices")?.split("%") || [];
+  if (currentParams.length > 0) {
+    return list.map((el) => (currentParams.includes(el.value as string) ? { ...el, checked: true } : el));
+  }
+  return list;
+};

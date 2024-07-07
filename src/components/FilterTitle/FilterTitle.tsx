@@ -17,7 +17,7 @@ export const FilterTitle = () => {
     <SwitchTransition>
       <CSSTransition key={search} classNames="filterTitle" timeout={900} nodeRef={outletRef} unmountOnExit>
         <Typography ref={outletRef} color="black.100" fontFamily="fontFamily.interSemiBold">
-          {filterTitle}
+          {filterTitle.split("-").join(" ")}
         </Typography>
       </CSSTransition>
     </SwitchTransition>

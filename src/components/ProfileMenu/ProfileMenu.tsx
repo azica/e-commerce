@@ -58,7 +58,9 @@ export const ProfileMenu = () => {
         onClose={handleClose}
         MenuListProps={{
           "aria-labelledby": "basic-button",
-        }}>
+        }}
+        disableScrollLock={true}
+      >
         <MenuItem>Profile</MenuItem>
         <MenuItem>
           <Link to="/dashboard">My account</Link>

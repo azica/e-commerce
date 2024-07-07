@@ -34,7 +34,13 @@ export const ProductCard = ({ product }: { product: Model.Product }) => {
       <Content>
         <Rating stars={product.rating} />
         <Title variant="body2">
-          <Link to={`/product/${product.id}`}>{product.title}</Link>
+          <Link
+            to={`/product/${product.id}`} onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }>{product.title}</Link>
         </Title>
         <Price>
           <span>$ {product.price}</span>

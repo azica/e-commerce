@@ -4,33 +4,33 @@ import { useActions, useAppSelector } from "shared/store/hooks";
 import { Wrapper, Button } from "./styles";
 
 export const CounterButtons = ({
-  productId,
+  product,
   outlined,
   isBig,
 }: {
-  productId: number;
+  product: Model.Product;
   outlined?: boolean;
   isBig?: boolean;
 }) => {
   const { incrementQuantity, decrementQuantity } = useActions();
-  const product = useAppSelector((state) => state.cart.cartList.find((item) => item.id === productId));
+  const updatedProduct = useAppSelector((state) => state.cart.cartList.find((item) => item.id === product.id));
 
-  const handleIncrement = () => {
-    incrementQuantity(productId);
+  const handleIncrement = (product: Model.Product) => {
+    incrementQuantity(product as Model.CartItem);
   };
 
-  const handleDecrement = () => {
-    decrementQuantity(productId);
+  const handleDecrement = (product: Model.Product) => {
+    decrementQuantity(product.id);
   };
 
   const className = `${outlined ? "outlined" : ""} ${isBig ? "big" : ""}`;
   return (
     <Wrapper className={className}>
-      <Button onClick={handleDecrement} disabled={!product}>
+      <Button onClick={() => handleDecrement(product)} disabled={!product}>
         <MinusIcon />
       </Button>
-      <span>{product?.quantity || 0}</span>
-      <Button onClick={handleIncrement}>
+      <span>{updatedProduct?.quantity || 0}</span>
+      <Button onClick={() => handleIncrement(product)}>
         <PlusIcon />
       </Button>
     </Wrapper>

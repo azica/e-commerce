@@ -9,7 +9,7 @@ export const Wrapper = styled("header")`
   top: 0;
   left: 0px;
   right: 0px;
-  z-index: 9;
+  z-index: 1300;
   padding: 10px 0;
   background: ${white};
 `;

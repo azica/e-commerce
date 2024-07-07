@@ -17,6 +17,12 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 0 !important;
+  }
+
   .fade-enter, .fade-exit-active {
     opacity: 0;
   }

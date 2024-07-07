@@ -18,11 +18,11 @@ export const LayoutContent = () => {
 
   useEffect(() => {
     const transitionPaths = ["login", "register", "password-recovery"];
-    // const isShopPath = pathname.includes("/shop");
+    const isShopPath = pathname.includes("/shop");
 
-    // const shouldSkipTransition = transitionPaths.includes(lastItem || "") || (isShopPath && pathname === prevPathname);
+    const shouldSkipTransition = transitionPaths.includes(lastItem || "") || (isShopPath && pathname === prevPathname);
 
-    // setNoTransition(shouldSkipTransition);
+    setNoTransition(shouldSkipTransition);
 
     if (pathname !== prevPathname) {
       setPrevPathname(pathname);
