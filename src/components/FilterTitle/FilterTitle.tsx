@@ -15,7 +15,7 @@ export const FilterTitle = () => {
 
   return (
     <SwitchTransition>
-      <CSSTransition key={search} classNames={"fadeIn"} timeout={900} nodeRef={outletRef} unmountOnExit>
+      <CSSTransition key={search} classNames="filterTitle" timeout={900} nodeRef={outletRef} unmountOnExit>
         <Typography ref={outletRef} color="black.100" fontFamily="fontFamily.interSemiBold">
           {filterTitle}
         </Typography>

@@ -12,7 +12,7 @@ export const Wrapper = styled(Box)`
         min-width: 0;
     }
 
-    & p {
+    & div p {
         font-size: 12px!important;
         line-height: 20px!important;
 

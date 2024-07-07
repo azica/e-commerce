@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation, useOutlet, useParams } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-
 import { layoutStyles } from "./styles";
 
 const { Content } = layoutStyles;
@@ -17,13 +16,13 @@ export const LayoutContent = () => {
   const { key, hash, pathname } = useLocation();
   const lastItem = pathname.split("/").at(-1);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const transitionPaths = ["login", "register", "password-recovery"];
-    const isShopPath = pathname.includes("/shop");
+    // const isShopPath = pathname.includes("/shop");
 
-    const shouldSkipTransition = transitionPaths.includes(lastItem || "") || (isShopPath && pathname === prevPathname);
+    // const shouldSkipTransition = transitionPaths.includes(lastItem || "") || (isShopPath && pathname === prevPathname);
 
-    setNoTransition(shouldSkipTransition);
+    // setNoTransition(shouldSkipTransition);
 
     if (pathname !== prevPathname) {
       setPrevPathname(pathname);
@@ -38,7 +37,8 @@ export const LayoutContent = () => {
           classNames={noTransition ? "" : "fadeIn"}
           timeout={noTransition ? 0 : 900}
           nodeRef={outletRef}
-          unmountOnExit>
+          unmountOnExit
+        >
           <Box ref={outletRef}>{currentOutlet}</Box>
         </CSSTransition>
       </SwitchTransition>

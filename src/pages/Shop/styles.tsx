@@ -9,6 +9,7 @@ export const Inner = styled(Box)`
   grid-template-columns: 262px 1fr;
   gap: 24px;
   padding: 60px 0 100px 0;
+  min-height: 100vh;
 `;
 
 export const Content = styled(Box)`

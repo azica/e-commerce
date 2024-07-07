@@ -4,7 +4,7 @@ import { neutral03 } from "styles/colors";
 
 export const Wrapper = styled(Box)`
   .MuiOutlinedInput-root {
-    width: 100%;
+    width: 180px!important;
     height: 40px;
   }
 

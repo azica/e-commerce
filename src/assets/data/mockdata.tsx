@@ -39,3 +39,9 @@ export const reviewsOptions = [
   { name: "Newest", value: "newest" },
   { name: "Oldest", value: "oldest" },
 ]
+
+export const tabsMenu = [
+  { id: 1, label: "Reviews" },
+  { id: 2, label: "Additional Info" },
+  { id: 3, label: "Questions" },
+];

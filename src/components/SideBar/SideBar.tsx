@@ -1,18 +1,13 @@
+import { memo, useMemo } from "react";
 import { Box, Typography } from "@mui/material";
-
 import { prices } from "assets/data/mockdata";
 import { FilterIcon } from "assets/icons";
 import { CheckboxList } from "components/FormElements/CheckboxList";
 import { SideMenu } from "components/SideMenu";
-import { useGetCategoriesQuery } from "shared/store/queries/product.query";
-
 import { Title, Wrapper, Filter } from "./style";
 
-export const SideBar = () => {
-  const { data, isSuccess, isLoading, error } = useGetCategoriesQuery();
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.toString()}</div>;
+export const SideBar = memo(() => {
+  const memoizedPrices = useMemo(() => prices, []);
 
   return (
     <Wrapper>
@@ -26,16 +21,15 @@ export const SideBar = () => {
         <Title variant="body2" color="black.900" fontFamily="fontFamily.interSemiBold">
           CATEGORIES
         </Title>
-        {isSuccess && data ? <SideMenu list={data as string[]} /> : null}
+        <SideMenu />
       </Box>
       <Box>
         <Title variant="body2" color="black.900" fontFamily="fontFamily.interSemiBold">
           PRICE
         </Title>
-        <CheckboxList list={prices} searchParamName="prices" />
+        <CheckboxList list={memoizedPrices} searchParamName="prices" />
       </Box>
-    </Wrapper>
+    </Wrapper >
   );
-};
+});
 
-export default SideBar;

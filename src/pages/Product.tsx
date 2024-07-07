@@ -13,11 +13,11 @@ const Product = () => {
   const { data, isSuccess, isLoading } = useGetProductQuery(Number(id));
 
   if (isLoading) return <p>Loading...</p>;
-  console.log(data);
+
   const product = data as Model.Product;
   return (
     <ProductWrapper>
-      <Breadcrumbs />
+      <Breadcrumbs title={product.title} />
       <Box display="flex" gap={3}>
         <ProductSlider images={product.images} discountPercentage={product.discountPercentage} />
         <ProductContent {...product} />

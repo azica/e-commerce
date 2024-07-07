@@ -102,4 +102,10 @@ export declare global {
     isRight?: boolean;
     fullWidth?: boolean;
   }
+
+  interface TabPanelProps {
+    children?: React.ReactNode;
+    index: number;
+    value: number;
+  }
 }

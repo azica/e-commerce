@@ -1,19 +1,7 @@
 import { SyntheticEvent, useState } from "react";
-import { Wrapper } from "./styles"
 import { Box, Tab, Tabs, Typography } from "@mui/material";
 import { Reviews } from "components/Reviews";
-
-const tabsMenu = [
-    { id: 1, label: "Reviews" },
-    { id: 2, label: "Additional Info" },
-    { id: 3, label: "Questions" },
-];
-
-interface TabPanelProps {
-    children?: React.ReactNode;
-    index: number;
-    value: number;
-}
+import { tabsMenu } from "assets/data/mockdata";
 
 const CustomTabPanel = (props: TabPanelProps) => {
     const { children, value, index, ...other } = props;
@@ -36,7 +24,6 @@ export const ProductTabs = ({ title, reviews }: Model.Product) => {
     const [value, setValue] = useState(0);
 
     const handleChange = (event: SyntheticEvent, newValue: number) => {
-        console.log(newValue)
         setValue(newValue);
     };
 
@@ -50,7 +37,7 @@ export const ProductTabs = ({ title, reviews }: Model.Product) => {
     return (
         <Box display="flex" flexDirection="column" gap={6} py={5}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                {tabsMenu.map((tab, index) => (
+                {tabsMenu.map((tab) => (
                     <Tab key={tab.id} label={tab.label} {...a11yProps(tab.id)} />
                 ))}
             </Tabs>

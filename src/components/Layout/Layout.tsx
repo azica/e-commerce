@@ -13,17 +13,11 @@ import { layoutStyles } from "./styles";
 const { Container, Wrapper } = layoutStyles;
 
 export const Layout = () => {
-  const [showNewsLetterSection, setShowNewsLetterSection] = useState(false);
-
   const { hash, pathname } = useLocation();
   const lastItem = pathname.split("/").at(-1);
 
-  useLayoutEffect(() => {
-    setShowNewsLetterSection(lastItem === "" || lastItem === "shop");
-  }, [hash, lastItem, pathname]);
-
   const authUrls = ["login", "register", "createPassword", "password-recovery"];
-
+  console.log(authUrls.includes(lastItem || ""))
   return (
     <ThemeProvider theme={theme}>
       {authUrls.includes(lastItem || "") ? (
@@ -36,7 +30,7 @@ export const Layout = () => {
           <Container className={authUrls.includes(lastItem || "") ? "" : "hasMarginTop"}>
             <LayoutContent />
           </Container>
-          {showNewsLetterSection && <NewsLetter />}
+          <NewsLetter />
           <Footer />
         </Wrapper>
       )}

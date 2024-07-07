@@ -46,7 +46,7 @@ export const Shop = () => {
       productsGridRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  console.log("render")
   return (
     <Box>
       <PageHeader
