@@ -1,11 +1,23 @@
 import { Grid1Icon, Grid2Icon, Grid3Icon, Grid4Icon } from "assets/icons";
-
 import { Wrapper, Button } from "./styles";
 import { useActions, useAppSelector } from "shared/store/hooks";
+import { memo, useEffect } from "react";
 
-export const GridFilters = () => {
-  const { gridLayout } = useAppSelector(state => state.product);
-  const { setGridLayout } = useActions();
+export const GridFilters = memo(() => {
+  const { gridLayout, loading } = useAppSelector(state => state.product);
+  const { setGridLayout, setLoading } = useActions();
+
+  useEffect(() => {
+    if (gridLayout === "grid1") {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    } else {
+      setLoading(false);
+    }
+
+  }, [gridLayout]);
 
   const clickHandle = (grid: string) => {
     setGridLayout(grid);
@@ -21,10 +33,10 @@ export const GridFilters = () => {
   return (
     <Wrapper>
       {gridButtons.map((el, index) => (
-        <Button key={index} onClick={el.handle} className={gridLayout === el.name ? "active" : ""}>
+        <Button key={index} onClick={el.handle} className={gridLayout === el.name ? "active" : ""} disabled={loading}>
           {el.icon}
         </Button>
       ))}
     </Wrapper>
   );
-};
+});

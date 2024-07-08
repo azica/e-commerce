@@ -18,7 +18,6 @@ export const Select = ({
   invalid,
   helperText,
   onChange,
-  filter,
   startAdornment,
   replaceName,
   multiple,
@@ -51,7 +50,7 @@ export const Select = ({
 
   return (
     <FormControl
-      className={filter ? "filter common-input" : "common-input"}
+      className={"common-input"}
       required={required}
       error={invalid}
 

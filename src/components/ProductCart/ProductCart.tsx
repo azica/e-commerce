@@ -59,10 +59,10 @@ export const ProductCart = ({ isMobileMenu }: { isMobileMenu?: boolean }) => {
               ${total}
             </Typography>
           </Total>
-          <Button variant="contained" fullWidth>
+          <Button variant="contained" fullWidth link="/checkout">
             Checkout
           </Button>
-          <Link to="/cart">View Cart</Link>
+          <Link to="/cart" className="link">View Cart</Link>
         </Summary>
       </Drawer>
     </>

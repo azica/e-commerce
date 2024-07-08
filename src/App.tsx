@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { StrictMode, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { getTokensFromStorage } from "shared/helpers/localStorage";
@@ -22,9 +22,11 @@ const App = () => {
   }, [triggerUserData, setUser]);
 
   return (
-    <BrowserRouter>
-      <Navigation />
-    </BrowserRouter>
+    <StrictMode>
+      <BrowserRouter>
+        <Navigation />
+      </BrowserRouter>
+    </StrictMode>
   );
 };
 

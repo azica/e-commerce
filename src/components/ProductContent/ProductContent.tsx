@@ -47,7 +47,7 @@ export const ProductContent = (product: Model.Product) => {
       ) : null}
       <Buttons>
         <CounterButtons product={product} isBig />
-        <WishlistButton product={product} />
+        <WishlistButton product={product} size="large" />
         <AddToCart product={product} size="large" />
       </Buttons>
       <ProductList>

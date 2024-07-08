@@ -8,32 +8,26 @@ const { Content } = layoutStyles;
 
 export const LayoutContent = () => {
   const [noTransition, setNoTransition] = useState<boolean>(false);
-  const [prevPathname, setPrevPathname] = useState<string>("");
   const params = useParams();
   const outletRef = useRef(null);
   const currentOutlet = useOutlet();
 
-  const { key, hash, pathname } = useLocation();
+  const { pathname } = useLocation();
   const lastItem = pathname.split("/").at(-1);
 
   useEffect(() => {
     const transitionPaths = ["login", "register", "password-recovery"];
-    const isShopPath = pathname.includes("/shop");
 
-    const shouldSkipTransition = transitionPaths.includes(lastItem || "") || (isShopPath && pathname === prevPathname);
+    const shouldSkipTransition = transitionPaths.includes(lastItem || "");
 
     setNoTransition(shouldSkipTransition);
 
-    if (pathname !== prevPathname) {
-      setPrevPathname(pathname);
-    }
-  }, [params, hash, lastItem, pathname, prevPathname]);
-
+  }, [params, lastItem, pathname]);
   return (
     <Content>
       <SwitchTransition>
         <CSSTransition
-          key={key}
+          key={pathname}
           classNames={noTransition ? "" : "fadeIn"}
           timeout={noTransition ? 0 : 300}
           nodeRef={outletRef}

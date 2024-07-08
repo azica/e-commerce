@@ -37,7 +37,7 @@ export const CartList = styled(List)`
 export const Summary = styled(Box)`
   margin-top: auto;
 
-  a {
+  .link {
     font-family: ${InterBold};
     font-size: 14px;
     line-height: 22px;

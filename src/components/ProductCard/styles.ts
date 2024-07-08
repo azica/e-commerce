@@ -7,6 +7,7 @@ import { device } from "styles/media";
 import { flexAlignCenter, flexColumn } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
@@ -17,6 +18,7 @@ export const Wrapper = styled(Box)`
       gap: 0;
       .content {
         padding: 24px;
+        gap: 8px;
       }
   }
 
@@ -80,6 +82,14 @@ export const WishlistButtonWrap = styled(Box)`
 export const Content = styled(Box)`
   ${flexColumn};
   gap: 4px;
+
+  & div:has(.button) {
+    margin-top: auto;
+  }
+
+   & div:last-child > button {
+   border: none!important;
+  }
 `;
 
 export const Title = styled(Typography)`
@@ -120,11 +130,10 @@ export const AddToCartButton = styled(Box)`
 `;
 
 export const Description = styled(Typography)`
-  // display: -webkit-box;
-  // -webkit-line-clamp: 4;
-  // -webkit-box-orient: vertical;
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // height: 100px;
-
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100px;
 `

@@ -134,7 +134,6 @@ export declare global {
   }>;
 
   interface Select extends InputData {
-    filter?: boolean;
     replaceName?: boolean;
     onChange: InputOnChange;
     startAdornment?: ReactNode;

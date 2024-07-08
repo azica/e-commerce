@@ -5,9 +5,12 @@ import { CheckboxList } from "components/FormElements/CheckboxList";
 import { SideMenu } from "components/SideMenu";
 import { Title, Wrapper, Filter } from "./style";
 import { useAppSelector } from "shared/store/hooks";
+import { Preloader } from "components/Preloader";
 
 export const SideBar = () => {
-  const { gridLayout } = useAppSelector(state => state.product);
+  const { gridLayout, loading } = useAppSelector(state => state.product);
+
+  console.log(loading)
   return (
     <Wrapper className={gridLayout}>
       {gridLayout === "grid1" ?
@@ -23,13 +26,17 @@ export const SideBar = () => {
         <Title variant="body2" color="black.900" fontFamily="fontFamily.interSemiBold">
           CATEGORIES
         </Title>
-        <SideMenu gridLayout={gridLayout} />
+        <Preloader active={loading}>
+          <SideMenu gridLayout={gridLayout} />
+        </Preloader>
       </Box>
       <Box>
         <Title variant="body2" color="black.900" fontFamily="fontFamily.interSemiBold">
           PRICE
         </Title>
-        <CheckboxList list={prices} searchParamName="prices" />
+        <Preloader active={loading}>
+          <CheckboxList list={prices} searchParamName="prices" />
+        </Preloader>
       </Box>
     </Wrapper >
   );

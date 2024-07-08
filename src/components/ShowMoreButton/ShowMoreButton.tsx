@@ -2,7 +2,7 @@ import { useRef, RefObject } from 'react';
 import { ButtonWrap } from './styles';
 import { useSearchParams } from 'react-router-dom';
 
-export const ShowMoreButton = ({ totalProducts, productsGridRef }: { totalProducts: number; productsGridRef: RefObject<HTMLDivElement> }) => {
+export const ShowMoreButton = ({ totalProducts, productsGridRef }: { totalProducts: number; productsGridRef: RefObject<HTMLDivElement>; }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     let skip = parseInt(searchParams.get("skip") || "0", 10);
     let limit = parseInt(searchParams.get("limit") || "10", 10);
@@ -34,7 +34,7 @@ export const ShowMoreButton = ({ totalProducts, productsGridRef }: { totalProduc
             variant="outlined"
             size="small"
             onClick={showMoreProducts}
-            disabled={!hasMoreProducts} // Disable the button when no more products to load
+            disabled={!hasMoreProducts}
         >
             Show more
         </ButtonWrap>

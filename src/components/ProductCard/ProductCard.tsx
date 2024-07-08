@@ -1,16 +1,15 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import { HeartFilledIcon, HeartIcon } from "assets/icons";
 import { AddToCart } from "components/AddToCart";
 import { Badge } from "components/Badge";
 import { Rating } from "components/Rating";
 import { WishlistButton } from "components/WishlistButton";
-
-import { Wrapper, Image, Badges, WishlistButtonWrap, Content, Title, Price, AddToCartButton, Description } from "./styles";
+import { Preloader } from "components/Preloader";
 import { useAppSelector } from "shared/store/hooks";
 
-export const ProductCard = ({ product }: { product: Model.Product }) => {
+import { Wrapper, Image, Badges, WishlistButtonWrap, Content, Title, Price, AddToCartButton, Description } from "./styles";
+
+export const ProductCard = ({ product, loading }: { product: Model.Product; loading: boolean }) => {
   const { pathname } = useLocation();
   const { gridLayout } = useAppSelector(state => state.product);
   const discountedPrice = product.discountPercentage ? product.price * (1 - product.discountPercentage / 100) : null;
@@ -19,7 +18,9 @@ export const ProductCard = ({ product }: { product: Model.Product }) => {
   return (
     <Wrapper className={isRow ? "row" : ""}>
       <Image>
-        <img src={product.thumbnail} alt={product.title} />
+        <Preloader active={loading}>
+          <img src={product.thumbnail} alt={product.title} />
+        </Preloader>
         <Badges>
           <Badge size="medium">New</Badge>
           {product.discountPercentage ? (
@@ -28,12 +29,17 @@ export const ProductCard = ({ product }: { product: Model.Product }) => {
             </Badge>
           ) : null}
         </Badges>
-        <WishlistButtonWrap className="wishlist">
-          <WishlistButton product={product} small />
-        </WishlistButtonWrap>
-        <AddToCartButton className="addToCart">
-          <AddToCart product={product} size="medium" />
-        </AddToCartButton>
+        {
+          isRow ? null
+            : <>
+              <WishlistButtonWrap className="wishlist">
+                <WishlistButton product={product} small size="medium" />
+              </WishlistButtonWrap>
+              <AddToCartButton className="addToCart">
+                <AddToCart product={product} size="medium" />
+              </AddToCartButton>
+            </>
+        }
       </Image>
       <Content className="content">
         <Rating stars={product.rating} />
@@ -52,9 +58,13 @@ export const ProductCard = ({ product }: { product: Model.Product }) => {
         </Price>
         {
           isRow ?
-            <Description variant="body2" fontFamily="fontFamily.interRegular" color="primary.400">
-              {product.description}
-            </Description>
+            <>
+              <Description variant="body2" fontFamily="fontFamily.interRegular" color="primary.400">
+                {product.description}
+              </Description>
+              <AddToCart product={product} size="medium" className="button" />
+              <WishlistButton product={product} size="medium" />
+            </>
             : null
         }
       </Content>

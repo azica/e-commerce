@@ -115,4 +115,11 @@ export declare global {
     bordered?: boolean;
     searchNames: string[];
   }
+
+  interface WishlistButton {
+    small?: boolean;
+    product?: Model.Product;
+    isMobileMenu?: boolean;
+    size: Size;
+  }
 }

@@ -290,6 +290,7 @@ export const theme = createTheme({
           paddingRight: "20px !important",
           color: black900,
           fontFamily: InterSemiBold,
+          textTransform: "capitalize"
         },
       },
     },

@@ -7,7 +7,6 @@ import { Sort } from "components/Sort";
 import { useEffect, useState } from "react";
 
 export const SideMenu = ({ gridLayout }: { gridLayout: string }) => {
-
   const [options, setOptions] = useState<Option[]>([]);
   const { search } = useLocation();
   const { data, isSuccess, isLoading, error } = useGetCategoriesQuery();
@@ -32,7 +31,7 @@ export const SideMenu = ({ gridLayout }: { gridLayout: string }) => {
           <SideMenuLink key={item} url={`/shop?category=${item}`} active={search === `?category=${item}`} title={item} />
         ))
         :
-        <Sort bordered options={options} placeholder="By Category" searchNames={["category"]} />
+        <Sort options={options} placeholder="By Category" searchNames={["category"]} bordered />
       }
 
     </Wrapper>

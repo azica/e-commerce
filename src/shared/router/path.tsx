@@ -9,6 +9,9 @@ import Product from "pages/Product";
 import { Shop } from "pages/Shop";
 
 import ProtectedRoute from "./ProtectedRoute";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "pages/Dashboard";
+import Checkout from "pages/Chekout";
 
 export const basicPaths = [
   {
@@ -69,5 +72,28 @@ export const basicPaths = [
     path: "/product/:id",
     id: 8,
     element: <Product />,
+  },
+  {
+    id: 4,
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+  },
+  {
+    id: 5,
+    path: "/checkout",
+    element: (
+      <PrivateRoute>
+        <Checkout />
+      </PrivateRoute>
+    ),
+  },
+  {
+    id: 5,
+    path: "/cart",
+    element: <Checkout />,
   },
 ];

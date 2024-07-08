@@ -17,6 +17,7 @@ import { useAppSelector } from "shared/store/hooks";
 
 export const Shop = () => {
   const { gridLayout } = useAppSelector(state => state.product);
+
   return (
     <Box>
       <PageHeader

@@ -48,7 +48,7 @@ export const NewArrivals = () => {
             modules={[EffectFade, Scrollbar]}>
             {products.map((product) => (
               <SwiperSlide key={product.id}>
-                <ProductCard product={product} />
+                <ProductCard product={product} loading={false} />
               </SwiperSlide>
             ))}
           </Swiper>

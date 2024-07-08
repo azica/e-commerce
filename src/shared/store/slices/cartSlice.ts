@@ -34,7 +34,6 @@ const cartSlice = createSlice({
       updateTotals(state as CartState);
     },
     incrementQuantity: (state, { payload }: PayloadAction<Model.CartItem>) => {
-      console.log(payload)
       const itemIndex = state.cartList.findIndex((item) => item.id === payload.id);
       if (itemIndex >= 0) {
         state.cartList[itemIndex].quantity++;

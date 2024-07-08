@@ -51,7 +51,7 @@ export const Header = () => {
             <SearchBlock isMobile />
             <NavMenu isMobileMenu={isMobileMenu} />
             <ProductCart isMobileMenu={isMobileMenu} />
-            <WishlistButton isMobileMenu={isMobileMenu} />
+            <WishlistButton isMobileMenu={isMobileMenu} size="medium" />
             <Button variant="contained" size="large" link="/login" fullWidth>Sign In</Button>
             <SocialLinks isMobileMenu={isMobileMenu} />
           </MobileInner>
