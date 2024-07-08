@@ -31,7 +31,7 @@ export const ProductService = {
     if (sortBy) {
       url += `&sortBy=${sortBy}`;
     }
-    await simulateDelay(300)
+
     const res = await axios.get<GetProducts>(url);
     return res.data;
   },

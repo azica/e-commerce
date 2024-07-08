@@ -1,37 +1,42 @@
-import { useEffect, useState } from 'react'
-
+import { useRef, RefObject } from 'react';
 import { ButtonWrap } from './styles';
-import { SetURLSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
-export const ShowMoreButton = ({ searchParams, setSearchParams }: { searchParams: URLSearchParams, setSearchParams: SetURLSearchParams }) => {
-
-    const [limit, setLimit] = useState(10);
-    const [skip, setSkip] = useState(0);
-
-    useEffect(() => {
-        if (searchParams) {
-            setLimit(parseInt(searchParams.get("limit") || "10", 10));
-            setSkip(parseInt(searchParams.get("skip") || "0", 10));
-        }
-    }, [searchParams]);
+export const ShowMoreButton = ({ totalProducts, productsGridRef }: { totalProducts: number; productsGridRef: RefObject<HTMLDivElement> }) => {
+    const [searchParams, setSearchParams] = useSearchParams();
+    let skip = parseInt(searchParams.get("skip") || "0", 10);
+    let limit = parseInt(searchParams.get("limit") || "10", 10);
 
     const showMoreProducts = () => {
-        setSkip((prevSkip) => prevSkip + limit);
+        limit += 10; // Increment limit by 10 each time
+
         setSearchParams((prevParams) => {
             const newParams = new URLSearchParams(prevParams);
-            newParams.set("limit", limit.toString());
-            newParams.set("skip", (skip + limit).toString());
+            newParams.set("skip", skip.toString());
+            newParams.set("limit", limit.toString()); // Update limit in searchParams
             return newParams;
         });
 
-        // if (productsGridRef.current) {
-        //   productsGridRef.current.scrollIntoView({ behavior: "smooth" });
-        // }
+        // Smooth scroll to the last product in the list
+        if (productsGridRef.current) {
+            const lastProduct = productsGridRef.current.lastElementChild as HTMLElement;
+            if (lastProduct) {
+                lastProduct.scrollIntoView({ behavior: "smooth", block: "end" });
+            }
+        }
     };
+
+    // Determine if there are more products to load
+    const hasMoreProducts = totalProducts > skip + limit;
+
     return (
-        <ButtonWrap variant="outlined" size="small" onClick={showMoreProducts}>
+        <ButtonWrap
+            variant="outlined"
+            size="small"
+            onClick={showMoreProducts}
+            disabled={!hasMoreProducts} // Disable the button when no more products to load
+        >
             Show more
         </ButtonWrap>
-    )
-}
-
+    );
+};

@@ -22,6 +22,7 @@ export const Reviews = ({ reviews, title }: { reviews?: Model.Review[]; title: s
                     options={reviewsOptions}
                     placeholder="Newest"
                     bordered
+                    searchNames={["reviews"]}
                 />
             </Box>
             <Box display="flex" flexDirection="column" gap={3}>

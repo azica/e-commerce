@@ -22,10 +22,10 @@ export const socialLinks = [
 
 export const prices: CheckboxListItem[] = [
   { id: 0, label: "All Price", checked: false, value: "all" },
-  { id: 1, label: "$0.00 - 99.99", checked: false, value: "0-99" },
-  { id: 2, label: "$100.00 - 199.99", checked: false, value: "99-199" },
-  { id: 3, label: "$200.00 - 299.99", checked: false, value: "199-299" },
-  { id: 4, label: "$300.00 - 399.99", checked: false, value: "299-300" },
+  { id: 1, label: "$0.00 - 99.99", checked: false, value: "0.00-99.99" },
+  { id: 2, label: "$100.00 - 199.99", checked: false, value: "100-199" },
+  { id: 3, label: "$200.00 - 299.99", checked: false, value: "200-299" },
+  { id: 4, label: "$300.00 - 399.99", checked: false, value: "300-399" },
 ];
 
 export const sortOptions = [

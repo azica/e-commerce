@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [] as Model.Product[],
+  gridLayout: "grid1"
 };
 
 const productSlice = createSlice({
@@ -13,9 +14,12 @@ const productSlice = createSlice({
     setProducts: (state, { payload }: PayloadAction<Model.Product[]>) => {
       state.products = payload;
     },
+    setGridLayout: (state, { payload }: PayloadAction<string>) => {
+      state.gridLayout = payload;
+    }
   },
 });
 
-export const { setProducts } = productSlice.actions;
+export const { setProducts, setGridLayout } = productSlice.actions;
 
 export default productSlice.reducer;

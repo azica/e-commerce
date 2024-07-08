@@ -35,7 +35,7 @@ export const LayoutContent = () => {
         <CSSTransition
           key={key}
           classNames={noTransition ? "" : "fadeIn"}
-          timeout={noTransition ? 0 : 900}
+          timeout={noTransition ? 0 : 300}
           nodeRef={outletRef}
           unmountOnExit
         >

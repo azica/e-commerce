@@ -1,14 +1,12 @@
 import { Grid1Icon, Grid2Icon, Grid3Icon, Grid4Icon } from "assets/icons";
 
 import { Wrapper, Button } from "./styles";
+import { useActions, useAppSelector } from "shared/store/hooks";
 
-export const GridFilters = ({
-  gridLayout,
-  setGridLayout,
-}: {
-  gridLayout: string;
-  setGridLayout: (val: string) => void;
-}) => {
+export const GridFilters = () => {
+  const { gridLayout } = useAppSelector(state => state.product);
+  const { setGridLayout } = useActions();
+
   const clickHandle = (grid: string) => {
     setGridLayout(grid);
   };

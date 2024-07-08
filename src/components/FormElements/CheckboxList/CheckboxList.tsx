@@ -3,8 +3,14 @@ import { useSearchParams } from "react-router-dom";
 import { Checkbox } from "components/FormElements/Checkbox";
 import { FormGroup, FormControl } from "./styles";
 import { getCurrentParams } from "shared/helpers/utils";
+import { useAppSelector } from "shared/store/hooks";
+import { Sort } from "components/Sort";
 
 export const CheckboxList: CheckboxList = ({ list, searchParamName }) => {
+  const { gridLayout } = useAppSelector(state => state.product);
+  const newOptions = list.map((option) => ({ name: String(option.label), value: option.value }))
+  const [options, setOptions] = useState<Option[]>(newOptions);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [listProps, setListProps] = useState<CheckboxListItem[]>(getCurrentParams(searchParams, list));
 
@@ -38,28 +44,34 @@ export const CheckboxList: CheckboxList = ({ list, searchParamName }) => {
   };
 
   return (
-    <FormControl
-      // @ts-ignore
-      component="fieldset"
-      variant="outlined"
-    >
-      <FormGroup>
-        {listProps.map(({ id, checked, label, disabled, value }) => (
-          <Checkbox
-            key={id}
-            id={id}
-            onChange={valueChange}
-            checked={checked ? checked : false}
-            className={checked ? "checked" : ""}
-            disabled={disabled}
-            field={`${id}`}
-            label={label}
-            value={value}
-            labelPlacement="start"
+    <>
+      {
+        gridLayout === "grid1" ?
+          <FormControl
+            // @ts-ignore
+            component="fieldset"
+            variant="outlined"
+          >
+            <FormGroup>
+              {listProps.map(({ id, checked, label, disabled, value }) => (
+                <Checkbox
+                  key={id}
+                  id={id}
+                  onChange={valueChange}
+                  checked={checked ? checked : false}
+                  className={checked ? "checked" : ""}
+                  disabled={disabled}
+                  field={`${id}`}
+                  label={label}
+                  value={value}
+                  labelPlacement="start"
 
-          />
-        ))}
-      </FormGroup>
-    </FormControl>
+                />
+              ))}
+            </FormGroup>
+          </FormControl>
+          : <Sort options={options} placeholder="By Prices" searchNames={["prices"]} bordered />
+      }
+    </>
   );
 };

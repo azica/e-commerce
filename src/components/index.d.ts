@@ -108,4 +108,11 @@ export declare global {
     index: number;
     value: number;
   }
+
+  interface Sort {
+    options: Option[];
+    placeholder: string;
+    bordered?: boolean;
+    searchNames: string[];
+  }
 }

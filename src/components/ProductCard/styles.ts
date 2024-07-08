@@ -7,9 +7,18 @@ import { device } from "styles/media";
 import { flexAlignCenter, flexColumn } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
-  ${flexColumn};
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 10px;
   transition: all 0.3s ease;
+
+  &.row {
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      .content {
+        padding: 24px;
+      }
+  }
 
   &:hover {
     .wishlist {
@@ -109,3 +118,13 @@ export const AddToCartButton = styled(Box)`
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 3.64%) !important;
   }
 `;
+
+export const Description = styled(Typography)`
+  // display: -webkit-box;
+  // -webkit-line-clamp: 4;
+  // -webkit-box-orient: vertical;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // height: 100px;
+
+`

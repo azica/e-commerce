@@ -18,9 +18,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    max-width: 100vw;
-    overflow-x: hidden;
-    padding: 0 !important;
+  
+    overflow: inherit;
+
   }
 
   .fade-enter, .fade-exit-active {
@@ -48,22 +48,4 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0;
   }
     
-.filterTitle-enter {
-  opacity: 0;
-  transition: opacity 300ms ease-in-out;
-}
-
-.filterTitle-enter-active {
-  opacity: 1;
-}
-
-.filterTitle-exit {
-  opacity: 1;
-  transition: opacity 300ms ease-in-out;
-}
-
-.filterTitle-exit-active {
-  opacity: 0;
-}
-
 `;

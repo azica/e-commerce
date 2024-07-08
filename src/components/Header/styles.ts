@@ -9,7 +9,7 @@ export const Wrapper = styled("header")`
   top: 0;
   left: 0px;
   right: 0px;
-  z-index: 1300;
+  z-index: 1000;
   padding: 10px 0;
   background: ${white};
 `;
@@ -28,9 +28,12 @@ export const LogoWrap = styled(Box)`
       padding: 0!important;
 
       svg {
-        width: 10px;
-        height: 8px;
+        width: 14px;
       }
+    }
+
+    img {
+      margin-top: 5px;
     }
 
 `

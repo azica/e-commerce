@@ -7,10 +7,6 @@ import { Star, Wrapper, Reviews, Stars } from "./styles";
 export const Rating = ({ stars, reviewsQuantity, showText }: { stars: number; reviewsQuantity?: number; showText?: boolean }) => {
   const [rating, setRating] = useState(stars);
 
-  const handleHover = (value: number) => {
-    setRating(value);
-  };
-
   const handleClick = (value: number) => {
     setRating(value);
     // if (onChange) {
@@ -34,8 +30,6 @@ export const Rating = ({ stars, reviewsQuantity, showText }: { stars: number; re
           return (
             <Star
               key={index}
-              onMouseEnter={() => handleHover(index)}
-              onMouseLeave={() => handleHover(stars)}
               onClick={() => handleClick(index)}
               className={showText ? "showText" : ""}
             >

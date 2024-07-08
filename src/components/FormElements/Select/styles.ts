@@ -23,6 +23,7 @@ export const MenuItem = styled(MenuItemMui)`
   background-color: ${white};
   white-space: normal;
   border-radius: 8px;
+  text-transform: capitalize;
   transition: all 0.3s ease-in-out;
 
   &:hover,

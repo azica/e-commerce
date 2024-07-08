@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { HeartFilledIcon, HeartIcon } from "assets/icons";
 import { AddToCart } from "components/AddToCart";
@@ -7,13 +7,17 @@ import { Badge } from "components/Badge";
 import { Rating } from "components/Rating";
 import { WishlistButton } from "components/WishlistButton";
 
-import { Wrapper, Image, Badges, WishlistButtonWrap, Content, Title, Price, AddToCartButton } from "./styles";
+import { Wrapper, Image, Badges, WishlistButtonWrap, Content, Title, Price, AddToCartButton, Description } from "./styles";
+import { useAppSelector } from "shared/store/hooks";
 
 export const ProductCard = ({ product }: { product: Model.Product }) => {
+  const { pathname } = useLocation();
+  const { gridLayout } = useAppSelector(state => state.product);
   const discountedPrice = product.discountPercentage ? product.price * (1 - product.discountPercentage / 100) : null;
 
+  const isRow = gridLayout === "grid3" || gridLayout === "grid4" && pathname === "/shop";
   return (
-    <Wrapper>
+    <Wrapper className={isRow ? "row" : ""}>
       <Image>
         <img src={product.thumbnail} alt={product.title} />
         <Badges>
@@ -31,7 +35,7 @@ export const ProductCard = ({ product }: { product: Model.Product }) => {
           <AddToCart product={product} size="medium" />
         </AddToCartButton>
       </Image>
-      <Content>
+      <Content className="content">
         <Rating stars={product.rating} />
         <Title variant="body2">
           <Link
@@ -46,6 +50,13 @@ export const ProductCard = ({ product }: { product: Model.Product }) => {
           <span>$ {product.price}</span>
           {discountedPrice ? <span className="oldPrice">$ {discountedPrice.toFixed(2)}</span> : null}
         </Price>
+        {
+          isRow ?
+            <Description variant="body2" fontFamily="fontFamily.interRegular" color="primary.400">
+              {product.description}
+            </Description>
+            : null
+        }
       </Content>
     </Wrapper>
   );
