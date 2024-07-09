@@ -23,6 +23,7 @@ export declare global {
     subtotal: number;
     totalQuantity: number;
     total: number;
+    shippingCost: number;
   }
 
   interface WishlistState {

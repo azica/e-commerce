@@ -16,6 +16,12 @@ export declare global {
     value: number | string;
   };
 
+
+  interface CheckboxItem extends Option {
+    disabled?: boolean;
+    afterRadioLabel?: ReactNode;
+  }
+
   type InputData = {
     id: number;
     value: string | number | boolean | string[];
@@ -48,6 +54,7 @@ export declare global {
       rows: number;
     };
     multiple?: boolean;
+    className?: string;
   };
 
   type Input = {
@@ -55,6 +62,7 @@ export declare global {
     startAdornment?: ReactNode;
     onChange: InputOnChange;
     onKeyDown?: (event: any) => void;
+    className?: string;
   } & InputData;
 
   type InputsValue = {
@@ -137,5 +145,35 @@ export declare global {
     replaceName?: boolean;
     onChange: InputOnChange;
     startAdornment?: ReactNode;
+  }
+
+  interface RadioGroupProps {
+    list: CheckboxItem[];
+    defaultValue?: string | number;
+    field: string;
+    id: string | number;
+    bordered?: boolean;
+    onChange: InputOnChange;
+  }
+
+  interface TabsItem {
+    id: number;
+    title: string;
+    param: string;
+  }
+
+  interface Tabs {
+    children: ReactNode;
+    tabs: TabsItem[];
+    changeParamUrl: (param: string) => void;
+    commonPath: string;
+    setIsLoading: (val: boolean) => void;
+    circled?: boolean;
+    activeTab: string;
+  }
+
+  interface InputsSpreader {
+    layout?: string;
+    formElement: Input;
   }
 }

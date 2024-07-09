@@ -21,3 +21,5 @@ export const black100 = "rgb(245,245,245)";
 export const black500 = "rgb(128,126,126)";
 export const black600 = "rgb(96,95,95)";
 export const black900 = "rgb(18,18,18)";
+
+export const grey400 = "rgb(177, 181, 195)"

@@ -16,7 +16,7 @@ export const LayoutContent = () => {
   const lastItem = pathname.split("/").at(-1);
 
   useEffect(() => {
-    const transitionPaths = ["login", "register", "password-recovery"];
+    const transitionPaths = ["login", "register", "password-recovery", "shopping", "checkout", "order"];
 
     const shouldSkipTransition = transitionPaths.includes(lastItem || "");
 

@@ -52,6 +52,7 @@ export declare global {
     disabled?: boolean;
     children: ReactNode;
     id: string;
+    className?: string;
   }
 
   interface ListLayout {
@@ -121,5 +122,12 @@ export declare global {
     product?: Model.Product;
     isMobileMenu?: boolean;
     size: Size;
+  }
+
+  interface Delivery {
+    label: string;
+    checked: boolean;
+    number: number;
+    numberLabel: string;
   }
 }

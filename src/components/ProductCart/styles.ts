@@ -51,18 +51,7 @@ export const Summary = styled(Box)`
     }
   }
 `;
-export const Subtotal = styled(Box)`
-  ${flexAlignCenter};
-  justify-content: space-between;
-  border-bottom: 1px solid ${neutral03};
-  padding: 13px 0;
-`;
 
-export const Total = styled(Box)`
-  ${flexAlignCenter};
-  justify-content: space-between;
-  padding: 13px 0;
-`;
 
 export const Buttons = styled(Box)`
   ${flexAlignCenter};

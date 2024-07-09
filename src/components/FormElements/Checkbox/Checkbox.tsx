@@ -26,7 +26,7 @@ export const Checkbox: Checkbox = ({
   };
 
   return (
-    <InputWrapper id={idForHelperText} type="checkbox" invalid={invalid} helperText={helperText}>
+    <InputWrapper id={idForHelperText} type="checkbox" invalid={invalid} helperText={helperText} className={className}>
       <FormControlLabel
         control={
           <CheckboxMui

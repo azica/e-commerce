@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { CarIcon, FacebookIcon, InstagramIcon, LockIcon, MoneyIcon, PhoneIcon, YoutubeIcon } from "assets/icons";
 
 export const navMenu = [
@@ -45,3 +46,24 @@ export const tabsMenu = [
   { id: 2, label: "Additional Info" },
   { id: 3, label: "Questions" },
 ];
+
+export const cartTabs: TabsItem[] = [
+  { id: 1, title: "Shopping cart", param: "shopping" },
+  { id: 2, title: "Checkout details", param: "checkout" },
+  { id: 3, title: "Order complete", param: "order" },
+];
+
+export const shippingButtons: CheckboxItem[] = [
+  {
+    id: 1, name: "Free shipping", value: "free",
+    afterRadioLabel: <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">$0.00</Typography>
+  },
+  {
+    id: 2, name: "Express shipping", value: "express",
+    afterRadioLabel: <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">+$15.00</Typography>
+  },
+  {
+    id: 3, name: "Pick Up", value: "pick-up",
+    afterRadioLabel: <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">%21.00</Typography>
+  }
+]

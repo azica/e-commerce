@@ -7,12 +7,13 @@ const initialState: CartState = loadStateFromLocalStorage<CartState>("cartState"
   subtotal: 0,
   totalQuantity: 0,
   total: 0,
+  shippingCost: 0,
 });
 
 const updateTotals = (state: CartState) => {
   state.subtotal = +state.cartList.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
   state.totalQuantity = state.cartList.reduce((sum, item) => sum + item.quantity, 0);
-  state.total = state.subtotal;
+  state.total = state.subtotal + state.shippingCost;
   saveStateToLocalStorage("cartState", state);
 };
 
@@ -58,9 +59,20 @@ const cartSlice = createSlice({
     recalculateTotals: (state) => {
       updateTotals(state as CartState);
     },
+    setShippingCost: (state, { payload }: PayloadAction<number>) => {
+      state.shippingCost = payload;
+      updateTotals(state as CartState);
+    }
   },
 });
 
-export const { addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearCart, recalculateTotals } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+  clearCart,
+  recalculateTotals,
+  setShippingCost } = cartSlice.actions;
 
 export default cartSlice.reducer;

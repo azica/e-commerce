@@ -11,7 +11,10 @@ import { Shop } from "pages/Shop";
 import ProtectedRoute from "./ProtectedRoute";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "pages/Dashboard";
-import Checkout from "pages/Chekout";
+import Cart from "pages/Cart";
+import { CartTable } from "components/CartTable";
+import Order from "pages/Order";
+import { Checkout } from "components/Checkout";
 
 export const basicPaths = [
   {
@@ -20,7 +23,7 @@ export const basicPaths = [
     element: <Main />,
   },
   {
-    path: "/shop",
+    path: "shop",
     id: 2,
     element: <Shop />,
   },
@@ -49,7 +52,7 @@ export const basicPaths = [
       },
       {
         id: 3,
-        path: "/password-recovery",
+        path: "password-recovery",
         element: (
           <ProtectedRoute>
             <PasswordRecovery />
@@ -59,23 +62,23 @@ export const basicPaths = [
     ],
   },
   {
-    path: "/contact-us",
+    path: "contact-us",
     id: 6,
     element: <ContactUs />,
   },
   {
-    path: "/blog",
+    path: "blog",
     id: 7,
     element: <Blog />,
   },
   {
-    path: "/product/:id",
+    path: "product/:id",
     id: 8,
     element: <Product />,
   },
   {
     id: 4,
-    path: "/dashboard",
+    path: "dashboard",
     element: (
       <PrivateRoute>
         <Dashboard />
@@ -84,16 +87,31 @@ export const basicPaths = [
   },
   {
     id: 5,
-    path: "/checkout",
-    element: (
-      <PrivateRoute>
-        <Checkout />
-      </PrivateRoute>
-    ),
+    path: "cart",
+    element: <Cart />,
+    children: [
+      {
+        id: 1,
+        path: "shopping",
+        element: (
+          <CartTable />
+        ),
+      },
+      {
+        id: 2,
+        path: "checkout",
+        element: (
+          <Checkout />
+        ),
+      },
+      {
+        id: 3,
+        path: "order",
+        element: (
+          <Order />
+        ),
+      },
+    ]
   },
-  {
-    id: 5,
-    path: "/cart",
-    element: <Checkout />,
-  },
+
 ];

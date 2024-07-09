@@ -149,6 +149,7 @@ export const theme = createTheme({
               "&:-internal-autofill-selected, &:-internal-autofill-previewed": {
                 backgroundColor: `${white}`,
                 WebkitBoxShadow: `0 0 0px 1000px ${white} inset`,
+                color: neutral07
               },
             },
           },
@@ -196,7 +197,7 @@ export const theme = createTheme({
           fontFamily: InterRegular,
           fontSize: "16px",
           lineHeight: "26px",
-          color: neutral04,
+          color: neutral07,
           padding: 0,
           transition: "all 0.25s ease-in-out",
           background: "transparent",
@@ -209,7 +210,6 @@ export const theme = createTheme({
           "&:-internal-autofill-selected, &:-internal-autofill-previewed": {
             backgroundColor: "transparent !important",
             WebkitBoxShadow: `0 0 0px 1000px ${neutral02} inset`,
-            color: `${neutral07} !important`,
           },
 
           "&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus": {
