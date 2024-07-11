@@ -6,6 +6,7 @@ import { Navigation } from "shared/router/Navigation";
 import { useActions } from "shared/store/hooks";
 import { useLazyGetUserQuery } from "shared/store/queries/auth.query";
 
+
 const App = () => {
   const { setUser } = useActions();
   const [trigger, triggerUserData] = useLazyGetUserQuery();

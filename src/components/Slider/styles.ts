@@ -45,21 +45,21 @@ export const Inner = styled(Box)`
   }
     
   .swiper-button-prev::after {
-    background: url(${arrowRight as unknown as string}) no-repeat center center;
-    transform: rotate(180deg);
+   transform: rotate(180deg);
+    background: url(${String(arrowRight)}) no-repeat center center;
   }
 
   .swiper-button-next::after {
-    background: url(${arrowRight as unknown as string}) no-repeat;
+    background: url(${String(arrowRight)}) no-repeat;
   }
 
   .swiper-button-prev.swiper-button-disabled::after {
-     background: url(${arrowLeft as unknown as string}) no-repeat center center;
+     background: url(${String(arrowLeft)}) no-repeat center center;
      transform: rotate(0deg);
   }
 
  .swiper-button-next.swiper-button-disabled::after {
-     background: url(${arrowLeft as unknown as string}) no-repeat center center;
+     background: url(${String(arrowLeft)}) no-repeat center center;
      transform: rotate(180deg);
   }
 
