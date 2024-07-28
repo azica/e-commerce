@@ -1,11 +1,11 @@
 import { Navigation, Autoplay, Pagination, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { useAppSelector } from "shared/store/hooks";
-import { SwiperItem } from "./SwiperItem";
-
-import { Inner, NextButton, PrevButton } from "./styles";
 import { ArrowLeftIcon, ArrowRightIcon } from "assets/icons";
+import { useAppSelector } from "shared/store/hooks";
+
+import { Inner } from "./styles";
+import { SwiperItem } from "./SwiperItem";
 
 export const Slider = () => {
   const { products } = useAppSelector((state) => state.product);
@@ -21,14 +21,13 @@ export const Slider = () => {
           }}
           effect={"fade"}
           navigation={{
-            prevEl: '.custom-prev-button',
-            nextEl: '.custom-next-button',
+            prevEl: ".custom-prev-button",
+            nextEl: ".custom-next-button",
           }}
           pagination={{
             clickable: true,
           }}
-          modules={[EffectFade, Navigation, Autoplay, Pagination]}
-        >
+          modules={[EffectFade, Navigation, Autoplay, Pagination]}>
           {products.map((item) => (
             <SwiperSlide key={item.id}>
               <SwiperItem {...item} />
@@ -36,12 +35,12 @@ export const Slider = () => {
           ))}
         </Swiper>
       ) : null}
-      <PrevButton className="custom-prev-button">
-        <ArrowRightIcon />
-      </PrevButton>
-      <NextButton className="custom-next-button">
+      <button className="custom-prev-button">
         <ArrowLeftIcon />
-      </NextButton>
+      </button>
+      <button className="custom-next-button">
+        <ArrowRightIcon />
+      </button>
     </Inner>
   );
 };

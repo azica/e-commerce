@@ -6,8 +6,7 @@ export const InputWrapper = ({ helperText, id, type, invalid, disabled, children
     component={type === "checkbox" ? "fieldset" : "div"}
     disabled={disabled}
     error={invalid}
-    className={className}
-  >
+    className={className}>
     {children}
     <FormHelperText title={helperText} id={id}>
       {helperText}

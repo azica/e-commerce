@@ -18,12 +18,15 @@ export declare global {
     isSystemAdmin: boolean | null;
   };
 
+  type CompletionStatus = "shopping" | "order" | "checkout";
+
   interface CartState {
     cartList: Model.CartItem[];
     subtotal: number;
     totalQuantity: number;
     total: number;
     shippingCost: number;
+    completionStatus: Record<CompletionStatus, boolean>;
   }
 
   interface WishlistState {

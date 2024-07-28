@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactElement, ReactNode } from "react";
 
 export declare global {
   type InputOnChange = {
@@ -15,7 +15,6 @@ export declare global {
     name: string;
     value: number | string;
   };
-
 
   interface CheckboxItem extends Option {
     disabled?: boolean;
@@ -42,11 +41,6 @@ export declare global {
       maskChar?: string | null;
       maskPlaceholder?: string | null;
     };
-    dateProps?: {
-      disablePast?: boolean;
-      disableFuture?: boolean;
-    };
-    suggest?: FetchType;
     changeable?: boolean;
     autoComplete?: string;
     textarea?: {
@@ -156,18 +150,22 @@ export declare global {
     onChange: InputOnChange;
   }
 
-  interface TabsItem {
+  interface TabItem {
     id: number;
     title: string;
     param: string;
+    state?: {
+      isChecked: boolean;
+      isDisabled: boolean;
+    };
   }
 
   interface Tabs {
-    children: ReactNode;
+    children: ReactNode | ReactElement | null;
     tabs: TabsItem[];
-    changeParamUrl: (param: string) => void;
-    commonPath: string;
+    setActiveTab: (param: string) => void;
     setIsLoading: (val: boolean) => void;
+    commonPath: string;
     circled?: boolean;
     activeTab: string;
   }

@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
 
 import { sortOptions } from "assets/data/mockdata";
 import shopBg from "assets/images/shopBg.png";
@@ -11,12 +10,12 @@ import { ProductsGrid } from "components/ProductsGrid";
 import { SideBar } from "components/SideBar";
 import { Sort } from "components/Sort";
 import { Container } from "components/Wrappers/Container";
-
-import { Content, Inner, Toolbar } from "./styles";
 import { useAppSelector } from "shared/store/hooks";
 
+import { Content, Inner, Toolbar } from "./styles";
+
 export const Shop = () => {
-  const { gridLayout } = useAppSelector(state => state.product);
+  const { gridLayout } = useAppSelector((state) => state.product);
 
   return (
     <Box>

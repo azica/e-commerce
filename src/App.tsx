@@ -1,11 +1,10 @@
-import { StrictMode, useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { getTokensFromStorage } from "shared/helpers/localStorage";
 import { Navigation } from "shared/router/Navigation";
 import { useActions } from "shared/store/hooks";
 import { useLazyGetUserQuery } from "shared/store/queries/auth.query";
-
 
 const App = () => {
   const { setUser } = useActions();
@@ -23,11 +22,9 @@ const App = () => {
   }, [triggerUserData, setUser]);
 
   return (
-    <StrictMode>
-      <BrowserRouter>
-        <Navigation />
-      </BrowserRouter>
-    </StrictMode>
+    <BrowserRouter>
+      <Navigation />
+    </BrowserRouter>
   );
 };
 

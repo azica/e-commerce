@@ -1,73 +1,50 @@
-import { useState, useEffect, ChangeEvent, Fragment } from "react";
+import type { ChangeEvent } from "react";
 
-import {
-	RadioGroupMui,
-	Radio,
-	FormControl,
-	RadioContainer,
-	RadioMark,
-	FormControlLabel,
-	RadioWrap,
-} from "./styles";
+import { useState, useEffect } from "react";
 
-export const RadioGroup = ({
-	list,
-	field,
-	id,
-	onChange,
-	defaultValue,
-	bordered
-}: RadioGroupProps) => {
-	const [value, setValue] = useState<string | number>(
-		defaultValue ? defaultValue : list[0].value,
-	);
-	const idForInput = `${field}-${id}`;
+import { RadioGroupMui, Radio, FormControl, RadioContainer, RadioMark, FormControlLabel, RadioWrap } from "./styles";
 
-	useEffect(() => {
-		if (defaultValue) setValue(defaultValue);
-	}, [defaultValue]);
+export const RadioGroup = ({ list, field, id, onChange, defaultValue, bordered }: RadioGroupProps) => {
+  const [value, setValue] = useState<string | number>(defaultValue ? defaultValue : list[0].value);
+  const idForInput = `${field}-${id}`;
 
-	const changeValue = (event: ChangeEvent<HTMLInputElement>) => {
-		const target = event.target;
-		setValue(target.value);
-		onChange({ value: target.value, field, id: idForInput });
-	};
+  useEffect(() => {
+    if (defaultValue) setValue(defaultValue);
+  }, [defaultValue]);
 
-	return (
-		<FormControl>
-			<RadioGroupMui
-				value={value}
-				onChange={changeValue}
-				className={
-					bordered ? "bordered" : "select-container"
-				}>
-				{list.map(({ id, value: itemValue, name, afterRadioLabel, ...other }) => {
-					const isActive = value == itemValue;
-					return (
-						<RadioWrap
-							key={`${id}`}
-							className={`${bordered ? "bordered" : ""} ${isActive ? "active" : ""}`}
-						>
-							<FormControlLabel
-								id={idForInput}
-								value={itemValue ? itemValue : id}
-								control={
-									<Radio
-										icon={<RadioContainer />}
-										checkedIcon={
-											<RadioContainer>
-												<RadioMark />
-											</RadioContainer>
-										}
-									/>
-								}
-								label={name}
-							/>
-							{afterRadioLabel}
-						</RadioWrap>
-					);
-				})}
-			</RadioGroupMui>
-		</FormControl>
-	);
+  const changeValue = (event: ChangeEvent<HTMLInputElement>) => {
+    const { target } = event;
+    setValue(target.value);
+    onChange({ value: target.value, field, id: idForInput });
+  };
+
+  return (
+    <FormControl>
+      <RadioGroupMui value={value} onChange={changeValue} className={bordered ? "bordered" : "select-container"}>
+        {list.map(({ id, value: itemValue, name, afterRadioLabel }) => {
+          const isActive = value === itemValue;
+          return (
+            <RadioWrap key={`${id}`} className={`${bordered ? "bordered" : ""} ${isActive ? "active" : ""}`}>
+              <FormControlLabel
+                id={idForInput}
+                value={itemValue ? itemValue : id}
+                control={
+                  <Radio
+                    icon={<RadioContainer />}
+                    checkedIcon={
+                      <RadioContainer>
+                        <RadioMark />
+                      </RadioContainer>
+                    }
+                  />
+                }
+                label={name}
+              />
+              {afterRadioLabel}
+            </RadioWrap>
+          );
+        })}
+      </RadioGroupMui>
+    </FormControl>
+  );
 };

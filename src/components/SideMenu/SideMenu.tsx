@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+
+import { Sort } from "components/Sort";
+import { useGetCategoriesQuery } from "shared/store/queries/product.query";
 
 import { SideMenuLink } from "./SideMenuLink";
 import { Wrapper } from "./styles";
-import { useGetCategoriesQuery } from "shared/store/queries/product.query";
-import { Sort } from "components/Sort";
-import { useEffect, useState } from "react";
 
 export const SideMenu = ({ gridLayout }: { gridLayout: string }) => {
   const [options, setOptions] = useState<Option[]>([]);
@@ -14,10 +15,10 @@ export const SideMenu = ({ gridLayout }: { gridLayout: string }) => {
   useEffect(() => {
     if (isSuccess && data) {
       const newOptions = (data as string[]).map((option) => {
-        let newOptionName = option.split("-").join(" ");
-        return { name: newOptionName, value: option }
-      })
-      setOptions(newOptions)
+        const newOptionName = option.split("-").join(" ");
+        return { name: newOptionName, value: option };
+      });
+      setOptions(newOptions);
     }
   }, [isSuccess, data]);
 
@@ -26,14 +27,13 @@ export const SideMenu = ({ gridLayout }: { gridLayout: string }) => {
 
   return (
     <Wrapper className={gridLayout}>
-      {gridLayout === "grid1" ?
+      {gridLayout === "grid1" ? (
         (data as string[])?.map((item) => (
           <SideMenuLink key={item} url={`/shop?category=${item}`} active={search === `?category=${item}`} title={item} />
         ))
-        :
+      ) : (
         <Sort options={options} placeholder="By Category" searchNames={["category"]} bordered />
-      }
-
+      )}
     </Wrapper>
   );
 };

@@ -66,5 +66,17 @@ declare global {
       rating: number;
       date: string;
     }
+
+    interface CheckoutFormValues {
+      firstName: string;
+      lastName: string;
+      phone: string;
+      email: string;
+      street: string;
+      country: string;
+      city: string;
+      state: string;
+      zipCode: string;
+    }
   }
 }

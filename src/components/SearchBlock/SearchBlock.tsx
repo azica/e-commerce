@@ -1,41 +1,72 @@
-import { useState } from "react";
+import { Box, List, ListItem } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 
-import { useDebounce } from "hooks/useDebounce";
 import { SearchIcon } from "assets/icons";
-import { Button, Wrapper } from "./styles";
 import { Input } from "components/FormElements";
+import { useDebounce } from "hooks/useDebounce";
+import { useOutsideClick } from "hooks/useOutsideClick";
+import { useAppSelector } from "shared/store/hooks";
+
+import { Button, Wrapper, ListLink } from "./styles";
 
 export const SearchBlock = ({ isMobile }: { isMobile?: boolean }) => {
-    const [value, setValue] = useState<string>("");
-    const [showSearchBar, setShowSearchBar] = useState(false);
-    const debouncedValue = useDebounce(value, 500);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [filteredProducts, setFilteredProducts] = useState<Model.Product[]>([]);
+  const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
+  const debouncedSearchQuery = useDebounce(searchQuery, 500);
+  const ref = useRef(null);
+  useOutsideClick({ setClose: setIsSearchBarVisible, wrapperRef: ref });
 
-    const searchHandle = () => {
-        setShowSearchBar(!showSearchBar);
-    };
+  const { products } = useAppSelector((state) => state.product);
 
-    const changeValue: InputOnChange = ({ field: name, value, id }) => {
-        setValue(String(value));
-    };
+  useEffect(() => {
+    if (debouncedSearchQuery) {
+      setFilteredProducts(
+        products.filter((product) => product.title.toLowerCase().includes(debouncedSearchQuery.toLowerCase())),
+      );
+    } else {
+      setFilteredProducts([]);
+    }
+  }, [debouncedSearchQuery, products]);
 
-    return (
-        <>
-            {isMobile ? (
-                <Wrapper>
-                    <Input
-                        id={0}
-                        field="search"
-                        type="search"
-                        value={value}
-                        onChange={changeValue}
-                        startAdornment={<SearchIcon />}
-                        placeholder="Search" />
-                </Wrapper>
-            ) : (
-                <Button onClick={searchHandle}>
-                    <SearchIcon />
-                </Button>
-            )}
-        </>
-    );
+  const toggleSearchBar = () => {
+    setFilteredProducts([]);
+    setSearchQuery("");
+    setIsSearchBarVisible(!isSearchBarVisible);
+  };
+
+  const handleSearchInputChange: InputOnChange = ({ value }) => {
+    setSearchQuery(String(value));
+  };
+
+  return (
+    <>
+      <Wrapper ref={ref} className={`${isSearchBarVisible ? "active" : ""}`}>
+        <Box width="100%">
+          <Input
+            id={1}
+            field="search"
+            type="search"
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+            placeholder="Search"
+          />
+          {filteredProducts.length > 0 && (
+            <List>
+              {filteredProducts.map((product) => (
+                <ListItem key={product.id}>
+                  <ListLink to={`/product/${product.id}`} onClick={toggleSearchBar}>
+                    {product.title}
+                  </ListLink>
+                </ListItem>
+              ))}
+            </List>
+          )}
+        </Box>
+        <Button onClick={toggleSearchBar}>
+          <SearchIcon />
+        </Button>
+      </Wrapper>
+    </>
+  );
 };

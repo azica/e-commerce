@@ -1,8 +1,9 @@
 import { Typography } from "@mui/material";
 
+import { Container } from "components/Wrappers/Container";
+
 import { NewsLetterForm } from "./NewsLetterForm";
 import { Section, Content } from "./styles";
-import { Container } from "components/Wrappers/Container";
 
 export const NewsLetter = () => {
   return (

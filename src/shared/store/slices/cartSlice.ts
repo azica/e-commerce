@@ -1,6 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { loadStateFromLocalStorage, saveStateToLocalStorage } from "shared/helpers/localStorage";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
+import { createSlice } from "@reduxjs/toolkit";
+
+import { loadStateFromLocalStorage, saveStateToLocalStorage } from "shared/helpers/localStorage";
 
 const initialState: CartState = loadStateFromLocalStorage<CartState>("cartState", {
   cartList: [],
@@ -8,10 +10,15 @@ const initialState: CartState = loadStateFromLocalStorage<CartState>("cartState"
   totalQuantity: 0,
   total: 0,
   shippingCost: 0,
+  completionStatus: {
+    shopping: false,
+    checkout: false,
+    order: false,
+  },
 });
 
 const updateTotals = (state: CartState) => {
-  state.subtotal = +state.cartList.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
+  state.subtotal = Number(state.cartList.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2));
   state.totalQuantity = state.cartList.reduce((sum, item) => sum + item.quantity, 0);
   state.total = state.subtotal + state.shippingCost;
   saveStateToLocalStorage("cartState", state);
@@ -62,7 +69,11 @@ const cartSlice = createSlice({
     setShippingCost: (state, { payload }: PayloadAction<number>) => {
       state.shippingCost = payload;
       updateTotals(state as CartState);
-    }
+    },
+    setCompletionStatus: (state, { payload }: PayloadAction<{ step: CompletionStatus; status: boolean }>) => {
+      const { step, status } = payload;
+      state.completionStatus[step] = status;
+    },
   },
 });
 
@@ -73,6 +84,8 @@ export const {
   decrementQuantity,
   clearCart,
   recalculateTotals,
-  setShippingCost } = cartSlice.actions;
+  setShippingCost,
+  setCompletionStatus,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

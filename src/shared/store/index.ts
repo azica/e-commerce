@@ -21,7 +21,7 @@ export const store = configureStore({
     user: userReducer,
     product: productReducer,
     cart: cartReducer,
-    wishlist: wishlistSlice
+    wishlist: wishlistSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,46 +1,49 @@
-import { Box } from "@mui/material";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { loginData } from "assets/data/form";
 import { Form } from "components/Form";
-import { Input } from "components/FormElements";
-import { Checkbox } from "components/FormElements/Checkbox";
+import { InputsSpreader } from "components/FormElements/InputsSpreader";
 import { FormWrapper } from "components/Wrappers";
 import { getValueFromArray } from "shared/helpers/utils";
 
-import { FormContent, InputsContainer, LinkRight, NoAccount } from "./styles";
+import { FormContent, InputsContainer, NoAccount } from "./styles";
 
-export const LoginForm = ({
-  login,
-  setIsLoading,
-}: {
+interface LoginFormProps {
   login: (val: Login) => void;
   setIsLoading: (val: boolean) => void;
-}) => {
+  isLoading: boolean;
+  setRememberMe: (val: boolean) => void;
+}
+
+export const LoginForm = ({ login, setIsLoading, isLoading, setRememberMe }: LoginFormProps) => {
   const [values, setValues] = useState<InputData[]>(loginData);
 
-  const loginHandle = () => {
+  const loginHandler = () => {
     setIsLoading(true);
     const desiredValues: Login = getValueFromArray(values);
     login(desiredValues);
+    const rememberMe = values.find((el) => el.field === "rememberMe");
+    if (rememberMe?.value === true) {
+      setRememberMe(true);
+    }
   };
 
-  const valueChange: InputOnChange = (newVal) => {
-    const newInputProps = values.map((item) =>
-      newVal.field === item.field ? { ...item, value: newVal.value, invalid: false } : item,
+  const changeHandler: InputOnChange = (newVal) => {
+    setValues((prevValues) =>
+      prevValues.map((item) => (newVal.field === item.field ? { ...item, value: newVal.value, invalid: false } : item)),
     );
-
-    setValues(newInputProps);
   };
 
   return (
     <FormWrapper title="Sign in">
       <Form
-        afterSubmit={loginHandle}
+        afterSubmit={loginHandler}
         noSend
         mainButton={{
           name: "Sign In",
+          preloader: { loading: isLoading },
+          disabled: isLoading,
         }}
         noAccounts={
           <NoAccount variant="body2">
@@ -50,24 +53,8 @@ export const LoginForm = ({
         }>
         <FormContent>
           <InputsContainer>
-            {values.map(({ id, ...other }) => (
-              <Fragment key={id}>
-                {other.type === "checkbox" ? (
-                  <Box display="flex" alignItems="center">
-                    <Checkbox
-                      id={id}
-                      label={other.label}
-                      field={other.field}
-                      value={Number(other.value)}
-                      checked={Boolean(other.value)}
-                      onChange={valueChange}
-                    />
-                    <LinkRight to="/password-recovery">Forgot password?</LinkRight>
-                  </Box>
-                ) : (
-                  <Input id={id} {...other} onChange={valueChange} />
-                )}
-              </Fragment>
+            {values.map((input) => (
+              <InputsSpreader key={input.id} onChange={changeHandler} {...input} />
             ))}
           </InputsContainer>
         </FormContent>

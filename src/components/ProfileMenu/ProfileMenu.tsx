@@ -9,6 +9,7 @@ import { UserCircleIcon } from "assets/icons";
 import { clearLocalStorage } from "shared/helpers/localStorage";
 import { useActions, useAppSelector } from "shared/store/hooks";
 import { neutral07, green } from "styles/colors";
+
 import { Button, MenuItem } from "./styles";
 
 export const ProfileMenu = () => {
@@ -59,8 +60,7 @@ export const ProfileMenu = () => {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
-        disableScrollLock={true}
-      >
+        disableScrollLock={true}>
         <MenuItem>Profile</MenuItem>
         <MenuItem>
           <Link to="/dashboard">My account</Link>

@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [] as Model.Product[],
   gridLayout: "grid1",
-  loading: false
+  loading: false,
 };
 
 const productSlice = createSlice({

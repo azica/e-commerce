@@ -40,4 +40,3 @@ export const saveStateToLocalStorage = <T>(key: string, state: T): void => {
     console.error("Error saving state to local storage", err);
   }
 };
-

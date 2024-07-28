@@ -8,7 +8,6 @@ export const UserService = {
     return res.data;
   },
   async createUser(data: CreateUser): Promise<Model.User | ErrorResponse> {
-
     const newUser = {
       avatar: "https://www.looper.com/img/gallery/the-ending-of-avatar-finally-explained/intro-1669817126.webp",
       ...data,

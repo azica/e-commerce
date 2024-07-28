@@ -16,31 +16,31 @@ export const Wrapper = styled("header")`
 
 export const Inner = styled(Box)`
   ${flexAlignCenter}
+  position: relative;
 `;
 
 export const LogoWrap = styled(Box)`
-   ${flexAlignCenter};
-    gap: 5px;
+  ${flexAlignCenter};
+  gap: 5px;
 
-    button {
-      width: 24px;
-      height: 24px;
-      padding: 0!important;
+  button {
+    width: 24px;
+    height: 24px;
+    padding: 0 !important;
 
-      svg {
-        width: 14px;
-      }
+    svg {
+      width: 14px;
     }
+  }
 
-    img {
-      margin-top: 5px;
-    }
-
-`
+  img {
+    margin-top: 5px;
+  }
+`;
 
 export const MobileInner = styled(Box)`
   ${flexColumn};
   width: 100%;
   gap: 16px;
   height: 100%;
-`
+`;

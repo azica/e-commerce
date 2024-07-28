@@ -1,9 +1,28 @@
-import { Box, Typography } from "@mui/material"
-import { Subtotal, Total } from "./styles"
+import { Box, Typography } from "@mui/material";
 
-export const CartTotals = ({ subtotal, total }: { subtotal: number; total: number }) => {
+import { Subtotal, Total } from "./styles";
+
+export const CartTotals = ({
+  subtotal,
+  total,
+  shipping,
+}: {
+  subtotal: number;
+  total: number;
+  shipping?: string | number;
+}) => {
   return (
     <Box>
+      {shipping ? (
+        <Subtotal>
+          <Typography variant="body2" fontFamily="fontFamily.interRegular" color="primary.700">
+            Shipping
+          </Typography>
+          <Typography variant="body2" fontFamily="fontFamily.interSemiBold" color="primary.700">
+            {typeof shipping === "number" ? shipping.toFixed(2) : shipping}
+          </Typography>
+        </Subtotal>
+      ) : null}
       <Subtotal>
         <Typography variant="body2" fontFamily="fontFamily.interRegular" color="primary.700">
           Subtotal
@@ -21,5 +40,5 @@ export const CartTotals = ({ subtotal, total }: { subtotal: number; total: numbe
         </Typography>
       </Total>
     </Box>
-  )
-}
+  );
+};

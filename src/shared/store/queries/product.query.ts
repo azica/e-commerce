@@ -63,7 +63,6 @@ export const productApi = createApi({
     getAllProducts: builder.query<GetProducts | ErrorResponse, string>({
       queryFn: async (query) => {
         try {
-          console.log("render query")
           const res = await ProductService.getAllProducts(query);
           return { data: res };
         } catch (error: any) {

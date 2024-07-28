@@ -39,6 +39,12 @@ export declare global {
     size?: "small" | "medium";
   }
 
+  type Container = {
+    children: ReactNode;
+    fullWidth?: boolean;
+    className?: string;
+  };
+
   interface CardWrapper {
     background?: "violet" | "yellow";
     bordered?: string;
@@ -129,5 +135,30 @@ export declare global {
     checked: boolean;
     number: number;
     numberLabel: string;
+  }
+
+  type TimeLeft = {
+    days?: number;
+    hours?: number;
+    minutes?: number;
+    seconds?: number;
+  };
+
+  type ButtonGroup = FC<{
+    buttons: TabItem[];
+    searchParam: string;
+  }>;
+
+  interface WishlistButtonProps {
+    small?: boolean;
+    product: Model.Product;
+    size?: Size;
+  }
+
+  interface ProductTable {
+    products: Model.CartItem[];
+    showMenu?: boolean;
+    smallTable?: boolean;
+    maxHeight?: number;
   }
 }

@@ -1,5 +1,9 @@
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
+
+import { MoneyIcon } from "assets/icons";
 import { ConsentLabel } from "components/FormElements/Checkbox/ConsentLabel";
-import { MoneyIcon } from 'assets/icons';
+
 import { countries } from "./countries";
 
 export const loginData = [
@@ -22,10 +26,16 @@ export const loginData = [
   {
     id: 3,
     value: 0,
-    label: "Remember me",
-    field: "remember",
+    label: (
+      <Fragment>
+        Remember me
+        <Link to="/password-recovery">Forgot password?</Link>
+      </Fragment>
+    ),
+    field: "rememberMe",
     type: "checkbox",
     required: true,
+    className: "rememberCheckbox",
   },
 ];
 
@@ -73,7 +83,7 @@ const contactInformation = [
     placeholder: "First Name",
     type: "text",
     required: true,
-    className: "col6"
+    className: "col6",
   },
   {
     id: 2,
@@ -82,7 +92,7 @@ const contactInformation = [
     placeholder: "Last Name",
     type: "text",
     required: true,
-    className: "col6"
+    className: "col6",
   },
   {
     id: 3,
@@ -91,7 +101,7 @@ const contactInformation = [
     placeholder: "Phone Number",
     type: "tel",
     required: true,
-    mask: "+7 999 999 99 99"
+    mask: "+7 999 999 99 99",
   },
   {
     id: 4,
@@ -101,13 +111,13 @@ const contactInformation = [
     type: "email",
     required: true,
   },
-]
+];
 
 const shippingAddress = [
   {
     id: 1,
     value: "",
-    field: "streetAddress",
+    field: "street",
     placeholder: "Street Address",
     type: "text",
     required: true,
@@ -124,7 +134,7 @@ const shippingAddress = [
   {
     id: 3,
     value: "",
-    field: "town/city",
+    field: "city",
     placeholder: "Town / City",
     type: "text",
     required: true,
@@ -136,60 +146,116 @@ const shippingAddress = [
     placeholder: "State",
     type: "text",
     required: true,
-    className: "col6"
+    className: "col6",
   },
   {
     id: 5,
     value: "",
-    field: "zip-code",
+    field: "zipCode",
     placeholder: "Zip Code",
     type: "text",
     required: true,
     className: "col6",
-    mask: "999 999"
+    mask: "999 999",
   },
   {
     id: 6,
     value: "",
     label: "Use a different billing address (optional)",
-    field: "billing",
+    field: "isBillingAddress",
     type: "checkbox",
+  },
+];
+
+export const billingAddress = [
+  {
+    id: 1,
+    value: "",
+    field: "billingStreet",
+    placeholder: "Street Address",
+    type: "text",
     required: true,
   },
-]
+  {
+    id: 2,
+    value: "",
+    field: "billingCountry",
+    placeholder: "Country",
+    type: "select",
+    options: countries,
+    required: true,
+  },
+  {
+    id: 3,
+    value: "",
+    field: "billingCity",
+    placeholder: "Town / City",
+    type: "text",
+    required: true,
+  },
+  {
+    id: 4,
+    value: "",
+    field: "billingState",
+    placeholder: "State",
+    type: "text",
+    required: true,
+    className: "col6",
+  },
+  {
+    id: 5,
+    value: "",
+    field: "billingZipCode",
+    placeholder: "Zip Code",
+    type: "text",
+    required: true,
+    className: "col6",
+    mask: "999 999",
+  },
+];
 
 const paymentOptions: CheckboxItem[] = [
   { id: 1, name: "Pay by Card Credit", value: "creditCard", afterRadioLabel: <MoneyIcon /> },
   { id: 2, name: "PayPal", value: "paypal" },
-]
+];
 
 export const creditCard: InputData[] = [
   {
     id: 1,
     value: "",
-    field: "creditCard",
-    type: "text",
+    field: "payment",
+    type: "radio",
+    options: paymentOptions,
     required: true,
-    mask: "1234 1234 1234",
-    placeholder: "1234 1234 1234"
   },
   {
     id: 2,
-    value: "MM/YY",
-    field: "expiredDate",
-    type: "date",
+    value: "",
+    field: "cardNumber",
+    type: "text",
     required: true,
-    className: "col6"
+    mask: "9999 9999 9999 9999",
+    placeholder: "Card Number",
+    className: "col12",
   },
   {
     id: 3,
-    value: "CVC code",
+    value: "",
+    field: "cardExpiredDate",
+    type: "date",
+    required: true,
+    className: "col6",
+    placeholder: "Expiration date",
+  },
+  {
+    id: 4,
+    value: "",
     placeholder: "CVC code",
-    field: "cvc",
+    field: "cardCvcCode",
     type: "text",
     required: true,
     className: "col6",
-    mask: "123"
+    mask: "999",
   },
 ];
 
@@ -203,17 +269,11 @@ export const shippingForm = [
     values: shippingAddress,
   },
   {
+    title: "Billing Address",
+    values: billingAddress,
+  },
+  {
     title: "Payment method",
-    values: [
-      {
-        id: 1,
-        value: "",
-        field: "payment",
-        type: "radio",
-        options: paymentOptions,
-        required: true,
-      },
-    ]
-  }
-]
-
+    values: creditCard,
+  },
+];

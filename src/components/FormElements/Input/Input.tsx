@@ -28,7 +28,7 @@ export const Input = ({
   maskProps = {},
   autoComplete,
   textarea,
-  className
+  className,
 }: Input) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isInvalid, setIsInvalid] = useState(invalid ? invalid : false);
@@ -105,7 +105,6 @@ export const Input = ({
     ...textarea,
   };
 
-  console.log(className)
   return (
     <InputWrapper
       id={idForHelperText}
@@ -113,8 +112,7 @@ export const Input = ({
       disabled={disabled}
       invalid={isInvalid}
       helperText={errorMessage}
-      className={className}
-    >
+      className={className}>
       {label ? (
         <InputLabel id={idForInput} required={required}>
           {label}

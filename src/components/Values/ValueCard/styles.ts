@@ -16,7 +16,7 @@ export const Wrapper = styled(Box)`
     padding: 32px 16px;
     flex: 1 1 calc(33.33% - 24px);
   }
-    @media ${device.xs} {
+  @media ${device.xs} {
     padding: 32px 16px;
     flex: 1 1 calc(50% - 24px);
     width: calc(100% / 2 - 24px);

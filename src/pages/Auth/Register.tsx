@@ -25,7 +25,6 @@ export const Register = () => {
     }
   }, [createdUser]);
 
-
   if (isLoading) return <h2>Loading....</h2>;
 
   return <RegisterForm register={createUser} setIsLoading={setIsLoading} isLoading={isLoading} />;

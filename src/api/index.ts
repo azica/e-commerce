@@ -2,11 +2,10 @@ import type { AxiosInstance, AxiosResponse } from "axios";
 
 import axios from "axios";
 
+import { authApiUrl } from "shared/constants";
 import { getTokensFromStorage, setTokenFromStorage } from "shared/helpers/localStorage";
 
 import { Endpoints } from "./endpoints";
-import { authApiUrl } from "shared/constants";
-
 
 export const $api: AxiosInstance = axios.create({
   // withCredentials: true,

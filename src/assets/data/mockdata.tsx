@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+
 import { CarIcon, FacebookIcon, InstagramIcon, LockIcon, MoneyIcon, PhoneIcon, YoutubeIcon } from "assets/icons";
 
 export const navMenu = [
@@ -39,7 +40,7 @@ export const sortOptions = [
 export const reviewsOptions = [
   { name: "Newest", value: "newest" },
   { name: "Oldest", value: "oldest" },
-]
+];
 
 export const tabsMenu = [
   { id: 1, label: "Reviews" },
@@ -47,23 +48,49 @@ export const tabsMenu = [
   { id: 3, label: "Questions" },
 ];
 
-export const cartTabs: TabsItem[] = [
+export const cartTabs: TabItem[] = [
   { id: 1, title: "Shopping cart", param: "shopping" },
   { id: 2, title: "Checkout details", param: "checkout" },
   { id: 3, title: "Order complete", param: "order" },
 ];
 
+export const tabTitles = [
+  { name: "Cart", param: "shopping" },
+  { name: "Checkout Out", param: "checkout" },
+  { name: "Complete", param: "order" },
+];
+
 export const shippingButtons: CheckboxItem[] = [
   {
-    id: 1, name: "Free shipping", value: "free",
-    afterRadioLabel: <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">$0.00</Typography>
+    id: 1,
+    name: "Free shipping",
+    value: "free",
+    afterRadioLabel: (
+      <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">
+        $0.00
+      </Typography>
+    ),
   },
   {
-    id: 2, name: "Express shipping", value: "express",
-    afterRadioLabel: <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">+$15.00</Typography>
+    id: 2,
+    name: "Express shipping",
+    value: "express",
+    afterRadioLabel: (
+      <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">
+        +$15.00
+      </Typography>
+    ),
   },
   {
-    id: 3, name: "Pick Up", value: "pick-up",
-    afterRadioLabel: <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">%21.00</Typography>
-  }
-]
+    id: 3,
+    name: "Pick Up",
+    value: "pick-up",
+    afterRadioLabel: (
+      <Typography variant="body2" fontFamily="fontfamily.interRegular" color="neutral.700">
+        %21.00
+      </Typography>
+    ),
+  },
+];
+
+export const cartTableMenu = ["Product", "Quantity", "Price", "Subtotal"];

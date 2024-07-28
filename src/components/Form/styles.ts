@@ -14,6 +14,6 @@ export const FormContent = styled(Box)`
 
 export const InputsContainer = styled(Box)`
   display: grid;
-  grid-template-columns: ${({ layout }: FormProps) => (layout ? layout : "repeat(1fr, 1fr)")};
+  grid-template-columns: ${({ layout }: FormProps) => (layout ? layout : "1fr")};
   gap: 10px;
 `;

@@ -3,7 +3,7 @@ import type { RefObject } from "react";
 
 import { useEffect } from "react";
 
-const useOutsideClick = ({
+export const useOutsideClick = ({
   setClose,
   wrapperRef,
 }: {
@@ -24,5 +24,3 @@ const useOutsideClick = ({
     };
   }, [setClose, wrapperRef]);
 };
-
-export default useOutsideClick;

@@ -14,12 +14,12 @@ export const Wrapper = styled(Box)`
   transition: all 0.3s ease;
 
   &.row {
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      .content {
-        padding: 24px;
-        gap: 8px;
-      }
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    .content {
+      padding: 24px;
+      gap: 8px;
+    }
   }
 
   &:hover {
@@ -46,7 +46,7 @@ export const Image = styled(Box)`
   @media ${device.xs} {
     height: 307px;
   }
-    
+
   img {
     width: 100%;
     height: 100%;
@@ -87,8 +87,8 @@ export const Content = styled(Box)`
     margin-top: auto;
   }
 
-   & div:last-child > button {
-   border: none!important;
+  & div:last-child > button {
+    border: none !important;
   }
 `;
 
@@ -136,4 +136,4 @@ export const Description = styled(Typography)`
   overflow: hidden;
   text-overflow: ellipsis;
   height: 100px;
-`
+`;

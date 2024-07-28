@@ -17,7 +17,6 @@ export const Container = styled(Box)`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0;
   opacity: 0;
 
   &.active {
@@ -27,6 +26,10 @@ export const Container = styled(Box)`
 
   .MuiCircularProgress-root {
     color: ${neutral07};
+  }
+
+  &.start {
+    height: 300px;
   }
 `;
 

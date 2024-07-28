@@ -9,7 +9,7 @@ export const Wrapper = styled("ul")`
   padding-left: 0;
 
   &.mobile {
-      svg {
+    svg {
       color: ${neutral07};
       transition: all 0.3s ease;
     }

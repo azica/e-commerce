@@ -5,7 +5,7 @@ interface Container {
   fullwidth?: boolean;
 }
 
-export const Wrapper = styled(Box) <Container>`
+export const Wrapper = styled(Box)<Container>`
   max-width: ${({ fullwidth }) => (fullwidth ? "100%" : "1182px")};
   margin: 0 auto;
   width: 100%;

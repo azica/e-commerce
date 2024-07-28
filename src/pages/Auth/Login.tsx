@@ -1,6 +1,6 @@
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { LoginForm } from "components/Auth/LoginForm";
 import { setTokenFromStorage } from "shared/helpers/localStorage";
@@ -8,28 +8,34 @@ import { useActions } from "shared/store/hooks";
 import { useLazyGetUserQuery, useLoginMutation } from "shared/store/queries/auth.query";
 
 const Login = () => {
+  const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [login, loggedData] = useLoginMutation();
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromPage = location.state?.from || "/";
   const { setUser } = useActions();
-
   const [trigger, triggerUserData] = useLazyGetUserQuery();
 
   useEffect(() => {
     if (loggedData.isSuccess && loggedData.data) {
+      console.log(rememberMe);
       setTokenFromStorage(loggedData.data as Tokens);
       trigger();
     }
 
     if (loggedData.error) {
       setIsLoading(false);
-      enqueueSnackbar("An error occurred while sending the request!" || loggedData.error, {
-        variant: "error",
-        autoHideDuration: 2000,
-      });
+      enqueueSnackbar(
+        loggedData.error instanceof Error ? loggedData.error.message : "An error occurred while sending the request!",
+        {
+          variant: "error",
+          autoHideDuration: 2000,
+        },
+      );
     }
-  }, [loggedData, trigger]);
+  }, [loggedData, trigger, enqueueSnackbar]);
 
   useEffect(() => {
     if (triggerUserData.isSuccess) {
@@ -38,21 +44,24 @@ const Login = () => {
         variant: "success",
         autoHideDuration: 2000,
       });
-      navigate("/");
+      navigate(fromPage);
     }
 
     if (triggerUserData.error) {
       setIsLoading(false);
-      enqueueSnackbar("An error occurred while sending the request!" || triggerUserData.error, {
-        variant: "error",
-        autoHideDuration: 2000,
-      });
+      enqueueSnackbar(
+        triggerUserData.error instanceof Error
+          ? triggerUserData.error.message
+          : "An error occurred while sending the request!",
+        {
+          variant: "error",
+          autoHideDuration: 2000,
+        },
+      );
     }
-  }, [triggerUserData, setUser]);
+  }, [triggerUserData, setUser, enqueueSnackbar, navigate]);
 
-  if (isLoading) return <h2>Loading....</h2>;
-
-  return <LoginForm login={login} setIsLoading={setIsLoading} />;
+  return <LoginForm login={login} setIsLoading={setIsLoading} isLoading={isLoading} setRememberMe={setRememberMe} />;
 };
 
 export default Login;

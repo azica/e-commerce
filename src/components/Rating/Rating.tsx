@@ -4,7 +4,15 @@ import { StarFilledIcon, StarHalfIcon, StarIcon } from "assets/icons";
 
 import { Star, Wrapper, Reviews, Stars } from "./styles";
 
-export const Rating = ({ stars, reviewsQuantity, showText }: { stars: number; reviewsQuantity?: number; showText?: boolean }) => {
+export const Rating = ({
+  stars,
+  reviewsQuantity,
+  showText,
+}: {
+  stars: number;
+  reviewsQuantity?: number;
+  showText?: boolean;
+}) => {
   const [rating, setRating] = useState(stars);
 
   const handleClick = (value: number) => {
@@ -28,23 +36,17 @@ export const Rating = ({ stars, reviewsQuantity, showText }: { stars: number; re
             icon = <StarIcon />;
           }
           return (
-            <Star
-              key={index}
-              onClick={() => handleClick(index)}
-              className={showText ? "showText" : ""}
-            >
+            <Star key={index} onClick={() => handleClick(index)} className={showText ? "showText" : ""}>
               {icon}
             </Star>
           );
         })}
       </Stars>
-      {
-        showText && reviewsQuantity ? (
-          <Reviews fontFamily="fontFamily.interRegular" color="primary.700">
-            {reviewsQuantity} Reviews
-          </Reviews>
-        ) : null
-      }
-    </Wrapper >
+      {showText && reviewsQuantity ? (
+        <Reviews fontFamily="fontFamily.interRegular" color="primary.700">
+          {reviewsQuantity} Reviews
+        </Reviews>
+      ) : null}
+    </Wrapper>
   );
 };

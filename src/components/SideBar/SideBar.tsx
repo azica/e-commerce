@@ -1,27 +1,27 @@
 import { Box, Typography } from "@mui/material";
+
 import { prices } from "assets/data/mockdata";
 import { FilterIcon } from "assets/icons";
 import { CheckboxList } from "components/FormElements/CheckboxList";
-import { SideMenu } from "components/SideMenu";
-import { Title, Wrapper, Filter } from "./style";
-import { useAppSelector } from "shared/store/hooks";
 import { Preloader } from "components/Preloader";
+import { SideMenu } from "components/SideMenu";
+import { useAppSelector } from "shared/store/hooks";
+
+import { Title, Wrapper, Filter } from "./style";
 
 export const SideBar = () => {
-  const { gridLayout, loading } = useAppSelector(state => state.product);
+  const { gridLayout, loading } = useAppSelector((state) => state.product);
 
-  console.log(loading)
   return (
     <Wrapper className={gridLayout}>
-      {gridLayout === "grid1" ?
+      {gridLayout === "grid1" ? (
         <Filter>
           <FilterIcon />
           <Typography variant="body1" color="black.900" fontFamily="fontFamily.interSemiBold">
             Filter
           </Typography>
         </Filter>
-        : null
-      }
+      ) : null}
       <Box>
         <Title variant="body2" color="black.900" fontFamily="fontFamily.interSemiBold">
           CATEGORIES
@@ -38,7 +38,6 @@ export const SideBar = () => {
           <CheckboxList list={prices} searchParamName="prices" />
         </Preloader>
       </Box>
-    </Wrapper >
+    </Wrapper>
   );
 };
-

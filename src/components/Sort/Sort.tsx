@@ -1,14 +1,18 @@
 import { useSearchParams } from "react-router-dom";
+
 import { Select } from "components/FormElements";
+
 import { Wrapper } from "./styles";
 
-
 const generateCombinedValue = (searchParams: URLSearchParams, searchNames: string[]): string => {
-  return searchNames.map(name => searchParams.get(name) || '').filter(Boolean).join('-').toString();
+  return searchNames
+    .map((name) => searchParams.get(name) || "")
+    .filter(Boolean)
+    .join("-")
+    .toString();
 };
 
-const updateSearchParams = (searchParams: URLSearchParams, searchNames: string[], paramValue: string):
-  URLSearchParams => {
+const updateSearchParams = (searchParams: URLSearchParams, searchNames: string[], paramValue: string): URLSearchParams => {
   searchNames.forEach((name) => {
     const values = paramValue.split("-");
     if (["sortBy", "order"].includes(name)) {
@@ -21,7 +25,6 @@ const updateSearchParams = (searchParams: URLSearchParams, searchNames: string[]
   return searchParams;
 };
 
-
 export const Sort = ({ options, placeholder, bordered, searchNames }: Sort) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -31,7 +34,7 @@ export const Sort = ({ options, placeholder, bordered, searchNames }: Sort) => {
 
   const changeValue: InputOnChange = ({ value }) => {
     const paramValue = JSON.parse(value as string).value;
-    setSearchParams(prevSearchParams => {
+    setSearchParams((prevSearchParams) => {
       const newSearchParams = new URLSearchParams(prevSearchParams);
       return updateSearchParams(newSearchParams, searchNames, paramValue);
     });

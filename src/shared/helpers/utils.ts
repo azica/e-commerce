@@ -41,11 +41,11 @@ export const timeAgo = (dateString: string): string => {
   for (const [key, value] of Object.entries(intervals)) {
     const interval = Math.floor(secondsAgo / value);
     if (interval >= 1) {
-      return `${interval} ${key}${interval > 1 ? 's' : ''} ago`;
+      return `${interval} ${key}${interval > 1 ? "s" : ""} ago`;
     }
   }
 
-  return 'just now';
+  return "just now";
 };
 
 export const getCurrentParams = (searchParams: URLSearchParams, list: CheckboxListItem[]): CheckboxListItem[] => {
@@ -54,4 +54,8 @@ export const getCurrentParams = (searchParams: URLSearchParams, list: CheckboxLi
     return list.map((el) => (currentParams.includes(el.value as string) ? { ...el, checked: true } : el));
   }
   return list;
+};
+
+export const isEmptyObject = <T extends object>(obj: T): boolean => {
+  return Object.keys(obj).length === 0;
 };

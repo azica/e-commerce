@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
-import { white } from "styles/colors";
 
+import { white } from "styles/colors";
 import { flexAlignCenter } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
@@ -16,9 +16,9 @@ export const Wrapper = styled(Box)`
   z-index: 9;
   grid-template-columns: 1fr 1fr;
   padding-bottom: 20px;
-  transition: all .3s ease-out;
-  
-  &.grid1  {
+  transition: all 0.3s ease-out;
+
+  &.grid1 {
     grid-template-columns: 1fr;
   }
 `;

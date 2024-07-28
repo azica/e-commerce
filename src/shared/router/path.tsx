@@ -1,20 +1,21 @@
+import { Checkout } from "components/Checkout";
+import { Shopping } from "components/Shopping";
 import { AuthWrapper } from "pages/Auth/AuthWrapper/AuthWrapper";
 import Login from "pages/Auth/Login";
 import Register from "pages/Auth/Register";
 import Blog from "pages/Blog";
+import Cart from "pages/Cart";
 import ContactUs from "pages/ContactUs";
+import Dashboard from "pages/Dashboard";
 import Main from "pages/Main";
+import Order from "pages/Order";
 import PasswordRecovery from "pages/PasswordRecovery";
 import Product from "pages/Product";
 import { Shop } from "pages/Shop";
 
-import ProtectedRoute from "./ProtectedRoute";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "pages/Dashboard";
-import Cart from "pages/Cart";
-import { CartTable } from "components/CartTable";
-import Order from "pages/Order";
-import { Checkout } from "components/Checkout";
+import ProtectedRoute from "./ProtectedRoute";
+import Redirect from "./Redirect";
 
 export const basicPaths = [
   {
@@ -91,27 +92,25 @@ export const basicPaths = [
     element: <Cart />,
     children: [
       {
+        id: 0,
+        path: "",
+        element: <Redirect link="shopping" />,
+      },
+      {
         id: 1,
         path: "shopping",
-        element: (
-          <CartTable />
-        ),
+        element: <Shopping />,
       },
       {
         id: 2,
         path: "checkout",
-        element: (
-          <Checkout />
-        ),
+        element: <Checkout />,
       },
       {
         id: 3,
         path: "order",
-        element: (
-          <Order />
-        ),
+        element: <Order />,
       },
-    ]
+    ],
   },
-
 ];

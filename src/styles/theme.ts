@@ -115,6 +115,7 @@ export const theme = createTheme({
         root: {
           minWidth: 104,
           width: "100%",
+          transition: "all .3s ease-in",
         },
       },
     },
@@ -149,7 +150,7 @@ export const theme = createTheme({
               "&:-internal-autofill-selected, &:-internal-autofill-previewed": {
                 backgroundColor: `${white}`,
                 WebkitBoxShadow: `0 0 0px 1000px ${white} inset`,
-                color: neutral07
+                color: neutral07,
               },
             },
           },
@@ -290,7 +291,7 @@ export const theme = createTheme({
           paddingRight: "20px !important",
           color: black900,
           fontFamily: InterSemiBold,
-          textTransform: "capitalize"
+          textTransform: "capitalize",
         },
       },
     },
@@ -321,11 +322,11 @@ export const theme = createTheme({
               borderRadius: "4px",
             },
             "&::-webkit-scrollbar-thumb": {
-              backgroundColor: rgba(neutral02, 0.5),
+              backgroundColor: rgba(neutral04),
               borderRadius: "4px",
             },
             "&::-webkit-scrollbar-thumb:hover": {
-              background: neutral02,
+              background: neutral05,
             },
           },
         },
@@ -365,11 +366,11 @@ export const theme = createTheme({
             textTransform: "capitalize",
 
             "&.Mui-selected": {
-              color: black900
-            }
-          }
-        }
-      }
-    }
+              color: black900,
+            },
+          },
+        },
+      },
+    },
   },
 });

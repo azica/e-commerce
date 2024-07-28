@@ -12,6 +12,7 @@ export const Wrapper = styled(Box)`
   padding: 12px 8px;
   gap: 10px;
   height: 32px;
+  width: min-content;
 
   &.outlined {
     border: 1px solid ${neutral04};

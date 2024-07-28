@@ -3,13 +3,6 @@ import { useState, useEffect } from "react";
 
 import { Time, Times, Wrapper } from "./styles";
 
-type TimeLeft = {
-  days?: number;
-  hours?: number;
-  minutes?: number;
-  seconds?: number;
-};
-
 const calculateTimeLeft = (endTime: Date): TimeLeft => {
   const difference = Number(endTime) - Number(new Date());
   let timeLeft: TimeLeft = {};

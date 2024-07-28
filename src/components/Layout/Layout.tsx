@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@mui/material";
-import { useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { Footer } from "components/Footer";

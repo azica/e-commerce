@@ -1,14 +1,11 @@
-export const filterCheckedValues = (
-  array: CheckboxListItem[],
-  defaultItem?: boolean,
-) => {
+export const filterCheckedValues = (array: CheckboxListItem[], defaultItem?: boolean) => {
   const values: { id: number | string }[] = [];
 
-  array.map(({ id, checked }) => {
+  array.forEach(({ id, checked }) => {
     if (checked) values.push({ id });
   });
 
-  if (values.length == 0 && defaultItem) {
+  if (values.length === 0 && defaultItem) {
     values.push({ id: array[0].id });
   }
 
@@ -20,15 +17,15 @@ export const addedErrorOnField = (errors: ErrorObject[], inputs: InputData[]) =>
     const errorItem = errors?.find((error) => error.attr === item.field);
     return errorItem
       ? {
-        ...item,
-        helperText: errorItem.detail,
-        invalid: true,
-      }
+          ...item,
+          helperText: errorItem.detail,
+          invalid: true,
+        }
       : {
-        ...item,
-        helperText: "",
-        invalid: false,
-      };
+          ...item,
+          helperText: "",
+          invalid: false,
+        };
   });
 
   return newInputs;

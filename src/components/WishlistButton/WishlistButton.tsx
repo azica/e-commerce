@@ -1,32 +1,40 @@
-import { useState } from "react";
+import { useSnackbar } from "notistack";
+import { useCallback } from "react";
 
 import { HeartFilledIcon, HeartIcon } from "assets/icons";
 import { Button } from "components/FormElements";
-
-import { IconButton } from "./styles";
 import { useActions, useAppSelector } from "shared/store/hooks";
 
-export const WishlistButton = ({ small, product, isMobileMenu, size }: WishlistButton) => {
+import { IconButton } from "./styles";
+
+export const WishlistButton = ({ small, product, size }: WishlistButtonProps) => {
+  const { enqueueSnackbar } = useSnackbar();
   const { wishList } = useAppSelector((state) => state.wishlist);
-  const inWishList = wishList.find((item) => item.id === product?.id);
+  const inWishList = wishList.some((item) => item.id === product?.id);
 
   const { addItem, removeItem } = useActions();
 
-  const addToWishListHandle = (product?: Model.Product) => {
-    if (product) {
-      inWishList ? removeItem(product.id) : addItem(product)
+  const addToWishListHandle = useCallback(() => {
+    if (inWishList) {
+      removeItem(product.id);
+      enqueueSnackbar(`${product.title} removed from wishlist successfully!`, {
+        variant: "info",
+        autoHideDuration: 2000,
+      });
+    } else {
+      addItem(product);
+      enqueueSnackbar(`${product.title} added to wishlist successfully!`, {
+        variant: "success",
+        autoHideDuration: 2000,
+      });
     }
-  };
+  }, [inWishList, product, addItem, removeItem, enqueueSnackbar]);
 
-  return (
-    <>
-      {small ? (
-        <IconButton onClick={() => addToWishListHandle(product)}> {inWishList ? <HeartFilledIcon /> : <HeartIcon />}</IconButton>
-      ) : (
-        <Button variant="outlined" size={size} fullWidth onClick={() => addToWishListHandle(product)}>
-          {inWishList ? <HeartFilledIcon /> : <HeartIcon />} Wishlist{" "}
-        </Button>
-      )}
-    </>
+  return small ? (
+    <IconButton onClick={addToWishListHandle}>{inWishList ? <HeartFilledIcon /> : <HeartIcon />}</IconButton>
+  ) : (
+    <Button variant="outlined" size={size} fullWidth onClick={addToWishListHandle}>
+      {inWishList ? <HeartFilledIcon /> : <HeartIcon />} Wishlist
+    </Button>
   );
 };

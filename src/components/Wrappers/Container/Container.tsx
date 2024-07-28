@@ -1,16 +1,6 @@
-import type { ReactNode } from "react";
-
 import { Wrapper } from "./styles";
 
-export const Container = ({
-  children,
-  fullWidth,
-  className,
-}: {
-  children: ReactNode;
-  fullWidth?: boolean;
-  className?: string;
-}) => {
+export const Container = ({ children, fullWidth, className }: Container) => {
   return (
     <Wrapper fullwidth={fullWidth} className={className}>
       {children}

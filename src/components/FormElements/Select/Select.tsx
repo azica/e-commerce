@@ -21,6 +21,7 @@ export const Select = ({
   startAdornment,
   replaceName,
   multiple,
+  className,
 }: Select) => {
   // @ts-ignore
   const [selected, setSelected] = useState<string | string[]>(value);
@@ -49,12 +50,7 @@ export const Select = ({
   };
 
   return (
-    <FormControl
-      className={"common-input"}
-      required={required}
-      error={invalid}
-
-      ref={selectWrapper}>
+    <FormControl className={`"common-input" ${className}`} required={required} error={invalid} ref={selectWrapper}>
       {label ? (
         <InputLabel id={idForLabel} required={required}>
           {label}
@@ -74,7 +70,7 @@ export const Select = ({
           PaperProps: {
             className: "select",
           },
-          disableScrollLock: true
+          disableScrollLock: true,
         }}
         multiple={multiple}
         displayEmpty
@@ -99,8 +95,7 @@ export const Select = ({
           } else {
             return selected;
           }
-        }}
-      >
+        }}>
         {options &&
           options.map(({ name, value }) => (
             <MenuItem key={value} value={replaceName ? JSON.stringify({ name, value }) : value} autoFocus={false}>

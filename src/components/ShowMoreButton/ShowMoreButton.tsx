@@ -1,42 +1,43 @@
-import { useRef, RefObject } from 'react';
-import { ButtonWrap } from './styles';
-import { useSearchParams } from 'react-router-dom';
+import type { RefObject } from "react";
 
-export const ShowMoreButton = ({ totalProducts, productsGridRef }: { totalProducts: number; productsGridRef: RefObject<HTMLDivElement>; }) => {
-    const [searchParams, setSearchParams] = useSearchParams();
-    let skip = parseInt(searchParams.get("skip") || "0", 10);
-    let limit = parseInt(searchParams.get("limit") || "10", 10);
+import { useSearchParams } from "react-router-dom";
 
-    const showMoreProducts = () => {
-        limit += 10; // Increment limit by 10 each time
+import { ButtonWrap } from "./styles";
 
-        setSearchParams((prevParams) => {
-            const newParams = new URLSearchParams(prevParams);
-            newParams.set("skip", skip.toString());
-            newParams.set("limit", limit.toString()); // Update limit in searchParams
-            return newParams;
-        });
+export const ShowMoreButton = ({
+  totalProducts,
+  productsGridRef,
+}: {
+  totalProducts: number;
+  productsGridRef: RefObject<HTMLDivElement>;
+}) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const skip = parseInt(searchParams.get("skip") || "0", 10);
+  let limit = parseInt(searchParams.get("limit") || "10", 10);
 
-        // Smooth scroll to the last product in the list
-        if (productsGridRef.current) {
-            const lastProduct = productsGridRef.current.lastElementChild as HTMLElement;
-            if (lastProduct) {
-                lastProduct.scrollIntoView({ behavior: "smooth", block: "end" });
-            }
-        }
-    };
+  const showMoreProducts = () => {
+    limit += 10;
 
-    // Determine if there are more products to load
-    const hasMoreProducts = totalProducts > skip + limit;
+    setSearchParams((prevParams) => {
+      const newParams = new URLSearchParams(prevParams);
+      newParams.set("skip", skip.toString());
+      newParams.set("limit", limit.toString());
+      return newParams;
+    });
 
-    return (
-        <ButtonWrap
-            variant="outlined"
-            size="small"
-            onClick={showMoreProducts}
-            disabled={!hasMoreProducts}
-        >
-            Show more
-        </ButtonWrap>
-    );
+    if (productsGridRef.current) {
+      const lastProduct = productsGridRef.current.lastElementChild as HTMLElement;
+      if (lastProduct) {
+        lastProduct.scrollIntoView({ behavior: "smooth", block: "end" });
+      }
+    }
+  };
+
+  const hasMoreProducts = totalProducts > skip + limit;
+
+  return (
+    <ButtonWrap variant="outlined" size="small" onClick={showMoreProducts} disabled={!hasMoreProducts}>
+      Show more
+    </ButtonWrap>
+  );
 };

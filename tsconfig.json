@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "es6",
       "dom",
@@ -29,6 +29,7 @@
     ]
   },
   "include": [
-    "src"
-  ]
+    "src",
+    "vite.config.ts"
+  ],
 }

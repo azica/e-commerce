@@ -11,6 +11,7 @@ export const Wrapper = styled(Box)`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  position: relative;
 `;
 
 export const Title = styled(Typography)`
@@ -22,9 +23,9 @@ export const Title = styled(Typography)`
   overflow-wrap: break-word;
   width: 250px;
 
-   @media ${device.xs} {
-    font-size: 30px!important;
-    line-height: 34px!important;
+  @media ${device.xs} {
+    font-size: 30px !important;
+    line-height: 34px !important;
   }
 `;
 

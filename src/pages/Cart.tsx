@@ -1,40 +1,70 @@
 import { Box, Typography } from "@mui/material";
-import { cartTabs } from "assets/data/mockdata";
-import { Preloader } from "components/Preloader";
-import { Tabs } from "components/Tabs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
-const titles = [
-    { name: "Cart", param: "shopping" },
-    { name: "Checkout Out", param: "checkout" },
-    { name: "Order", param: "order" },
-]
+import { cartTabs, tabTitles } from "assets/data/mockdata";
+import { Preloader } from "components/Preloader";
+import { Tabs } from "components/Tabs";
+import { useAppSelector, useUser } from "shared/store/hooks";
+
+const initializeTabs = (
+  cartList: Model.CartItem[],
+  completionStatus: Record<CompletionStatus, boolean>,
+  isAuth: boolean,
+) => {
+  return cartTabs.map((tab) => {
+    let isDisabled = false;
+    let isChecked = false;
+
+    switch (tab.param) {
+      case "shopping":
+        isChecked = cartList.length > 0 && isAuth !== null;
+        break;
+      case "checkout":
+        isDisabled = !completionStatus?.shopping;
+        isChecked = completionStatus?.checkout;
+        break;
+      case "order":
+        isDisabled = !completionStatus?.checkout;
+        break;
+    }
+
+    return { ...tab, state: { isDisabled, isChecked } };
+  });
+};
+
 const Cart = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [activeTab, setActiveTab] = useState("shopping");
+  const user = useUser();
+  const isAuth = user !== null;
+  const [activeTab, setActiveTab] = useState("shopping");
+  const [isLoading, setIsLoading] = useState(false);
 
-    const currentTitle = titles.find(title => title.param === activeTab);
+  const { cartList, completionStatus } = useAppSelector((state) => state.cart);
+  const [tabs, setTabs] = useState(() => initializeTabs(cartList, completionStatus, isAuth));
+  const currentTitle = tabTitles.find((title) => title.param === activeTab);
 
-    return (
-        <Box paddingY={10}>
-            <Typography variant="h3" color="black.100" align="center" marginBottom={5}>
-                {currentTitle ? currentTitle.name : "Default Title"}
-            </Typography>
-            <Tabs
-                tabs={cartTabs}
-                commonPath="/cart"
-                changeParamUrl={setActiveTab}
-                setIsLoading={setIsLoading}
-                circled
-                activeTab={activeTab}
-            >
-                <Preloader active={isLoading}>
-                    <Outlet />
-                </Preloader>
-            </Tabs>
-        </Box>
-    )
-}
+  useEffect(() => {
+    setTabs(initializeTabs(cartList, completionStatus, isAuth));
+  }, [completionStatus, cartList, isAuth]);
 
-export default Cart
+  return (
+    <Box paddingY={10}>
+      <Typography variant="h3" color="black.100" align="center" marginBottom={5} className="fade">
+        {currentTitle ? currentTitle.name : "Default Title"}
+      </Typography>
+      <Tabs
+        tabs={tabs}
+        commonPath="/cart"
+        setActiveTab={setActiveTab}
+        circled
+        activeTab={activeTab}
+        setIsLoading={setIsLoading}>
+        <Preloader active={isLoading} isStart>
+          <Outlet />
+        </Preloader>
+      </Tabs>
+    </Box>
+  );
+};
+
+export default Cart;

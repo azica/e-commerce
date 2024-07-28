@@ -1,50 +1,44 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { registerData } from "assets/data/form";
 import { Form } from "components/Form";
-import { Input } from "components/FormElements";
-import { Checkbox } from "components/FormElements/Checkbox";
+import { InputsSpreader } from "components/FormElements/InputsSpreader";
 import { FormWrapper } from "components/Wrappers";
 import { getValueFromArray } from "shared/helpers/utils";
 
 import { FormContent, InputsContainer, NoAccount } from "./styles";
 
-export const RegisterForm = ({
-  register,
-  setIsLoading,
-  isLoading,
-}: {
+interface RegisterFormProps {
   register: (val: CreateUser) => void;
   setIsLoading: (val: boolean) => void;
   isLoading: boolean;
-}) => {
-  const [values, setValues] = useState<InputData[]>(registerData);
-  const [isDisabled, setIsDisabled] = useState(true);
+}
 
-  const registerHandle = () => {
+export const RegisterForm = ({ register, setIsLoading, isLoading }: RegisterFormProps) => {
+  const [values, setValues] = useState<InputData[]>(registerData);
+
+  const registerHandler = () => {
     setIsLoading(true);
     const desiredValues: CreateUser = getValueFromArray(values);
     register(desiredValues);
   };
 
-  const valueChange: InputOnChange = (newVal) => {
-    const newInputProps = values.map((item) =>
-      newVal.field === item.field ? { ...item, value: newVal.value, invalid: false } : item,
+  const changeHandler: InputOnChange = (newVal) => {
+    setValues((prevValues) =>
+      prevValues.map((item) => (newVal.field === item.field ? { ...item, value: newVal.value, invalid: false } : item)),
     );
-    setValues(newInputProps);
-    setIsDisabled(false)
   };
 
   return (
     <FormWrapper title="Sign up">
       <Form
         autoComplete="off"
-        afterSubmit={registerHandle}
+        afterSubmit={registerHandler}
         noSend
         mainButton={{
           name: "Sign Up",
-          disabled: isDisabled || isLoading,
+          disabled: isLoading,
           preloader: { loading: isLoading },
         }}
         noAccounts={
@@ -55,21 +49,8 @@ export const RegisterForm = ({
         }>
         <FormContent>
           <InputsContainer>
-            {values.map(({ id, ...other }) => (
-              <Fragment key={id}>
-                {other.type === "checkbox" ? (
-                  <Checkbox
-                    id={id}
-                    label={other.label}
-                    field={other.field}
-                    value={Number(other.value)}
-                    checked={Boolean(other.value)}
-                    onChange={valueChange}
-                  />
-                ) : (
-                  <Input id={id} {...other} onChange={valueChange} />
-                )}
-              </Fragment>
+            {values.map((input) => (
+              <InputsSpreader key={input.id} onChange={changeHandler} {...input} />
             ))}
           </InputsContainer>
         </FormContent>

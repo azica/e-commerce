@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   ${flexColumn};
   gap: 12px;
   position: relative;
-  
+
   &.grid1 {
     height: 235px;
     ${scrollBar};

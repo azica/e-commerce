@@ -1,4 +1,6 @@
-import { css, Interpolation } from "styled-components";
+import type { Interpolation } from "styled-components";
+
+import { css } from "styled-components";
 
 import { neutral04, neutral07 } from "./colors";
 

@@ -1,72 +1,61 @@
-import { useState, useEffect, ReactNode } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { Container, OneTab, Wrapper } from "./styles";
 import { Typography } from "@mui/material";
-import { CheckedIcon, CheckIcon } from "assets/icons";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
-export const Tabs = ({
-	children,
-	tabs,
-	changeParamUrl,
-	commonPath,
-	setIsLoading,
-	circled,
-	activeTab
-}: Tabs) => {
-	const { pathname } = useLocation();
-	const [active, setActive] = useState<any>(1);
+import { CheckIcon } from "assets/icons";
 
-	const defineActive = (path: string) => {
-		let splittedPath = path.split("/");
-		const lastItem = splittedPath.at(-1);
-		const tab = tabs.filter(({ param }) => lastItem === param);
-		const activeTab = tab.length ? tab[0] : tabs[0];
-		setActive(activeTab.id);
-		return activeTab;
-	};
+import { Container, OneTab, Wrapper } from "./styles";
 
-	const tabToggle = (path: string) => {
-		const element = defineActive(path);
-		changeParamUrl(element.param);
-	};
+export const Tabs = ({ children, tabs, setActiveTab, activeTab, commonPath, circled, setIsLoading }: Tabs) => {
+  const { pathname } = useLocation();
 
-	useEffect(() => {
-		if (tabs.length > 0) {
-			defineActive(pathname);
-		}
-	}, [tabs]);
+  const defineActive = (path: string) => {
+    const splittedPath = path.split("/");
+    const lastItem = splittedPath.at(-1);
+    const tab = tabs.filter(({ param }) => lastItem === param);
+    const activeTab = tab.length ? tab[0] : tabs[0];
+    setActiveTab(activeTab.param);
+    return activeTab;
+  };
 
-	useEffect(() => {
-		if (tabs.length > 0) {
-			setIsLoading(true);
-			tabToggle(pathname);
-			setIsLoading(false);
-		}
-	}, [pathname]);
+  useEffect(() => {
+    setIsLoading(true);
 
-	return (
-		<Wrapper>
-			<Container>
-				{tabs.map(({ id, title, param }, index) => {
-					let isChecked = index < tabs.findIndex(tab => tab.param === activeTab);
-					let classes = `${active === id ? "tabs-active" : ""} ${isChecked ? "checked" : ""}`;
+    const timeoutId = setTimeout(() => {
+      const element = defineActive(pathname);
+      setActiveTab(element.param);
+      setIsLoading(false);
+    }, 500);
 
-					return (
-						<NavLink
-							key={id}
-							to={`${commonPath}/${param}`}
-							state={{ preloader: false, commonPath }}>
-							<OneTab className={classes}>
-								{circled ? <span>
-									{isChecked ? <CheckIcon /> : id}
-								</span> : null}
-								<Typography variant="body2" fontFamily="fontFamily.interSemiBold">{title}</Typography>
-							</OneTab>
-						</NavLink>
-					);
-				})}
-			</Container>
-			{children}
-		</Wrapper>
-	);
+    return () => clearTimeout(timeoutId);
+  }, [pathname]);
+
+  return (
+    <Wrapper>
+      <Container>
+        {tabs.map(({ id, title, param, state }) => {
+          const classes = `${activeTab === param ? "tabs-active" : ""} ${state?.isChecked ? "checked" : ""}`;
+
+          return state?.isDisabled ? (
+            <OneTab className={classes} key={id}>
+              {circled ? <span>{state?.isChecked ? <CheckIcon /> : id}</span> : null}
+              <Typography variant="body2" fontFamily="fontFamily.interSemiBold">
+                {title}
+              </Typography>
+            </OneTab>
+          ) : (
+            <NavLink key={id} to={`${commonPath}/${param}`} state={{ preloader: false }}>
+              <OneTab className={classes}>
+                {circled ? <span>{state?.isChecked ? <CheckIcon /> : id}</span> : null}
+                <Typography variant="body2" fontFamily="fontFamily.interSemiBold">
+                  {title}
+                </Typography>
+              </OneTab>
+            </NavLink>
+          );
+        })}
+      </Container>
+      {children}
+    </Wrapper>
+  );
 };

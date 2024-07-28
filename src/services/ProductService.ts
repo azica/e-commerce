@@ -3,8 +3,6 @@ import axios from "axios";
 import { Endpoints } from "api/endpoints";
 import { baseApiUrl } from "shared/constants";
 
-const simulateDelay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 export const ProductService = {
   async getProducts(): Promise<GetProducts | ErrorResponse> {
     const res = await axios.get<GetProducts & ErrorResponse>(`${baseApiUrl}${Endpoints.GET_PRODUCTS}?limit=10`);
@@ -15,7 +13,6 @@ export const ProductService = {
     return res.data;
   },
   async getAllProducts(query: string): Promise<GetProducts | ErrorResponse> {
-
     const params = new URLSearchParams(query);
     const limit = params.get("limit") || "10";
     const skip = params.get("skip") || "0";

@@ -1,7 +1,8 @@
 import { Typography } from "@mui/material";
 
-import imageurl from "assets/images/bannerBg.png";
 import { Link } from "components/Link";
+
+import bannerImage from "assets/images/bannerBg.png";
 
 import { Section, Content, Image, Sale } from "./styles";
 
@@ -9,7 +10,7 @@ export const Banner = () => {
   return (
     <Section>
       <Image>
-        <img src={imageurl} alt="banner" />
+        <img src={bannerImage} alt="banner" />
       </Image>
       <Content>
         <Sale>SALE UP TO 35% OFF</Sale>

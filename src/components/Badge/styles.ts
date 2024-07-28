@@ -36,7 +36,7 @@ export const Wrapper = styled.div<Badge>`
   text-transform: uppercase;
   text-align: center;
   ${({ size }) => getStyles(size)};
-  
+
   &.green {
     background: ${green};
     color: ${white};

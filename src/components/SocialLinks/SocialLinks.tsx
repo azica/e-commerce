@@ -5,7 +5,6 @@ import { socialLinks } from "assets/data/mockdata";
 import { IconWrap, Wrapper } from "./styles";
 
 export const SocialLinks = ({ isMobileMenu }: { isMobileMenu?: boolean }) => {
-
   return (
     <Wrapper className={isMobileMenu ? "mobile" : ""}>
       {socialLinks.map((item) => (

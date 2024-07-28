@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useOutlet, useParams } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
+
 import { layoutStyles } from "./styles";
 
 const { Content } = layoutStyles;
@@ -21,7 +22,6 @@ export const LayoutContent = () => {
     const shouldSkipTransition = transitionPaths.includes(lastItem || "");
 
     setNoTransition(shouldSkipTransition);
-
   }, [params, lastItem, pathname]);
   return (
     <Content>
@@ -31,8 +31,7 @@ export const LayoutContent = () => {
           classNames={noTransition ? "" : "fadeIn"}
           timeout={noTransition ? 0 : 300}
           nodeRef={outletRef}
-          unmountOnExit
-        >
+          unmountOnExit>
           <Box ref={outletRef}>{currentOutlet}</Box>
         </CSSTransition>
       </SwitchTransition>

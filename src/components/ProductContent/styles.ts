@@ -1,7 +1,6 @@
-import { Box, List } from "@mui/material";
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
-import { AddToCart } from "components/AddToCart";
 import { neutral03, neutral04, neutral07 } from "styles/colors";
 import { InterRegular } from "styles/fonts";
 import { flexAlignCenter, flexColumn } from "styles/mixins";

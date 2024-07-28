@@ -39,8 +39,7 @@ export const FooterTopInner = styled(Box)`
       margin-top: 16px;
     }
   }
-
-`
+`;
 export const Slogan = styled(Typography)`
   font-size: 14px;
   line-height: 22px;
@@ -96,7 +95,7 @@ export const FooterBottomBar = styled(Box)`
 
   & ul {
     margin-left: auto;
-    padding: 0
+    padding: 0;
   }
 `;
 

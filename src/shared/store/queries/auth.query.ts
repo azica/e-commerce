@@ -17,7 +17,7 @@ export const authApi = createApi({
         try {
           const res = await AuthService.login({ email, password });
           if (res) {
-            setTokenFromStorage(res as LoginResponse);
+            // setTokenFromStorage(res as LoginResponse);
             return { data: res };
           }
 

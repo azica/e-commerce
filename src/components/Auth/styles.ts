@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Link } from "react-router-dom";
 
 import { green, neutral04, neutral07 } from "styles/colors";
 import { InterRegular, InterSemiBold } from "styles/fonts";
@@ -27,16 +26,20 @@ export const InputsContainer = styled(Box)`
   flex-direction: column;
   gap: 24px;
   width: 100%;
-`;
 
-export const LinkRight = styled(Link)`
-  margin-left: auto;
-  text-align: right;
-  width: 100%;
-  font-family: ${InterSemiBold};
-  font-size: 16px;
-  line-height: 26px;
-  text-decoration: none;
-  display: inline-block;
-  color: ${neutral07};
+  .rememberCheckbox {
+    .MuiTypography-root {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    a {
+      font-family: ${InterSemiBold};
+      font-size: 16px;
+      line-height: 26px;
+      color: ${neutral07};
+      text-decoration: none;
+    }
+  }
 `;
