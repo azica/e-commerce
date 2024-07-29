@@ -19,7 +19,7 @@ export const Times = styled(Box)`
 
 export const Time = styled(Box)`
   ${flexColumn};
-  
+
   h5 {
     width: 60px;
     height: 60px;

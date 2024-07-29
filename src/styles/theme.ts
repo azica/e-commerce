@@ -63,8 +63,8 @@ export const theme = createTheme({
           fontWeight: "normal",
         },
         h1: {
-          fontSize: "80px !important",
-          lineHeight: "84px !important",
+          fontSize: "80px",
+          lineHeight: "110%",
           fontFamily: PoppinsMedium,
           letterSpacing: "-3px",
         },

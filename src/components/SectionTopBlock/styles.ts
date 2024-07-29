@@ -12,6 +12,11 @@ export const Wrapper = styled(Box)`
   align-items: flex-end;
   justify-content: space-between;
   position: relative;
+
+  @media ${device.sm} {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 `;
 
 export const Title = styled(Typography)`

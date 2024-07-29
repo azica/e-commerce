@@ -19,6 +19,7 @@ export const LinkContainer = styled(Box)`
         color: ${blue};
       }
     }
+
     .arrow-button {
       background: ${neutral02};
 

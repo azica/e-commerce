@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 
 import { white } from "styles/colors";
+import { device } from "styles/media";
 import { flexColumn } from "styles/mixins";
 
 export const Inner = styled(Box)`
@@ -22,6 +23,11 @@ export const Inner = styled(Box)`
     grid-template-columns: 262px 1fr;
     grid-template-rows: 40px 1fr;
     column-gap: 24px;
+
+    @media ${device.md} {
+      grid-template-columns: 1fr;
+    }
+
     &>div: nth-child(1) {
       grid-column: 1/2;
       grid-row: 1/2;

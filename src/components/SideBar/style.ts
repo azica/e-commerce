@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
 
 import { white } from "styles/colors";
+import { device } from "styles/media";
 import { flexAlignCenter } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
