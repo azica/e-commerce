@@ -39,9 +39,10 @@ export const SearchBlock = ({ isMobile }: { isMobile?: boolean }) => {
     setSearchQuery(String(value));
   };
 
+  const classes = `${isSearchBarVisible ? "active" : ""} ${isMobile ? "mobile" : ""} `;
   return (
     <>
-      <Wrapper ref={ref} className={`${isSearchBarVisible ? "active" : ""}`}>
+      <Wrapper ref={ref} className={classes}>
         <Box width="100%">
           <Input
             id={1}

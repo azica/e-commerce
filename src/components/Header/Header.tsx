@@ -1,7 +1,7 @@
-import { IconButton } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
 import { useState, useCallback } from "react";
 
-import { HamburgerIcon } from "assets/icons";
+import { HamburgerIcon, HeartIcon } from "assets/icons";
 import { Drawer } from "components/Drawer";
 import { Button } from "components/FormElements";
 import { Logo } from "components/Logo/Index";
@@ -12,12 +12,15 @@ import { SearchBlock } from "components/SearchBlock";
 import { SocialLinks } from "components/SocialLinks";
 import { Container } from "components/Wrappers/Container";
 import { useIsMobile } from "hooks/useMobile";
+import { useAppSelector } from "shared/store/hooks";
 
-import { Wrapper, Inner, LogoWrap, MobileInner } from "./styles";
+import { Wrapper, Inner, LogoWrap, MobileInner, WishList, WishListNumber } from "./styles";
 
 export const Header = () => {
   const isMobile = useIsMobile(1020);
   const [open, setOpen] = useState(false);
+
+  const { wishList } = useAppSelector((state) => state.wishlist);
 
   const toggleDrawer = useCallback(
     (newOpen: boolean) => () => {
@@ -47,14 +50,18 @@ export const Header = () => {
           )}
           <ProductCart />
         </Inner>
-        <Drawer title="Logo" toggleDrawer={toggleDrawer(false)} open={open} fullWidth>
+        <Drawer title="Зlegant" toggleDrawer={toggleDrawer(false)} open={open} fullWidth>
           <MobileInner>
             <SearchBlock isMobile />
             <NavMenu isMobileMenu={open} toggleDrawer={toggleDrawer(false)} />
-            <ProductCart isMobileMenu={open} />
-            {/* <Link to="wishlist">
-              <HeartIcon width="20px" />
-            </Link> */}
+            <ProductCart isMobile={open} />
+            <WishList to="wishlist">
+              <Typography>WishList</Typography>
+              <WishListNumber>
+                <HeartIcon />
+                <span>{wishList.length}</span>
+              </WishListNumber>
+            </WishList>
             <Button variant="contained" size="large" link="/login" fullWidth>
               Sign In
             </Button>

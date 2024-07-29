@@ -12,7 +12,6 @@ export const Wrapper = styled(Box)`
   grid-template-columns: 1fr;
   gap: 10px;
   transition: all 0.3s ease;
-
   &.row {
     grid-template-columns: 1fr 1fr;
     gap: 0;
@@ -21,20 +20,17 @@ export const Wrapper = styled(Box)`
       gap: 8px;
     }
   }
-
   &:hover {
     .wishlist {
       right: 16px;
       transition: right 0.3s ease;
     }
-
     .addToCart {
       bottom: 16px;
       transition: bottom 0.3s ease;
     }
   }
 `;
-
 export const Image = styled(Box)`
   position: relative;
   background: ${neutral02};
@@ -42,11 +38,9 @@ export const Image = styled(Box)`
   overflow: hidden;
   ${flexColumn};
   transition: 0.3s ease-in-out;
-
   @media ${device.xs} {
     height: 307px;
   }
-
   img {
     width: 100%;
     height: 100%;
@@ -55,8 +49,7 @@ export const Image = styled(Box)`
     transform: scale(1);
     transition: 0.3s ease-in-out;
   }
-
-  &:hover {
+  &:hoer {
     img {
       transform: scale(0.7);
     }

@@ -215,7 +215,12 @@ export const billingAddress = [
 ];
 
 const paymentOptions: CheckboxItem[] = [
-  { id: 1, name: "Pay by Card Credit", value: "creditCard", afterRadioLabel: <MoneyIcon /> },
+  {
+    id: 1,
+    name: "Pay by Card Credit",
+    value: "creditCard",
+    afterRadioLabel: <MoneyIcon />,
+  },
   { id: 2, name: "PayPal", value: "paypal" },
 ];
 

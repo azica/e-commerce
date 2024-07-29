@@ -10,7 +10,8 @@
       "plugin:react/recommended",
       "plugin:import/recommended",
       "plugin:import/errors",
-      "plugin:import/warnings"
+      "plugin:import/warnings",
+      "plugin:prettier/recommended" 
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -19,6 +20,7 @@
       "project": ["tsconfig.json"],
       "tsconfigRootDir": "./"
     },
+    "ignorePatterns": ["prettier.config.cjs"],
     "plugins": [
       "react",
       "@typescript-eslint",
@@ -636,7 +638,8 @@
           "bracketSameLine": true,
           "jsxBracketSameLine": true,
           "arrowParens": "always",
-          "tabWidth": 2
+          "tabWidth": 2,
+          "bracketSpacing": true
         }
       ],
       "react/jsx-key": "error",

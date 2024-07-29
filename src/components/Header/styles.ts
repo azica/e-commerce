@@ -1,8 +1,10 @@
 import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { white } from "styles/colors";
-import { flexAlignCenter, flexColumn } from "styles/mixins";
+import { neutral03, neutral04, neutral07, white } from "styles/colors";
+import { InterBold, InterMedium } from "styles/fonts";
+import { flexAlignCenter, flexCenter, flexColumn } from "styles/mixins";
 
 export const Wrapper = styled("header")`
   position: fixed;
@@ -43,4 +45,40 @@ export const MobileInner = styled(Box)`
   width: 100%;
   gap: 16px;
   height: 100%;
+`;
+
+export const WishList = styled(Link)`
+  ${flexAlignCenter};
+  justify-content: space-between;
+  text-decoration: none;
+  border-bottom: 1px solid ${neutral03};
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  p {
+    color: ${neutral04};
+    font-family: ${InterMedium};
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: -0.4px;
+  }
+`;
+export const WishListNumber = styled("span")`
+  ${flexAlignCenter};
+  gap: 10px;
+
+  svg {
+    width: 25px;
+    color: ${neutral04};
+  }
+
+  span {
+    font-size: 12px;
+    font-family: ${InterBold};
+    color: ${white};
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    ${flexCenter};
+    background: ${neutral07};
+  }
 `;

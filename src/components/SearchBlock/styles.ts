@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { neutral04, neutral07 } from "styles/colors";
-import { flexAlignCenter } from "styles/mixins";
 
 export const Wrapper = styled(Box)`
   width: 45px;
@@ -16,6 +15,19 @@ export const Wrapper = styled(Box)`
   transition: all 0.3s ease-in;
   margin: 0 10px 0 auto;
   position: absolute;
+
+  &.mobile {
+    position: relative;
+    border: 1px solid ${neutral04};
+    width: 100%;
+    max-width: 100%;
+    border-radius: 4px;
+    align-items: center;
+
+    .MuiInputBase-root {
+      padding: 8px;
+    }
+  }
 
   .MuiFormControl-root {
     min-width: 0;
@@ -36,10 +48,6 @@ export const Wrapper = styled(Box)`
       width: 100%;
       transition: all 0.3s ease-in;
     }
-  }
-
-  .MuiInputBase-root {
-    width: 0;
   }
 
   .MuiList-root {

@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 import { CheckIcon } from "assets/icons";

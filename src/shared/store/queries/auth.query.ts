@@ -3,7 +3,6 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { AuthService } from "services/AuthService";
 import { UserService } from "services/userService";
 import { authApiUrl } from "shared/constants";
-import { setTokenFromStorage } from "shared/helpers/localStorage";
 
 export const authApi = createApi({
   reducerPath: "authApi",

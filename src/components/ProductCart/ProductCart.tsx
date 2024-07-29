@@ -12,7 +12,7 @@ import { useAppSelector } from "shared/store/hooks";
 
 import { ProductQuantity, Summary, IconButton, Buttons } from "./styles";
 
-export const ProductCart = ({ isMobileMenu }: { isMobileMenu?: boolean }) => {
+export const ProductCart = ({ isMobile }: { isMobile?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   const { cartList, subtotal, total, totalQuantity } = useAppSelector((state) => state.cart);
@@ -23,7 +23,8 @@ export const ProductCart = ({ isMobileMenu }: { isMobileMenu?: boolean }) => {
 
   return (
     <>
-      <Buttons className={isMobileMenu ? "mobile" : ""}>
+      <Buttons className={isMobile ? "mobile" : ""}>
+        {isMobile ? <Typography>Cart</Typography> : null}
         <IconButton onClick={toggleDrawer(true)}>
           <ShopBagIcon />
         </IconButton>

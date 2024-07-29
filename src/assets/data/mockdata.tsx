@@ -10,10 +10,30 @@ export const navMenu = [
 ];
 
 export const valuesData: Value[] = [
-  { id: 1, icon: <CarIcon />, title: "Free Shipping", subtitle: "Order above $200" },
-  { id: 2, icon: <MoneyIcon />, title: "Money-back", subtitle: "30 days guarantee" },
-  { id: 3, icon: <LockIcon />, title: "Secure Payments", subtitle: "Secured by Stripe" },
-  { id: 4, icon: <PhoneIcon />, title: "24/7 Support", subtitle: "Phone and Email support" },
+  {
+    id: 1,
+    icon: <CarIcon />,
+    title: "Free Shipping",
+    subtitle: "Order above $200",
+  },
+  {
+    id: 2,
+    icon: <MoneyIcon />,
+    title: "Money-back",
+    subtitle: "30 days guarantee",
+  },
+  {
+    id: 3,
+    icon: <LockIcon />,
+    title: "Secure Payments",
+    subtitle: "Secured by Stripe",
+  },
+  {
+    id: 4,
+    icon: <PhoneIcon />,
+    title: "24/7 Support",
+    subtitle: "Phone and Email support",
+  },
 ];
 
 export const socialLinks = [

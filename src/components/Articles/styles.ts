@@ -6,6 +6,7 @@ import { flexAlignCenter } from "styles/mixins";
 export const Section = styled("section")`
   padding: 80px 0;
 `;
+
 export const Inner = styled(Box)`
   ${flexAlignCenter};
   justify-content: center;

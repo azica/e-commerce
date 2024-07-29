@@ -20,7 +20,6 @@ const Login = () => {
 
   useEffect(() => {
     if (loggedData.isSuccess && loggedData.data) {
-      console.log(rememberMe);
       setTokenFromStorage(loggedData.data as Tokens);
       trigger();
     }

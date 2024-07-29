@@ -21,7 +21,10 @@ export const Shopping = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
-    setCompletionStatus({ step: "shopping", status: cartList.length > 0 && Boolean(isAuth) });
+    setCompletionStatus({
+      step: "shopping",
+      status: cartList.length > 0 && Boolean(isAuth),
+    });
   }, [cartList, isAuth]);
 
   if (cartList.length === 0) {

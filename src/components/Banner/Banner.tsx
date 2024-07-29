@@ -1,8 +1,7 @@
 import { Typography } from "@mui/material";
 
-import { Link } from "components/Link";
-
 import bannerImage from "assets/images/bannerBg.png";
+import { Link } from "components/Link";
 
 import { Section, Content, Image, Sale } from "./styles";
 

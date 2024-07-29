@@ -7,7 +7,6 @@ import { flexColumn } from "styles/mixins";
 export const Inner = styled(Box)`
   position: relative;
   display: grid;
-
   padding-bottom: 100px;
   min-height: 100vh;
   height: 100%;

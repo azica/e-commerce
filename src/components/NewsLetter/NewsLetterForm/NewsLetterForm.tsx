@@ -1,5 +1,3 @@
-import type { FormEvent } from "react";
-
 import { useState } from "react";
 
 import { EmailIcon } from "assets/icons";
@@ -14,13 +12,13 @@ export const NewsLetterForm = () => {
     setEmail(String(newVal.value));
   };
 
-  const submitHandle = (e: FormEvent) => {
+  const submitHandle = () => {
     console.log("send");
   };
 
   return (
     <Wrapper>
-      <Form component="form" onSubmit={(e) => submitHandle(e)}>
+      <Form component="form" onSubmit={submitHandle}>
         <Input
           id={0}
           type="email"
